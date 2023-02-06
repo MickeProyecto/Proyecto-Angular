@@ -1,16 +1,23 @@
 <div id="menu">
   <img alt="Nike Logo" src="assets/imagenes/Logo.png">
   <hr>
+  <!-- Saldra si el usuario no ha iniciado sesion -->
   <button id="login" routerLink="./login" routerLinkActive="active" title="LOGIN">LOGIN</button>
+  <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
+  <button id="logout" title="LOGOUT">LOGOUT</button>
+  <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
+  <button id="carrito" titulo="CARRITO">CARRITO</button>
+  <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
+  <button id="registro" titulo="REGISTRO">REGISTRO USUARIOS</button>
 </div>
-
+<!-- Solo sera funcional si el usuario a iniciado sesion -->
 <button id="policia">
   <div>
     <img alt="Material Policial Logo" src="assets/imagenes/LogoPolicial.png">
     <p>ARMAS DE POLICIA</p>
   </div>
 </button>
-
+<!-- Solo sera funcional si el usuario a iniciado sesion -->
 <button id="airsoft">
   <div>
     <img alt="Material Airsoft Logo" src="assets/imagenes/LogoAirsoft.png">
