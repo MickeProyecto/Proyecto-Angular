@@ -4,16 +4,12 @@ form {
     height: 765px;
     left: 550px;
     top: 100px;
-
     background: rgba(217, 217, 217, 0.25);
     border-radius: 105px;
 }
 
-img {
-    position: absolute;
-    width: 312px;
-    height: 285px;
-    left: 220px;
+#logo {
+    text-align: center;
 }
 
 #nombre {
@@ -117,10 +113,15 @@ img {
     background: #B3B3B3;
     border: none;
     border-radius: 19px;
-    cursor: pointer;
     font-size: larger;
 }
 
-#botones>#volver{
+#botones>button:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
+
+#botones>#volver {
     margin-top: 50px;
 }
