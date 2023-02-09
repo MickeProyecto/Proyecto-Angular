@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 500px;
+  height: 515px;
   width: 300px;
   background-color: rgba(217, 217, 217, 0.25);
   border-bottom-right-radius: 10px;
@@ -18,7 +18,7 @@
 #menu>hr {
   position: absolute;
   top: 180px;
-  left: 19px;
+  left: 23px;
   width: 250px;
 }
 
