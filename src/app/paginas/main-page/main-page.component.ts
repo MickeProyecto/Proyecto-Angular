@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuariosService } from '../servicio/usuarios.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
 
-  constructor() { }
+  constructor(private usuarios: UsuariosService, public router: Router) { }
 
   ngOnInit(): void {
   }

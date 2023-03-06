@@ -1,9 +1,9 @@
 form {
-    position: absolute;
-    width: 750px;
+    margin: 0 auto;
+    width: 1000px;
     height: 780px;
     left: 550px;
-    top: 70px;
+    margin-top: 70px;
     background: rgba(217, 217, 217, 0.25);
     border-radius: 105px;
 }
@@ -12,80 +12,37 @@ form {
     text-align: center;
 }
 
-#nombre {
-    position: absolute;
-    width: 500px;
+#izquierda {
+    float: left;
+}
+
+#derecha {
+    float: right;
+}
+
+#izquierda>div {
+    width: 400px;
     height: 70px;
-    top: 300px;
-    left: 140px;
+    margin-top: 20px;
+    margin-left: 30px;
     background: #B3B3B3;
     border-radius: 19px;
     border: none;
 }
 
-#nombre>p {
-    position: relative;
+#izquierda>div>p {
     width: 209px;
     height: 16px;
-
-    top: -10px;
-    left: 20px;
+    margin-left: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     line-height: 24px;
-
     color: rgba(0, 0, 0, 0.5);
 }
 
-#nombre>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
-    width: 353px;
-    height: 20px;
-    border: none;
-    font-size: larger;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: #B3B3B3;
-
-}
-
-#nombre>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
-    width: 353px;
-}
-
-#contraseña {
-    position: absolute;
-    width: 500px;
-    height: 70px;
-    top: 400px;
-    left: 140px;
-    background: #B3B3B3;
-    border-radius: 19px;
-    border: none;
-}
-
-#contraseña>p {
-    position: relative;
-    width: 209px;
-    height: 16px;
-
-    top: -10px;
-    left: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-
-    color: rgba(0, 0, 0, 0.5);
-}
-
-#contraseña>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
+#izquierda>div>input {
+    margin-top: -20px;
+    margin-left: 20px;
     width: 353px;
     height: 20px;
     border: none;
@@ -94,114 +51,54 @@ form {
     background-color: #B3B3B3;
 }
 
-#contraseña>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
+#izquierda>div>hr {
+    margin-left: 20px;
+    margin-top: 5px;
     width: 353px;
 }
 
-#email {
-    position: absolute;
-    width: 500px;
+#derecha>div {
+    width: 400px;
     height: 70px;
-    top: 500px;
-    left: 140px;
+    margin-top: 20px;
+    margin-right: 30px;
     background: #B3B3B3;
     border-radius: 19px;
     border: none;
 }
 
-#email>p {
-    position: relative;
+#derecha>div>p {
     width: 209px;
     height: 16px;
-
-    top: -10px;
-    left: 20px;
+    margin-left: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     line-height: 24px;
-
     color: rgba(0, 0, 0, 0.5);
 }
 
-#email>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
+#derecha>div>input {
+    margin-top: -20px;
+    margin-left: 20px;
     width: 353px;
     height: 20px;
     border: none;
     font-size: larger;
     color: rgba(0, 0, 0, 0.5);
     background-color: #B3B3B3;
-
 }
 
-#email>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
-    width: 353px;
-}
-
-#botones {
-    position: absolute;
-    left: 270px;
-    top: 550px;
-}
-
-#DNI {
-    position: absolute;
-    width: 500px;
-    height: 70px;
-    top: 600px;
-    left: 140px;
-    background: #B3B3B3;
-    border-radius: 19px;
-    border: none;
-}
-
-#DNI>p {
-    position: relative;
-    width: 209px;
-    height: 16px;
-
-    top: -10px;
-    left: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-
-    color: rgba(0, 0, 0, 0.5);
-}
-
-#DNI>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
-    width: 353px;
-    height: 20px;
-    border: none;
-    font-size: larger;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: #B3B3B3;
-
-}
-
-#DNI>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
+#derecha>div>hr {
+    margin-left: 20px;
+    margin-top: 5px;
     width: 353px;
 }
 
 #botones>button {
     width: 230px;
     height: 50px;
-    margin-top: 150px;
-    margin-left: -130px;
+    margin-top: 120px;
+    margin-left: -180px;
     background: #B3B3B3;
     border: none;
     border-radius: 19px;
@@ -214,7 +111,6 @@ form {
     color: white;
 }
 
-#botones>#volver{
-    margin-right: 170px;
+#botones>#volver {
+    margin-right: 230px;
 }
-

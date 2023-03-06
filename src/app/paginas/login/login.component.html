@@ -1,19 +1,21 @@
-<form>
+<form [formGroup]="loginForm">
     <div id="logo">
         <img alt="Nike Logo" src="assets/imagenes/LogoLogin.png">
     </div>
-    <div id="nombre">
-        <p>Nombre de Usuario:</p>
-        <input type="text">
-        <hr>
-    </div>
-    <div id="contraseña">
-        <p>Contraseña:</p>
-        <input type="password">
-        <hr>
+    <div id="casillas">
+        <div>
+            <p>DNI:</p>
+            <input formControlName="dni" type="text">
+            <hr>
+        </div>
+        <div>
+            <p>Contraseña:</p>
+            <input formControlName="password" type="password">
+            <hr>
+        </div>
     </div>
     <div id="botones">
-        <button id="login">LOGIN</button>
+        <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()">LOGIN</button>
         <br>
         <button id="volver" routerLink="">VOLVER</button>
     </div>

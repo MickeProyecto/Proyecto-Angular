@@ -1,17 +1,24 @@
 <div id="menu">
   <img alt="Nike Logo" src="assets/imagenes/Logo.png">
   <hr>
+
   <!-- Saldra si el usuario no ha iniciado sesion -->
-  <button id="login" routerLink="./login" routerLinkActive="active" title="LOGIN">LOGIN</button>
+  <button routerLink="./login" title="LOGIN"><img src="assets/imagenes/login.png"><br>LOGIN</button>
+
   <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-  <button id="logout" title="LOGOUT">LOGOUT</button>
+  <button title="LOGOUT"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
+
   <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-  <button id="carrito" titulo="CARRITO">CARRITO</button>
+  <button routerLink="./carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png"><br>CARRITO</button>
+
   <!-- Sale una vez el usuario a iniciado sesion -->
-  <button id="perfil" titulo="PERFIL">PERFIL</button>
+  <button routerLink="./perfil" titulo="PERFIL"><img src="assets/imagenes/perfil.png"><br>PERFIL</button>
+
   <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
-  <button id="registro" routerLink="./usuarios" routerLinkActive="active" titulo="REGISTRO">USUARIOS</button>
+  <button routerLink="./usuarios" routerLinkActive="active" titulo="REGISTRO"><img
+      src="assets/imagenes/usuarios.png"><br>USUARIOS</button>
 </div>
+
 <!-- Solo sera funcional si el usuario a iniciado sesion -->
 <button id="policia" routerLink="./policial" routerLinkActive="active">
   <div>
@@ -19,6 +26,7 @@
     <p>ARMAS DE POLICIA</p>
   </div>
 </button>
+
 <!-- Solo sera funcional si el usuario a iniciado sesion -->
 <button id="airsoft" routerLink="./airsoft" routerLinkActive="active">
   <div>

@@ -2,9 +2,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 515px;
+  height: 540px;
   width: 300px;
-  background-color: rgba(217, 217, 217, 0.25);
+  background: rgba(217, 217, 217, 0.25);
   border-bottom-right-radius: 10px;
 }
 
@@ -22,12 +22,7 @@
   width: 250px;
 }
 
-#menu>#login,
-#logout,
-#carrito,
-#perfil,
-#registro {
-  position: relative;
+#menu>button {
   border: none;
   width: 280px;
   height: 50px;
@@ -36,14 +31,16 @@
   background: #B3B3B3;
 }
 
-#menu>#login:hover,
-#logout:hover,
-#carrito:hover,
-#perfil:hover,
-#registro:hover {
+#menu>button:hover {
   cursor: pointer;
   background-color: gray;
   color: white;
+}
+
+#menu>button>img {
+  width: 50px;
+  float: left;
+  margin-left: 5px;
 }
 
 

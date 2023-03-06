@@ -1,29 +1,48 @@
-<form>
+<form [formGroup]="UsuariosForm">
     <div id="logo">
         <img src="assets/imagenes/LogoLogin.png">
     </div>
-    <div id="nombre">
-        <p>Nombre de Usuario:</p>
-        <input type="text">
-        <hr>
+    <div id="izquierda">
+        <div>
+            <p>Foto del Usuario:</p>
+            <input formControlName="photo" type="text">
+            <hr>
+        </div>
+        <div>
+            <p>Nombre:</p>
+            <input formControlName="name" type="text">
+            <hr>
+        </div>
+        <div>
+            <p>Apellidos:</p>
+            <input formControlName="lastname" type="text">
+            <hr>
+        </div>
+        <div>
+            <p>Contraseña:</p>
+            <input formControlName="password" type="password">
+            <hr>
+        </div>
     </div>
-    <div id="contraseña">
-        <p>Contraseña:</p>
-        <input type="password">
-        <hr>
-    </div>
-    <div id="email">
-        <p>Correo:</p>
-        <input type="email">
-        <hr>
-    </div>
-    <div id="DNI">
-        <p>DNI:</p>
-        <input type="text">
-        <hr>
+    <div id="derecha">
+        <div id="email">
+            <p>Correo:</p>
+            <input formControlName="email" type="email">
+            <hr>
+        </div>
+        <div id="telefono">
+            <p>Telefono:</p>
+            <input formControlName="phone" type="number">
+            <hr>
+        </div>
+        <div id="DNI">
+            <p>DNI:</p>
+            <input formControlName="dni" type="text">
+            <hr>
+        </div>
     </div>
     <div id="botones">
         <button id="volver" routerLink="">VOLVER</button>
-        <button id="registrar">REGISTRAR</button>
+        <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()">REGISTRAR</button>
     </div>
 </form>

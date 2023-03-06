@@ -1,9 +1,8 @@
 form {
-    position: absolute;
+    margin: 0 auto;
     width: 750px;
     height: 765px;
-    left: 550px;
-    top: 100px;
+    margin-top: 100px;
     background: rgba(217, 217, 217, 0.25);
     border-radius: 105px;
 }
@@ -12,35 +11,28 @@ form {
     text-align: center;
 }
 
-#nombre {
-    position: absolute;
-    width: 500px;
+#casillas>div {
+    width: 400px;
     height: 70px;
-    top: 300px;
-    left: 140px;
+    margin-top: 30px;
+    margin-left: 170px;
     background: #B3B3B3;
     border-radius: 19px;
     border: none;
 }
 
-#nombre>p {
-    position: relative;
+#casillas>div>p {
     width: 209px;
     height: 16px;
-
-    top: -10px;
-    left: 20px;
+    margin-left: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     line-height: 24px;
-
     color: rgba(0, 0, 0, 0.5);
 }
 
-#nombre>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
+#casillas>div>input {
+    margin-left: 20px;
     width: 353px;
     height: 20px;
     border: none;
@@ -50,73 +42,24 @@ form {
 
 }
 
-#nombre>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
+#casillas>div>hr {
+    margin-top: 5px;
+    margin-left: 20px;
     width: 353px;
-}
-
-#contraseña {
-    position: absolute;
-    width: 500px;
-    height: 70px;
-    top: 400px;
-    left: 140px;
-    background: #B3B3B3;
-    border-radius: 19px;
-    border: none;
-}
-
-#contraseña>p {
-    position: relative;
-    width: 209px;
-    height: 16px;
-
-    top: -10px;
-    left: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-
-    color: rgba(0, 0, 0, 0.5);
-}
-
-#contraseña>input {
-    position: relative;
-    top: -20px;
-    left: 20px;
-    width: 353px;
-    height: 20px;
-    border: none;
-    font-size: larger;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: #B3B3B3;
-}
-
-#contraseña>hr {
-    position: absolute;
-    left: 20px;
-    top: 53px;
-    width: 353px;
-}
-
-#botones {
-    position: absolute;
-    left: 270px;
-    top: 550px;
 }
 
 #botones>button {
     width: 230px;
     height: 50px;
+    margin-top:55px;
+    margin-left:250px;
     background: #B3B3B3;
     border: none;
     border-radius: 19px;
     font-size: larger;
 }
 
-#botones>button:hover{
+#botones>button:hover {
     cursor: pointer;
     background-color: gray;
     color: white;
