@@ -3,20 +3,20 @@
   <hr>
 
   <!-- Saldra si el usuario no ha iniciado sesion -->
-  <button routerLink="./login" title="LOGIN"><img src="assets/imagenes/login.png"><br>LOGIN</button>
-
-  <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-  <button title="LOGOUT"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
+  <button *ngIf="element1 == true" routerLink="./login" title="LOGIN"><img
+      src="assets/imagenes/login.png"><br>LOGIN</button>
 
   <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-  <button routerLink="./carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png"><br>CARRITO</button>
+  <button *ngIf="element1 == false" routerLink="./carrito" titulo="CARRITO"><img
+      src="assets/imagenes/carrito.png"><br>CARRITO</button>
 
   <!-- Sale una vez el usuario a iniciado sesion -->
-  <button routerLink="./perfil" titulo="PERFIL"><img src="assets/imagenes/perfil.png"><br>PERFIL</button>
+  <button *ngIf="element1 == false" routerLink="./perfil" titulo="PERFIL"><img
+      src="assets/imagenes/perfil.png"><br>PERFIL</button>
 
   <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
-  <button routerLink="./usuarios" routerLinkActive="active" titulo="REGISTRO"><img
-      src="assets/imagenes/usuarios.png"><br>USUARIOS</button>
+  <button *ngIf="element1 == false" routerLink="./usuarios" routerLinkActive="active"
+    titulo="REGISTRO"><img src="assets/imagenes/usuarios.png"><br>USUARIOS</button>
 </div>
 
 <!-- Solo sera funcional si el usuario a iniciado sesion -->

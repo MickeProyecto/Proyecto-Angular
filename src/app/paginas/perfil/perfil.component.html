@@ -3,7 +3,7 @@
     <hr>
 
     <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-    <button title="LOGOUT"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
+    <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
 
     <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
     <button routerLink="../carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png"><br>CARRITO</button>
@@ -14,11 +14,11 @@
 
 <div id="perfil">
     <img id="foto" src="assets/imagenes/ejemplo_perfil.webp">
-    <p id="nombre"><b>Nombre: </b>Ejemplo</p>
-    <p id="apellidos"><b>Apellidos: </b>Ejemplos Ejemplos</p>
+    <p id="nombre"><b>Nombre: </b>{{info.name}}</p>
+    <p id="apellidos"><b>Apellidos: </b>{{info.lastname}}</p>
     <hr>
-    <p id="correo"><b>Correo: </b>Ejemplo</p>
-    <p id="contraseña"><b>Contraseña: </b>Ejemplo</p>
-    <p id="telefono"><b>Telefono: </b>Ejemplo</p>
-    <p id="DNI"><b>DNI: </b>Ejemplo</p>
+    <p id="correo"><b>Correo: </b>{{info.email}}</p>
+    <p id="contraseña"><b>Contraseña: </b>{{info.password}}</p>
+    <p id="telefono"><b>Telefono: </b>{{info.phone}}</p>
+    <p id="DNI"><b>DNI: </b>{{info.dni}}</p>
 </div>

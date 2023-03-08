@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuariosService } from '../servicio/usuarios.service';
 
 @Component({
   selector: 'app-main-page',
@@ -10,9 +9,19 @@ import { UsuariosService } from '../servicio/usuarios.service';
 export class MainPageComponent implements OnInit {
   [x: string]: any;
 
-  constructor(private usuarios: UsuariosService, public router: Router) { }
+  element1 = true;
+
+  constructor(public router: Router) { }
+
+  info: any;
 
   ngOnInit(): void {
+    this.info = localStorage.getItem('currentUser');
+    console.log(this.info);
+    if (this.info == null) {
+      this.element1 = true;
+    } else {
+      this.element1 = false;
+    }
   }
-
 }

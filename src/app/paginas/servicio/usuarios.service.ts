@@ -18,16 +18,17 @@ export class UsuariosService {
 
     addUsuarios(usuario: Usuarios) {
         return this._http.post(this.URL + "signup", usuario)
-            .pipe(filter((response: any) => {
-                if (response != null) {
-                    this.found = true;
-                } else {
-                    this.found = false;
+            .pipe(
+                filter((response: any) => {
+                    if (response != null) {
+                        this.found = true;
+                    } else {
+                        this.found = false;
+                    }
+                    this.datosusuario = response;
+                    return this.datosusuario;
                 }
-                this.datosusuario = response;
-                return this.found;
-            }
-            ));
+                ));
     }
 
     login(login: Login) {
@@ -36,12 +37,13 @@ export class UsuariosService {
                 filter((response: any) => {
                     if (response != null) {
                         this.found = true;
-                    }
-                    else {
+                    } else {
                         this.found = false;
                     }
                     this.datosusuario = response;
-                    
+
+                    localStorage.setItem('currentUser', JSON.stringify(this.datosusuario));
+
                     return this.datosusuario;
                 }
                 ));
