@@ -1,0 +1,32 @@
+<div id="menu">
+  <img alt="Nike Logo" src="assets/imagenes/Logo.png">
+  <hr>
+
+  <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
+  <button *ngIf="isLoggedin == false && role == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
+      src="assets/imagenes/carrito.png"><br>CARRITO</button>
+
+  <!-- Sale una vez el usuario a iniciado sesion -->
+  <button *ngIf="isLoggedin == false" routerLink="../perfil" titulo="PERFIL"><img
+      src="assets/imagenes/perfil.png"><br>PERFIL</button>
+
+  <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
+  <button *ngIf="isLoggedin == false && role == 'admin'" routerLink="../usuarios" routerLinkActive="active"
+    titulo="REGISTRO"><img src="assets/imagenes/usuarios.png"><br>USUARIOS</button>
+</div>
+
+<!-- Solo sera funcional si el usuario a iniciado sesion -->
+<button id="policia" routerLink="../policial" routerLinkActive="active">
+  <div>
+    <img alt="Material Policial Logo" src="assets/imagenes/LogoPolicial.png">
+    <p>ARMAS DE POLICIA</p>
+  </div>
+</button>
+
+<!-- Solo sera funcional si el usuario a iniciado sesion -->
+<button id="airsoft" routerLink="../airsoft" routerLinkActive="active">
+  <div>
+    <img alt="Material Airsoft Logo" src="assets/imagenes/LogoAirsoft.png">
+    <p>AIRSOFT</p>
+  </div>
+</button>

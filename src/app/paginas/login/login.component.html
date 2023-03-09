@@ -1,22 +1,26 @@
-<form [formGroup]="loginForm">
-    <div id="logo">
-        <img alt="Nike Logo" src="assets/imagenes/LogoLogin.png">
-    </div>
-    <div id="casillas">
-        <div>
-            <p>DNI:</p>
-            <input formControlName="dni" type="text">
-            <hr>
-        </div>
-        <div>
-            <p>Contraseña:</p>
-            <input formControlName="password" type="password">
-            <hr>
-        </div>
-    </div>
-    <div id="botones">
-        <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()">LOGIN</button>
-        <br>
-        <button id="volver" routerLink="">VOLVER</button>
+<div id="izquierda">
+
+    <h1>Bienvenido a Niké's Arsenal</h1>
+
+    <p>su tienda online de material policial y airsoft de confianza</p>
+
+</div>
+
+<form [formGroup]="loginForm" id="derecha">
+    <div>
+        <img id="logo" alt="Nike Logo" src="assets/imagenes/LogoLogin.png">
+
+        <input id="dni" formControlName="dni" type="text" placeholder="Ponga su dni">
+
+        <p id="error" *ngIf="this.loginForm.controls.dni.hasError('required')">Campo vacio</p>
+
+        <input id="password" formControlName="password" type="password" placeholder="Ponga su contraseña">
+
+        <p id="error" *ngIf="this.loginForm.controls.password.hasError('required')">Campo vacio</p>
+
+        <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()">
+            INICIAR SESIÓN
+        </button>
+        <p id="error" *ngIf="error == true">El usuario y/o la contraseña no existe</p>
     </div>
 </form>

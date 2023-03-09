@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginasRoutingModule } from "./paginas-routing.module";
-import { LoginComponent } from './login/login.component';
+import { TiendaComponent } from './tienda/tienda.component';
 import { AirsoftComponent } from './airsoft/airsoft.component';
 import { PolicialComponent } from './policial/policial.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -11,7 +11,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
+    TiendaComponent,
     AirsoftComponent,
     PolicialComponent,
     UsuariosComponent,

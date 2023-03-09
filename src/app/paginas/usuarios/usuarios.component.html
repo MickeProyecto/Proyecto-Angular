@@ -42,7 +42,7 @@
         </div>
     </div>
     <div id="botones">
-        <button id="volver" routerLink="">VOLVER</button>
-        <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()">REGISTRAR</button>
+        <button id="volver" routerLink="../tienda">VOLVER</button>
+        <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()" routerLink="../tienda">REGISTRAR</button>
     </div>
 </form>
