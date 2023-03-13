@@ -1,28 +1,32 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { filter, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 import { Login } from 'src/app/models/login.model';
 import { Usuarios } from 'src/app/models/usuarios.model';
-import { filter } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsuariosService {
 
-    readonly URL = 'http://127.0.0.1:8000/api/';
+    readonly URL = "http://127.0.0.1:8000/api/";
+
+
 
     constructor(private _http: HttpClient) { }
 
     datosusuario: any;
     found = false;
 
-    addUsuarios(usuario: Usuarios) {
-        return this._http.post(this.URL + "signup", usuario)
+    addUsuarios(usuarios: Usuarios) {
+        return this._http.post(this.URL + "signup", usuarios)
             .pipe(
                 filter((response: any) => {
                     if (response != null) {
                         this.found = true;
-                    } else {
+                    }
+                    else {
                         this.found = false;
                     }
                     this.datosusuario = response;
@@ -43,7 +47,13 @@ export class UsuariosService {
                     this.datosusuario = response;
 
                     localStorage.setItem('currentUser', JSON.stringify(this.datosusuario));
-
+                    
+                    const httpOptions = {
+                        headers: new HttpHeaders({
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '')[1]}`
+                        })
+                    };
                     return this.datosusuario;
                 }
                 ));

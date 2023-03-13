@@ -14,8 +14,11 @@ export class PerfilComponent implements OnInit {
   info: any
 
   ngOnInit(): void {
-    this.info = JSON.parse(localStorage.getItem('currentUser') ?? '');
-    console.log(this.info);
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      this.info = JSON.parse(currentUser);
+      console.log(this.info);
+    }
   }
 
 
