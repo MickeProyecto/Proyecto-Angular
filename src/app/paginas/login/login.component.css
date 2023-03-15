@@ -85,14 +85,14 @@ input {
   font-size: 15px;
 
   border-radius: 10px;
-  border: 2px solid gainsboro;
+  border: 1px solid gainsboro;
 }
 
-#dni{
+#dni {
   margin-bottom: 5px;
 }
 
-#password{
+#password {
   margin-top: 40px;
   margin-bottom: 5px;
 }
@@ -119,6 +119,7 @@ input {
 
 #login:hover {
   background-color: #6593e8;
+  cursor: pointer;
 }
 
 #dni,

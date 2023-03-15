@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         if (this.usuarios.datosusuario == "Username_bad" || this.usuarios.datosusuario == "Password_bad") {
           this.error = true;
         } else {
-          this.router.navigate(['perfil']);
+          this.router.navigate(['tienda']);
         }
       }
     })

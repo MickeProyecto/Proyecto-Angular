@@ -12,93 +12,90 @@ form {
     text-align: center;
 }
 
-#izquierda {
-    float: left;
+#izquierda>div>input {
+    margin-left: 30px;
+
+    margin-bottom: 40px;
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
 }
+
+#izquierda>div>#error {
+    position: absolute;
+
+    margin-top: -30px;
+    margin-left: 42px;
+
+    text-align: center;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+
+    border-radius: 10px;
+
+    background-color: rgba(221, 62, 62, 0.686);
+    color: rgb(135, 16, 16);
+
+    width: 400px;
+}
+
 
 #derecha {
-    float: right;
-}
-
-#izquierda>div {
-    width: 400px;
-    height: 70px;
-    margin-top: 20px;
-    margin-left: 30px;
-    background: #B3B3B3;
-    border-radius: 19px;
-    border: none;
-}
-
-#izquierda>div>p {
-    width: 209px;
-    height: 16px;
-    margin-left: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-#izquierda>div>input {
-    margin-top: -20px;
-    margin-left: 20px;
-    width: 353px;
-    height: 20px;
-    border: none;
-    font-size: larger;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: #B3B3B3;
-}
-
-#izquierda>div>hr {
-    margin-left: 20px;
-    margin-top: 5px;
-    width: 353px;
-}
-
-#derecha>div {
-    width: 400px;
-    height: 70px;
-    margin-top: 20px;
-    margin-right: 30px;
-    background: #B3B3B3;
-    border-radius: 19px;
-    border: none;
-}
-
-#derecha>div>p {
-    width: 209px;
-    height: 16px;
-    margin-left: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-    color: rgba(0, 0, 0, 0.5);
+    margin-top: -376px;
 }
 
 #derecha>div>input {
-    margin-top: -20px;
-    margin-left: 20px;
-    width: 353px;
-    height: 20px;
-    border: none;
-    font-size: larger;
-    color: rgba(0, 0, 0, 0.5);
-    background-color: #B3B3B3;
+    margin-left: 550px;
+    margin-bottom: 40px;
+
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
 }
 
-#derecha>div>hr {
-    margin-left: 20px;
-    margin-top: 5px;
-    width: 353px;
+#derecha>div>#error {
+    position: absolute;
+
+    margin-top: -30px;
+    margin-left: 564px;
+
+    text-align: center;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+
+    border-radius: 10px;
+
+    background-color: rgba(221, 62, 62, 0.686);
+    color: rgb(135, 16, 16);
+
+    width: 400px;
 }
 
 #botones>button {
     width: 230px;
     height: 50px;
-    margin-top: 120px;
-    margin-left: -180px;
+    margin-top: 100px;
+    margin-left: 130px;
     background: #B3B3B3;
     border: none;
     border-radius: 19px;
@@ -112,5 +109,5 @@ form {
 }
 
 #botones>#volver {
-    margin-right: 230px;
+    margin-right: 150px;
 }

@@ -18,18 +18,8 @@ export class TiendaComponent implements OnInit {
   ngOnInit(): void {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
-      this.info = JSON.parse(currentUser);
+      this.info = JSON.parse(currentUser).value;
       console.log(this.info);
-    }
-    if (this.info == null) {
-      this.isLoggedin = true;
-    } else if (this.info != null) {
-      this.isLoggedin = false;
-    }
-    if (this.info.rol == 'admin') {
-      this.role = 'admin';
-    } else {
-      this.role = 'cliente';
     }
   }
 }

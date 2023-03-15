@@ -6,7 +6,8 @@
     <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
 
     <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-    <button routerLink="../carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png"><br>CARRITO</button>
+    <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
+            src="assets/imagenes/carrito.png"><br>CARRITO</button>
 
     <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
             src="assets/imagenes/logo_tienda.png"><br>TIENDA</button>
@@ -14,11 +15,11 @@
 
 <div id="perfil">
     <img id="foto" src="assets/imagenes/ejemplo_perfil.webp">
-    <p id="nombre"><b>Nombre: </b>{{info [0].name}}</p>
-    <p id="apellidos"><b>Apellidos: </b>{{info[0].lastname}}</p>
+    <p id="nombre"><b>Nombre: </b>{{info.name}}</p>
+    <p id="apellidos"><b>Apellidos: </b>{{info.lastname}}</p>
     <hr>
-    <p id="correo"><b>Correo: </b>{{info[0].email}}</p>
-    <p id="contraseña"><b>Contraseña: </b>{{info[0].password}}</p>
-    <p id="telefono"><b>Telefono: </b>{{info[0].phone}}</p>
-    <p id="DNI"><b>DNI: </b>{{info[0].dni}}</p>
+    <p id="correo"><b>Correo: </b>{{info.email}}</p>
+    <p id="contraseña"><b>Contraseña: </b>{{info.password}}</p>
+    <p id="telefono"><b>Telefono: </b>{{info.phone}}</p>
+    <p id="DNI"><b>DNI: </b>{{info.dni}}</p>
 </div>
