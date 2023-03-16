@@ -3,49 +3,46 @@
         <img src="assets/imagenes/LogoLogin.png">
     </div>
 
-    <div id="izquierda">
-        <div class="input-group">
-            <input formControlName="photo" type="text" placeholder="Ponga la foto del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.photo.hasError('required')">Campo vacio</p>
-        </div>
-
-        <div class="input-group">
-            <input formControlName="name" type="text" placeholder="Ponga el nombre del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.name.hasError('required')">Campo vacio</p>
-        </div>
-
-        <div class="input-group">
-            <input formControlName="lastname" type="text" placeholder="Ponga los apellidos del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.lastname.hasError('required')">Campo vacio</p>
-        </div>
-
-        <div class="input-group">
-            <input formControlName="password" type="password" placeholder="Ponga la contraseña para el cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.password.hasError('required')">Campo vacio</p>
-        </div>
+    <div>
+        <input formControlName="photo" type="file" id="file">
+        <p id="error" *ngIf="this.UsuariosForm.controls.photo.hasError('required')">Campo vacio</p>
     </div>
 
-    <div id="derecha">
-        <div class="input-group">
-            <input formControlName="email" type="email" placeholder="Ponga el correo del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('required')">Campo vacio</p>
-            <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('email')">El correo debe de tener un @</p>
-        </div>
+    <div>
+        <input formControlName="name" type="text" placeholder="Ponga el nombre del cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.name.hasError('required')">Campo vacio</p>
+    </div>
 
-        <div class="input-group">
-            <input formControlName="phone" type="number" placeholder="Ponga el telefono del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.phone.hasError('required')">Campo vacio</p>
-        </div>
+    <div>
+        <input formControlName="lastname" type="text" placeholder="Ponga los apellidos del cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.lastname.hasError('required')">Campo vacio</p>
+    </div>
 
-        <div class="input-group">
-            <input formControlName="dni" type="text" placeholder="Ponga el dni del cliente:">
-            <p id="error" *ngIf="this.UsuariosForm.controls.dni.hasError('required')">Campo vacio</p>
-        </div>
+    <div>
+        <input formControlName="password" type="password" placeholder="Ponga la contraseña para el cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.password.hasError('required')">Campo vacio</p>
+    </div>
+
+    <div>
+        <input formControlName="email" type="email" placeholder="Ponga el correo del cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('required')">Campo vacio</p>
+        <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('email')">El correo debe de tener un @
+        </p>
+    </div>
+
+    <div>
+        <input formControlName="phone" type="number" placeholder="Ponga el telefono del cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.phone.hasError('required')">Campo vacio</p>
+    </div>
+
+    <div>
+        <input formControlName="dni" type="text" placeholder="Ponga el dni del cliente:">
+        <p id="error" *ngIf="this.UsuariosForm.controls.dni.hasError('required')">Campo vacio</p>
     </div>
 
     <div id="botones">
-        <button id="volver" routerLink="../tienda">VOLVER</button>
         <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()"
             routerLink="../tienda">REGISTRAR</button>
+        <button id="volver" routerLink="../tienda">VOLVER</button>
     </div>
 </form>
