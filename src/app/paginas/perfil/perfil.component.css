@@ -101,15 +101,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#perfil>#contraseña {
-    position: absolute;
-    width: 500px;
-    left: 200px;
-    top: 600px;
-    font-size: 30px;
-    color: #FFFFFF;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 #perfil>#telefono {
     position: absolute;
     width: 500px;
