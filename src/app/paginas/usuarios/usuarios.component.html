@@ -4,7 +4,7 @@
     </div>
 
     <div>
-        <input formControlName="photo" type="file" id="file">
+        <input formControlName="photo" type="file" id="file" (change)="onFileChange($event)">
         <p id="error" *ngIf="this.UsuariosForm.controls.photo.hasError('required')">Campo vacio</p>
     </div>
 

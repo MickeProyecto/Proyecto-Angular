@@ -12,6 +12,7 @@ import { Usuarios } from 'src/app/models/usuarios.model';
 export class UsuariosComponent implements OnInit {
 
   error = true;
+  foto: any;
 
   UsuariosForm = new FormGroup({
     photo: new FormControl('', Validators.required),
@@ -34,8 +35,19 @@ export class UsuariosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileChange(event: any) {
+    this.foto = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.readAsDataURL(this.foto);
+    reader.onload = (event: any) => {
+      this.foto = reader.result;
+      console.log(this.foto);
+    }
+  }
+
   addUsuario(): void {
-    let photo = this.UsuariosForm.controls.photo.value!;
+    let photo = this.foto;
     let name = this.UsuariosForm.controls.name.value!;
     let lastname = this.UsuariosForm.controls.lastname.value!;
     let password = this.UsuariosForm.controls.password.value!;
