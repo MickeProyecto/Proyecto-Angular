@@ -46,7 +46,7 @@
 #perfil {
     position: absolute;
     width: 1340px;
-    height: 756px;
+    height: 740px;
     left: 410px;
     top: 90px;
 
@@ -84,9 +84,23 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#perfil>hr {
+#perfil>#hr1 {
     position: absolute;
     top: 250px;
+    left: 23px;
+    width: 1290px;
+}
+
+#perfil>#hr2 {
+    position: absolute;
+    top: 400px;
+    left: 23px;
+    width: 1290px;
+}
+
+#perfil>#hr3 {
+    position: absolute;
+    top: 550px;
     left: 23px;
     width: 1290px;
 }
@@ -94,8 +108,8 @@
 #perfil>#correo {
     position: absolute;
     width: 500px;
-    left: 200px;
-    top: 300px;
+    left: 500px;
+    top: 280px;
     font-size: 30px;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -104,8 +118,8 @@
 #perfil>#telefono {
     position: absolute;
     width: 500px;
-    left: 900px;
-    top: 300px;
+    left: 560px;
+    top: 430px;
     font-size: 30px;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -114,7 +128,7 @@
 #perfil>#DNI {
     position: absolute;
     width: 500px;
-    left: 900px;
+    left: 590px;
     top: 600px;
     font-size: 30px;
     color: #FFFFFF;

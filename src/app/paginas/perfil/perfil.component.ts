@@ -27,10 +27,6 @@ export class PerfilComponent implements OnInit {
     }
   }
 
-  desencriptar() {
-
-  }
-
   logout() {
     this.httpOptions = {
       headers: new HttpHeaders({
