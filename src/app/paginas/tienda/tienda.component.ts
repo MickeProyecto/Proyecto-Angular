@@ -12,6 +12,7 @@ export class TiendaComponent implements OnInit {
   isLoggedin = true;
   role: string = 'cliente';
   info: any;
+  token: any;
 
   constructor(public router: Router, public servicio: UsuariosService) { }
 
@@ -19,7 +20,9 @@ export class TiendaComponent implements OnInit {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;
+      this.token = JSON.parse(currentUser).access_token;
       console.log(this.info);
+      console.log(this.token);
     }
   }
 }

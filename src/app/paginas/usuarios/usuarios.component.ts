@@ -73,7 +73,7 @@ export class UsuariosComponent implements OnInit {
       next: (value: Usuarios) => {
         console.log(value);
 
-        this.router.navigate(['']);
+        this.router.navigate(['../tienda']);
       }
     });
     this.UsuariosForm.reset();

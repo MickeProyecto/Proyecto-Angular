@@ -3,7 +3,7 @@
     <hr>
 
     <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-    <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><br>LOGOUT</button>
+    <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><br>LOG OUT</button>
 
     <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
     <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
