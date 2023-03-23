@@ -22,8 +22,9 @@
             <img src="{{info.photo}}" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li *ngIf="info.rol == 'cliente'"><a class="dropdown-item" href="../carrito">Carrito</a></li>
+            <li *ngIf="info.rol == 'admin'"><a class="dropdown-item" (click)="showButton1()">Categorias</a></li>
+            <li *ngIf="info.rol == 'admin'"><a class="dropdown-item" (click)="hideButton1()">Productos</a></li>
             <li><a class="dropdown-item" href="../perfil/">Perfil</a></li>
             <li>
               <hr class="dropdown-divider">
@@ -36,14 +37,122 @@
   </header>
 </main>
 
-<ul>
-  <li *ngFor="let dato of datos">
-    {{dato.img}}
-    {{dato.nombre}}
-    {{dato.marca}}
-    {{dato.descripcion}}
-    {{dato.cantidad}}
-    {{dato.precio}}
-    {{dato.id_categoria}}
-  </li>
-</ul>
+<ng-container *ngFor="let dato of datos">
+  <table *ngIf="element1 == true" id="producto">
+    <button>Crear un producto</button>
+
+    <tr>
+      <td>{{dato.img}}</td>
+      <td>{{dato.nombre}}</td>
+      <td>{{dato.marca}}</td>
+      <td>{{dato.descripcion}}</td>
+      <td>{{dato.cantidad}}</td>
+      <td>{{dato.precio}}</td>
+      <td>{{dato.id_categoria}}</td>
+    </tr>
+
+  </table>
+</ng-container>
+
+
+<table id="producto" *ngIf="element1 == false">
+  <button>Crear una categoria</button>
+</table>
+
+<!-- <form [formGroup]="productosForm">
+  <div id="logo">
+      <img src="assets/imagenes/LogoLogin.png">
+  </div>
+
+  <div>
+      <input formControlName="img" type="file" id="file" (change)="onFileChange($event)">
+      <p id="error" *ngIf="this.productosForm.controls.img.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="name" type="text" placeholder="Ponga el nombre del cliente:">
+      <p id="error" *ngIf="this.productosForm.controls.name.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="lastname" type="text" placeholder="Ponga los apellidos del cliente:">
+      <p id="error" *ngIf="this.productosForm.controls.lastname.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="password" type="password" placeholder="Ponga la contraseña para el cliente:">
+      <p id="error" *ngIf="this.productosForm.controls.password.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="email" type="email" placeholder="Ponga el correo del cliente:">
+      <p id="error" *ngIf="this.productosForm.controls.email.hasError('required')">Campo vacio</p>
+      <p id="error" *ngIf="this.productosForm.controls.email.hasError('email')">El correo debe de tener un @
+      </p>
+  </div>
+
+  <div>
+      <input formControlName="phone" type="number" placeholder="Ponga el telefono del cliente:">
+      <p id="error" *ngIf="this.productosForm.controls.phone.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="dni" type="text" placeholder="Ponga el dni del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.dni.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div id="botones">
+      <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()"
+          routerLink="../tienda">REGISTRAR</button>
+      <button id="volver" routerLink="../tienda">VOLVER</button>
+  </div>
+</form>
+
+<form [formGroup]="UsuariosForm">
+  <div id="logo">
+      <img src="assets/imagenes/LogoLogin.png">
+  </div>
+
+  <div>
+      <input formControlName="photo" type="file" id="file" (change)="onFileChange($event)">
+      <p id="error" *ngIf="this.UsuariosForm.controls.photo.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="name" type="text" placeholder="Ponga el nombre del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.name.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="lastname" type="text" placeholder="Ponga los apellidos del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.lastname.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="password" type="password" placeholder="Ponga la contraseña para el cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.password.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="email" type="email" placeholder="Ponga el correo del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('required')">Campo vacio</p>
+      <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('email')">El correo debe de tener un @
+      </p>
+  </div>
+
+  <div>
+      <input formControlName="phone" type="number" placeholder="Ponga el telefono del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.phone.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div>
+      <input formControlName="dni" type="text" placeholder="Ponga el dni del cliente:">
+      <p id="error" *ngIf="this.UsuariosForm.controls.dni.hasError('required')">Campo vacio</p>
+  </div>
+
+  <div id="botones">
+      <button id="registrar" [disabled]="!UsuariosForm.valid" (click)="addUsuario()"
+          routerLink="../tienda">REGISTRAR</button>
+      <button id="volver" routerLink="../tienda">VOLVER</button>
+  </div>
+</form> -->

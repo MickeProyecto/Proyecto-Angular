@@ -52,3 +52,19 @@
 .dropdown-item {
   cursor: pointer;
 }
+
+#producto {
+  /* DIV del ranking */
+  position: absolute;
+  text-align: center;
+  margin-left: 700px;
+  margin-top: 200px;
+  width: 600px;
+  height: auto;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.451);
+  border-radius: 10px;
+}
+
+

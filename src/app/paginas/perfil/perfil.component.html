@@ -3,14 +3,21 @@
     <hr>
 
     <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-    <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><br>LOG OUT</button>
+    <button title="LOGOUT" (click)="logout()">
+        <img src="assets/imagenes/logout.png">
+        <p>LOG OUT</p>
+    </button>
 
     <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-    <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
-            src="assets/imagenes/carrito.png"><br>CARRITO</button>
+    <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO">
+        <img src="assets/imagenes/carrito.png">
+        <p>CARRITO</p>
+    </button>
 
-    <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
-            src="assets/imagenes/logo_tienda.png"><br>TIENDA</button>
+    <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA">
+        <img src="assets/imagenes/logo_tienda.png">
+        <p>TIENDA</p>
+    </button>
 </div>
 
 <div id="perfil">

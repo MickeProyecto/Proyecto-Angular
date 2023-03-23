@@ -3,16 +3,21 @@
   <hr>
 
   <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-  <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
-      src="assets/imagenes/carrito.png"><br>CARRITO</button>
+  <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png">
+    <p>CARRITO</p>
+  </button>
 
   <!-- Sale una vez el usuario a iniciado sesion -->
   <button *ngIf="info.rol == 'cliente' || info.rol == 'admin'" routerLink="../perfil" titulo="PERFIL"><img
-      src="assets/imagenes/perfil.png"><br>PERFIL</button>
+      src="assets/imagenes/perfil.png">
+    <p>PERFIL</p>
+  </button>
 
   <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
   <button *ngIf="info.rol == 'admin'" routerLink="../usuarios" routerLinkActive="active" titulo="REGISTRO"><img
-      src="assets/imagenes/usuarios.png"><br>USUARIOS</button>
+      src="assets/imagenes/usuarios.png">
+    <p>USUARIOS</p>
+  </button>
 </div>
 
 <!-- Solo sera funcional si el usuario a iniciado sesion -->

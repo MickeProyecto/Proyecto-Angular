@@ -31,6 +31,10 @@
     background: #B3B3B3;
 }
 
+#menu>button>p{
+    margin-top: 11px;
+}
+
 #menu>button:hover {
     cursor: pointer;
     background-color: gray;
