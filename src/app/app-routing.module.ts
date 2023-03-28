@@ -6,7 +6,8 @@ import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { UsuariosComponent } from './paginas/administrador/usuarios/usuarios.component';
 import { AirsoftComponent } from './paginas/airsoft/airsoft.component';
-import { PolicialComponent } from './paginas/policial/policial.component';
+import { PolicialClienteComponent } from './paginas/policial/policial.component';
+import { PolicialAdminComponent } from './paginas/administrador/productos/policial.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'usuarios', component: UsuariosComponent },
-  { path: 'policial', component: PolicialComponent },
+  { path: 'policialCliente', component: PolicialClienteComponent },
+  { path: 'policialAdmin', component: PolicialAdminComponent },
   { path: 'airsoft', component: AirsoftComponent }
 ];
 

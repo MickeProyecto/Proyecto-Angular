@@ -25,4 +25,14 @@ export class TiendaComponent implements OnInit {
       console.log(this.token);
     }
   }
+
+
+  AdminClientePolicial() {
+    if (this.info.rol == "admin") {
+      this.router.navigate(['../policialAdmin']);
+    } else if (this.info.rol == "cliente") {
+      this.router.navigate(['../policialCliente']);
+    }
+
+  }
 }

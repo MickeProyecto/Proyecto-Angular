@@ -61,9 +61,15 @@ export class UsuariosService {
                 }
                 ));
     }
-    
+
     addProductos(productos: Productos) {
-        return this._http.post(this.URL + "signup", productos)
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+            })
+        };
+        return this._http.post(this.URL + "createm", productos, this.httpOptions)
             .pipe(
                 filter((response: any) => {
                     if (response != null) {
@@ -79,7 +85,13 @@ export class UsuariosService {
     }
 
     addCategorias(categorias: Categorias) {
-        return this._http.post(this.URL + "signup", categorias)
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+            })
+        };
+        return this._http.post(this.URL + "createc", categorias, this.httpOptions)
             .pipe(
                 filter((response: any) => {
                     if (response != null) {
