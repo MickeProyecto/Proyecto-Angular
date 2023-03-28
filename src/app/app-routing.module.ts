@@ -5,9 +5,10 @@ import { TiendaComponent } from './paginas/tienda/tienda.component';
 import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { UsuariosComponent } from './paginas/administrador/usuarios/usuarios.component';
-import { AirsoftComponent } from './paginas/airsoft/airsoft.component';
+import { AirsoftClienteComponent } from './paginas/airsoft/airsoft.component';
+import { AirsoftAdminComponent } from './paginas/administrador/airsoft/airsoft.component';
 import { PolicialClienteComponent } from './paginas/policial/policial.component';
-import { PolicialAdminComponent } from './paginas/administrador/productos/policial.component';
+import { PolicialAdminComponent } from './paginas/administrador/policial/policial.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'policialCliente', component: PolicialClienteComponent },
   { path: 'policialAdmin', component: PolicialAdminComponent },
-  { path: 'airsoft', component: AirsoftComponent }
+  { path: 'airsoftCliente', component: AirsoftClienteComponent },
+  { path: 'airsoftAdmin', component: AirsoftAdminComponent }
 ];
 
 @NgModule({

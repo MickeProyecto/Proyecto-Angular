@@ -35,4 +35,12 @@ export class TiendaComponent implements OnInit {
     }
 
   }
+
+  AdminClienteAirsoft() {
+    if (this.info.rol == "admin") {
+      this.router.navigate(['../airsoftAdmin']);
+    } else if (this.info.rol == "cliente") {
+      this.router.navigate(['../airsoftCliente']);
+    }
+  }
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AirsoftComponent } from './airsoft.component';
+import { AirsoftClienteComponent } from './airsoft.component';
 
-describe('AirsoftComponent', () => {
-  let component: AirsoftComponent;
-  let fixture: ComponentFixture<AirsoftComponent>;
+describe('AirsoftClienteComponent', () => {
+  let component: AirsoftClienteComponent;
+  let fixture: ComponentFixture<AirsoftClienteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AirsoftComponent ]
+      declarations: [ AirsoftClienteComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AirsoftComponent);
+    fixture = TestBed.createComponent(AirsoftClienteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

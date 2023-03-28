@@ -13,6 +13,9 @@ export class PolicialClienteComponent implements OnInit {
   httpOptions: any;
 
   materiales: any[] = [];
+  materialesfiltrados: any[] = [];
+  categorias: any[] = [];
+  categoriasfiltradas: any[] = [];
 
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
@@ -35,8 +38,17 @@ export class PolicialClienteComponent implements OnInit {
       })
     };
 
+    this._http.get(this.usuarios.URL + 'indexc', this.httpOptions).subscribe((data: any) => {
+      this.categorias = data;
+      this.categoriasfiltradas = this.categorias.filter(categorias => categorias.tipo === "policial");
+    });
+
     this._http.get(this.usuarios.URL + 'indexm', this.httpOptions).subscribe((data: any) => {
       this.materiales = data;
+      this.materialesfiltrados = this.materiales.filter(materiales => {
+        const id = this.categorias.find(id => id.id === materiales.id_categoria);
+        return id.tipo === "policial";
+      });
     });
   }
 
