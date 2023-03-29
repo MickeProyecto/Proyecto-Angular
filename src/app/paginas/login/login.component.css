@@ -2,11 +2,9 @@
   position: absolute;
 
   font-size: 20px;
-
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   margin-left: 300px;
-
   margin-top: 250px;
 }
 
@@ -14,7 +12,6 @@ h1 {
   position: absolute;
 
   margin-top: 50px;
-
   margin-left: -150px;
 
   font-size: 50px;
@@ -30,7 +27,6 @@ p {
   text-align: center;
 
   margin-top: 150px;
-
   margin-left: -60px;
 
   font-size: 30px;
@@ -128,6 +124,7 @@ input {
 
 #login:hover {
   background-color: #6593e8;
+  
   cursor: pointer;
 }
 

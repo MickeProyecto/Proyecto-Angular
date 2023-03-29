@@ -16,10 +16,13 @@ export class UsuariosService {
 
     httpOptions: any;
 
-    constructor(private _http: HttpClient) { }
+    parametro: any;
 
     datosusuario: any;
+
     found = false;
+
+    constructor(private _http: HttpClient) { }
 
     addUsuarios(usuarios: Usuarios) {
         return this._http.post(this.URL + "signup", usuarios)
@@ -104,5 +107,13 @@ export class UsuariosService {
                     return this.datosusuario;
                 }
                 ));
+    }
+
+    setParametro(nuevoParametro: any) {
+        this.parametro = nuevoParametro;
+    }
+
+    getParametro() {
+        return this.parametro;
     }
 }

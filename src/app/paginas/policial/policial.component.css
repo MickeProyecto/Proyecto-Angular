@@ -85,13 +85,13 @@
 
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
- 
+
   background-color: rgb(255, 255, 255, 0.451);
- 
+
   border-radius: 10px;
 }
 
-#foto{
+#foto {
   height: 100px;
   width: 100px;
 }
@@ -119,4 +119,17 @@
 
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+#añadirCarrito {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: rgb(33, 33, 245);
+  color: white;
+
+  cursor: pointer;
 }
