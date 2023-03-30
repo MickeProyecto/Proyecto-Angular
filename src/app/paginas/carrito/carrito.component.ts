@@ -19,6 +19,8 @@ export class CarritoComponent implements OnInit {
   info: any;
   token: any;
 
+  element = false;
+
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
   ngOnInit(): void {
@@ -40,7 +42,15 @@ export class CarritoComponent implements OnInit {
     this._http.get(this.usuarios.URL + 'indexca', this.httpOptions).subscribe((data: any) => {
       this.productos = data;
       this.productosfiltrados = this.productos.filter(productos => productos.id_user === this.info.id);
+
+      if (this.productosfiltrados.length == 0) {
+        this.element = true;
+      } else {
+        this.element = false;
+      }
     });
+
+
   }
 
   logout() {

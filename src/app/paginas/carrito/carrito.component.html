@@ -16,11 +16,7 @@
         </button>
 </div>
 
-<div *ngFor="let dato of productosfiltrados">
-
-</div>
-
-<ng-container>
+<ng-container *ngIf="element == false">
         <table id="carrito">
 
                 <tr>
@@ -36,8 +32,8 @@
         </table>
 </ng-container>
 
-<!-- <div id="carrito">
+<div id="carrito" *ngIf="element == true">
         <img id="foto" src="assets/imagenes/carrito_foto.png">
         <p>No hay productos en tu carrito.
                 Consulta todas nuestras ofertas</p>
-</div> -->
+</div>
