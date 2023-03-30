@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../servicio/usuarios.service';
-import { DialogComponent } from './DialogComponent.component';
+import { DialogComponentPolicial } from './DialogComponent.component';
 
 @Component({
   selector: 'app-policial',
@@ -14,6 +14,7 @@ import { DialogComponent } from './DialogComponent.component';
 export class PolicialClienteComponent implements OnInit {
 
   httpOptions: any;
+
   info: any;
   token: any;
 
@@ -23,7 +24,10 @@ export class PolicialClienteComponent implements OnInit {
   categorias: any[] = [];
   categoriasfiltradas: any[] = [];
 
-  constructor(public usuarios: UsuariosService, public dialog: MatDialog, public router: Router, private _http: HttpClient) { }
+  constructor(public usuarios: UsuariosService,
+    public dialog: MatDialog,
+    public router: Router,
+    private _http: HttpClient) { }
 
   ngOnInit() {
 
@@ -103,7 +107,7 @@ export class PolicialClienteComponent implements OnInit {
 
   openDialog(): void {
 
-    let dialogRef = this.dialog.open(DialogComponent, {
+    let dialogRef = this.dialog.open(DialogComponentPolicial, {
       data: {}
     });
 

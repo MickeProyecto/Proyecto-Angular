@@ -10,7 +10,8 @@ import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
-import { DialogComponent } from './policial/DialogComponent.component';
+import { DialogComponentPolicial } from './policial/DialogComponent.component';
+import { DialogComponentAirsoft } from './airsoft/DialogComponent.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DialogComponent } from './policial/DialogComponent.component';
     UsuariosComponent,
     CarritoComponent,
     PerfilComponent,
-    DialogComponent
+    DialogComponentPolicial,
+    DialogComponentAirsoft
   ],
   imports: [
     CommonModule,

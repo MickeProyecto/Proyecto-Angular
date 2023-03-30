@@ -51,6 +51,7 @@
       <td>{{dato.marca}}</td>
       <td>{{dato.descripcion}}</td>
       <td>{{dato.precio}}</td>
+      <td><button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id)">Añadir al Carrito</button></td>
     </tr>
 
   </table>

@@ -11,26 +11,29 @@ import { Carrito } from 'src/app/models/carrito.model';
   templateUrl: './DialogComponent.component.html',
   styleUrls: ['./DialogComponent.component.css']
 })
-export class DialogComponent {
+export class DialogComponentPolicial {
 
   httpOptions: any;
 
   policial: any;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogComponent>,
+    public dialogRef: MatDialogRef<DialogComponentPolicial>,
     @Inject(MAT_DIALOG_DATA)
     public data: any,
     public usuarios: UsuariosService,
     private _http: HttpClient,
     public router: Router
   ) {
+
     console.log('constructor');
 
   }
 
   ProductoForm = new FormGroup({
+
     cantidad: new FormControl('', Validators.required)
+
   });
 
   onHomeClick() {
@@ -42,25 +45,38 @@ export class DialogComponent {
     let cantidad = Number(this.ProductoForm.controls.cantidad.value!);
 
     const carrito: Carrito = {
+
       "id_material": parametro,
+
       "id_user": id,
+
       "cantidad": cantidad
+
     };
 
     console.log(carrito);
+
     this.usuarios.addCarrito(carrito).subscribe({
+
       next: (value: Carrito) => {
+
         console.log(value);
 
         this.router.navigate(['../carrito']);
+
       }
+
     });
+
     this.ProductoForm.reset();
+
   }
 
 
 
   onBackClick(): void {
+
     this.dialogRef.close('back');
+
   }
 }
