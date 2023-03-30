@@ -1,18 +1,43 @@
 <div id="menu">
-    <img alt="Nike Logo" src="assets/imagenes/Logo.png">
-    <hr>
-    <!-- Boton para cerrar sesion -->
-    <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png"><p>LOG OUT</p></button>
-    <!-- Boton para que el usuario pueda ver su perfil -->
-    <button routerLink="../perfil" routerLinkActive="active" titulo="PERFIL"><img
-            src="assets/imagenes/perfil.png"><p>PERFIL</p></button>
-    <!-- Boton para volver a la tienda -->
-    <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
-            src="assets/imagenes/logo_tienda.png"><p>TIENDA</p></button>
+        <img alt="Nike Logo" src="assets/imagenes/Logo.png">
+        <hr>
+        <!-- Boton para cerrar sesion -->
+        <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png">
+                <p>LOG OUT</p>
+        </button>
+        <!-- Boton para que el usuario pueda ver su perfil -->
+        <button routerLink="../perfil" routerLinkActive="active" titulo="PERFIL"><img src="assets/imagenes/perfil.png">
+                <p>PERFIL</p>
+        </button>
+        <!-- Boton para volver a la tienda -->
+        <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
+                        src="assets/imagenes/logo_tienda.png">
+                <p>TIENDA</p>
+        </button>
 </div>
 
-<div id="carrito">
-    <img id="foto" src="assets/imagenes/carrito_foto.png">
-    <p>No hay productos en tu carrito.
-        Consulta todas nuestras ofertas</p>
+<div *ngFor="let dato of productosfiltrados">
+
 </div>
+
+<ng-container>
+        <table id="carrito">
+
+                <tr>
+                        <th>Id_producto:</th>
+                        <th>Cantidad:</th>
+                </tr>
+
+                <tr id="materiales" *ngFor="let dato of productosfiltrados">
+                        <td>{{dato.id_material}}</td>
+                        <td>{{dato.cantidad}}</td>
+                </tr>
+
+        </table>
+</ng-container>
+
+<!-- <div id="carrito">
+        <img id="foto" src="assets/imagenes/carrito_foto.png">
+        <p>No hay productos en tu carrito.
+                Consulta todas nuestras ofertas</p>
+</div> -->

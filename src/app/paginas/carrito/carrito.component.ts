@@ -13,9 +13,34 @@ export class CarritoComponent implements OnInit {
 
   httpOptions: any;
 
+  productos: any[] = [];
+  productosfiltrados: any[] = [];
+
+  info: any;
+  token: any;
+
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
   ngOnInit(): void {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      this.info = JSON.parse(currentUser).value;
+      this.token = JSON.parse(currentUser).access_token;
+      console.log(this.info);
+      console.log(this.token);
+    }
+
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+      })
+    };
+
+    this._http.get(this.usuarios.URL + 'indexca', this.httpOptions).subscribe((data: any) => {
+      this.productos = data;
+      this.productosfiltrados = this.productos.filter(productos => productos.id_user === this.info.id);
+    });
   }
 
   logout() {

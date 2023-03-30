@@ -10,6 +10,7 @@ import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
+import { DialogComponent } from './policial/DialogComponent.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     PolicialAdminComponent,
     UsuariosComponent,
     CarritoComponent,
-    PerfilComponent
+    PerfilComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,

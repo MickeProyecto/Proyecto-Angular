@@ -102,7 +102,8 @@ export class PolicialClienteComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+
+    let dialogRef = this.dialog.open(DialogComponent, {
       data: {}
     });
 
@@ -119,6 +120,8 @@ export class PolicialClienteComponent implements OnInit {
   Carrito(event: any, idProducto: string) {
 
     this.usuarios.setParametro(idProducto);
+
+    this.usuarios.setUsuarioId(this.info.id);
 
     console.log(idProducto);
   }
