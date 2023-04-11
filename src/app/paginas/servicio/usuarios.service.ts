@@ -17,15 +17,55 @@ export class UsuariosService {
 
     httpOptions: any;
 
-    parametro: any;
+    idProducto: any;
+
+    Precio: any;
 
     id: any;
+
+    id_producto: any;
+
+    precio_producto: any;
 
     datosusuario: any;
 
     found = false;
 
     constructor(private _http: HttpClient) { }
+
+    setParametro(idProducto: any, Precio: any) {
+        this.idProducto = idProducto;
+        this.Precio = Precio;
+    }
+
+    setUsuarioId(nuevoId: any) {
+        this.id = nuevoId;
+    }
+
+    setPedidos(id_producto: any, precio_producto: any) {
+        this.id_producto = id_producto;
+        this.precio_producto = precio_producto
+    }
+
+    getParametro() {
+        return this.idProducto;
+    }
+
+    getPrecio() {
+        return this.Precio;
+    }
+
+    getUsuarioId() {
+        return this.id;
+    }
+
+    getCompraIdProducto() {
+        return this.id_producto;
+    }
+
+    getCompraPrecioProducto() {
+        return this.precio_producto;
+    }
 
     addUsuarios(usuarios: Usuarios) {
         return this._http.post(this.URL + "signup", usuarios)
@@ -110,22 +150,6 @@ export class UsuariosService {
                     return this.datosusuario;
                 }
                 ));
-    }
-
-    setParametro(nuevoParametro: any) {
-        this.parametro = nuevoParametro;
-    }
-
-    setUsuarioId(nuevoId: any) {
-        this.id = nuevoId;
-    }
-
-    getParametro() {
-        return this.parametro;
-    }
-
-    getUsuarioId() {
-        return this.id;
     }
 
     addCarrito(carrito: Carrito) {

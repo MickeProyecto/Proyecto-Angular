@@ -22,14 +22,20 @@
                 <tr>
                         <th>Id_producto:</th>
                         <th>Cantidad:</th>
+                        <th>Precio:</th>
                 </tr>
 
                 <tr id="materiales" *ngFor="let dato of productosfiltrados">
                         <td>{{dato.id_material}}</td>
                         <td>{{dato.cantidad}}</td>
+                        <td>{{dato.precio}} €</td>
                 </tr>
 
         </table>
+        <button id="ConfirmarEntrega"  (click)="Pedido()">
+                <p>Confirmar Compra</p>
+        </button>
+
 </ng-container>
 
 <div id="carrito" *ngIf="element == true">

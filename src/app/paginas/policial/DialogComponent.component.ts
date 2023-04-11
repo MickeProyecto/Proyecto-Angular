@@ -40,9 +40,13 @@ export class DialogComponentPolicial {
 
     let parametro = this.usuarios.getParametro();
 
+    let precio = this.usuarios.getPrecio()
+
     let id = this.usuarios.getUsuarioId();
 
     let cantidad = Number(this.ProductoForm.controls.cantidad.value!);
+
+    let precioFinal = precio * cantidad;
 
     const carrito: Carrito = {
 
@@ -50,7 +54,9 @@ export class DialogComponentPolicial {
 
       "id_user": id,
 
-      "cantidad": cantidad
+      "cantidad": cantidad,
+
+      "precio": precioFinal
 
     };
 

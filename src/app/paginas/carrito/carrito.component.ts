@@ -21,6 +21,8 @@ export class CarritoComponent implements OnInit {
 
   element = false;
 
+  precio: any;
+
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
   ngOnInit(): void {
@@ -67,6 +69,24 @@ export class CarritoComponent implements OnInit {
       // Redirigir al usuario a la página de inicio de sesión
       this.router.navigate(['']);
     })
+
+  }
+
+  Pedido() {
+
+    console.log(this.productosfiltrados);
+
+    this.usuarios.getPrecio
+
+    this.productosfiltrados.forEach(
+      (producto) => {
+        console.log(`${producto.id} - ${producto.precio}`);
+
+        this.usuarios.setPedidos(producto.id_producto, producto.precio);
+      }
+    );
+
+    this.router.navigate(['../confirmarCompra']);
 
   }
 

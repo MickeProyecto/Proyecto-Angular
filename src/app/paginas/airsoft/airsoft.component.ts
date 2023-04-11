@@ -131,13 +131,13 @@ export class AirsoftClienteComponent {
 
   }
 
-  Carrito(event: any, idProducto: string) {
+  Carrito(event: any, idProducto: string, Precio: string) {
 
-    this.usuarios.setParametro(idProducto);
+    this.usuarios.setParametro(idProducto, Precio);
 
     this.usuarios.setUsuarioId(this.info.id);
 
-    console.log(idProducto);
+    console.log(idProducto, Precio);
   }
 
 }

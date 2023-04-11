@@ -31,7 +31,7 @@
     background: #B3B3B3;
 }
 
-#menu>button>p{
+#menu>button>p {
     margin-top: 11px;
 }
 
@@ -73,5 +73,24 @@
     top: 480px;
     font-size: 30px;
     color: #FFFFFF;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#ConfirmarEntrega {
+    border: none;
+    width: 280px;
+    height: 50px;
+    margin-top: 850px;
+    margin-left: 950px;
+    background: #B3B3B3;
+}
+
+#ConfirmarEntrega>p {
+    margin-top: 11px;
+}
+
+#ConfirmarEntrega:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
 }

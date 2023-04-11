@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
 import { DialogComponentPolicial } from './policial/DialogComponent.component';
 import { DialogComponentAirsoft } from './airsoft/DialogComponent.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DialogComponentAirsoft } from './airsoft/DialogComponent.component';
     CarritoComponent,
     PerfilComponent,
     DialogComponentPolicial,
-    DialogComponentAirsoft
+    DialogComponentAirsoft,
+    PedidosComponent
   ],
   imports: [
     CommonModule,

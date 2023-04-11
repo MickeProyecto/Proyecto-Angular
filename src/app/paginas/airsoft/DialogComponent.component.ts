@@ -39,9 +39,13 @@ export class DialogComponentAirsoft {
 
         let parametro = this.usuarios.getParametro();
 
+        let precio = this.usuarios.getPrecio()
+
         let id = this.usuarios.getUsuarioId();
 
         let cantidad = Number(this.ProductoForm.controls.cantidad.value!);
+
+        let precioFinal = precio * cantidad;
 
         const carrito: Carrito = {
 
@@ -49,7 +53,9 @@ export class DialogComponentAirsoft {
 
             "id_user": id,
 
-            "cantidad": cantidad
+            "cantidad": cantidad,
+
+            "precio": precioFinal
 
         };
 
@@ -62,10 +68,12 @@ export class DialogComponentAirsoft {
                 console.log(value);
 
                 this.router.navigate(['../carrito']);
+                this.dialogRef.close();
 
             }
 
         });
+
 
         this.ProductoForm.reset();
 
