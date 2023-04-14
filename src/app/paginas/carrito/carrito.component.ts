@@ -11,17 +11,15 @@ import { UsuariosService } from '../servicio/usuarios.service';
 export class CarritoComponent implements OnInit {
   [x: string]: any;
 
-  httpOptions: any;
-
   productos: any[] = [];
   productosfiltrados: any[] = [];
 
+  httpOptions: any;
   info: any;
   token: any;
+  precio: any;
 
   element = false;
-
-  precio: any;
 
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
@@ -74,17 +72,24 @@ export class CarritoComponent implements OnInit {
 
   Pedido() {
 
-    console.log(this.productosfiltrados);
-
-    this.usuarios.getPrecio
+    let pedidos: any[] = [];
 
     this.productosfiltrados.forEach(
       (producto) => {
-        console.log(`${producto.id} - ${producto.precio}`);
 
-        this.usuarios.setPedidos(producto.id_producto, producto.precio);
+        let pedido = {
+          id: producto.id_material,
+          precio: producto.precio
+        };
+
+        console.log(`${producto.id_material} - ${producto.precio}`);
+
+        pedidos.push(pedido);
+
       }
     );
+
+    this.usuarios.setPedidos(pedidos);
 
     this.router.navigate(['../confirmarCompra']);
 

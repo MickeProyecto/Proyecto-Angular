@@ -40,7 +40,7 @@ export class PerfilComponent implements OnInit {
       localStorage.removeItem('currentUser');
       // Redirigir al usuario a la página de inicio de sesión
       this.router.navigate(['']);
-    })
+    });
 
   }
 

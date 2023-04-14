@@ -7,6 +7,7 @@ import { Usuarios } from 'src/app/models/usuarios.model';
 import { Categorias } from 'src/app/models/categorias.model';
 import { Productos } from 'src/app/models/productos.model';
 import { Carrito } from 'src/app/models/carrito.model';
+import { Pedidos } from 'src/app/models/pedidos.model';
 
 @Injectable({
     providedIn: 'root'
@@ -16,18 +17,12 @@ export class UsuariosService {
     readonly URL = "http://127.0.0.1:8000/api/";
 
     httpOptions: any;
-
     idProducto: any;
-
     Precio: any;
-
     id: any;
-
-    id_producto: any;
-
-    precio_producto: any;
-
+    id_punto_entrega: any;
     datosusuario: any;
+    newPedidosarray: any;
 
     found = false;
 
@@ -42,9 +37,11 @@ export class UsuariosService {
         this.id = nuevoId;
     }
 
-    setPedidos(id_producto: any, precio_producto: any) {
-        this.id_producto = id_producto;
-        this.precio_producto = precio_producto
+    setPedidos(PedidosArray: any) {
+
+        this.newPedidosarray = PedidosArray;
+
+        console.log(this.newPedidosarray);
     }
 
     getParametro() {
@@ -59,12 +56,8 @@ export class UsuariosService {
         return this.id;
     }
 
-    getCompraIdProducto() {
-        return this.id_producto;
-    }
-
-    getCompraPrecioProducto() {
-        return this.precio_producto;
+    getPedidos() {
+        return this.newPedidosarray;
     }
 
     addUsuarios(usuarios: Usuarios) {
@@ -160,6 +153,28 @@ export class UsuariosService {
             })
         };
         return this._http.post(this.URL + "createca", carrito, this.httpOptions)
+            .pipe(
+                filter((response: any) => {
+                    if (response != null) {
+                        this.found = true;
+                    }
+                    else {
+                        this.found = false;
+                    }
+                    this.datosusuario = response;
+                    return this.datosusuario;
+                }
+                ));
+    }
+
+    addPedidos(pedidos: Pedidos) {
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+            })
+        };
+        return this._http.post(this.URL + "createpe", pedidos, this.httpOptions)
             .pipe(
                 filter((response: any) => {
                     if (response != null) {

@@ -68,7 +68,7 @@ export class DialogComponentPolicial {
 
         console.log(value);
 
-        this.router.navigate(['../carrito']);
+        this.dialogRef.close('../carrito');
 
       }
 

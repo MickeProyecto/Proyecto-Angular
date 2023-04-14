@@ -67,8 +67,7 @@ export class DialogComponentAirsoft {
 
                 console.log(value);
 
-                this.router.navigate(['../carrito']);
-                this.dialogRef.close();
+                this.dialogRef.close('../carrito');
 
             }
 

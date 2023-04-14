@@ -31,7 +31,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
   imports: [
     CommonModule,
     PaginasRoutingModule,
-    ReactiveFormsModule, FormsModule
+    ReactiveFormsModule, 
+    FormsModule
   ]
 })
 export class PaginasModule {
