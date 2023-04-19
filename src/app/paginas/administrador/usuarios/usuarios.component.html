@@ -5,39 +5,68 @@
 
     <div>
         <input formControlName="photo" type="file" id="file" (change)="onFileChange($event)">
-        <p id="error" *ngIf="this.UsuariosForm.controls.photo.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['photo'].touched && f['photo'].invalid">
+            <p id="error" *ngIf="f['photo'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="name" type="text" placeholder="Ponga el nombre del cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.name.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['name'].touched">
+            <p id="error" *ngIf="f['name'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="lastname" type="text" placeholder="Ponga los apellidos del cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.lastname.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['lastname'].touched">
+            <p id="error" *ngIf="f['lastname'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="password" type="password" placeholder="Ponga la contraseña para el cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.password.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['password'].touched">
+            <p id="error" *ngIf="f['password'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="email" type="email" placeholder="Ponga el correo del cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('required')">Campo vacio</p>
-        <p id="error" *ngIf="this.UsuariosForm.controls.email.hasError('email')">El correo debe de tener un @
-        </p>
+        <div *ngIf="f['email'].touched">
+            <p id="error" *ngIf="f['email'].hasError('required')">
+                Campo requerido
+            </p>
+            <p id="error" *ngIf="f['email'].hasError('email')">
+                El correo debe de tener un @
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="phone" type="number" placeholder="Ponga el telefono del cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.phone.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['phone'].touched">
+            <p id="error" *ngIf="f['phone'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div>
         <input formControlName="dni" type="text" placeholder="Ponga el dni del cliente:">
-        <p id="error" *ngIf="this.UsuariosForm.controls.dni.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['dni'].touched">
+            <p id="error" *ngIf="f['dni'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
     </div>
 
     <div id="botones">

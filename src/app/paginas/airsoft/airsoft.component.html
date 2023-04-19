@@ -6,11 +6,7 @@
           <img class="bi me-2" width="50" height="50" role="img" src="assets/imagenes/Logo.png" alt="">
         </div>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="../tienda" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Armamento</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Municion</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Granadas</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Proteccion</a></li>
+          
         </ul>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
@@ -21,14 +17,39 @@
             aria-expanded="false">
             <img src="{{info.photo}}" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
+
           <ul class="dropdown-menu text-small">
-            <li *ngIf="info.rol == 'cliente'"><a class="dropdown-item" href="../carrito">Carrito</a></li>
-            <li><a class="dropdown-item" href="../perfil/">Perfil</a></li>
+
+            <li>
+              <a class="dropdown-item" href="../tienda">
+                Home
+              </a>
+            </li>
+
+            <li *ngIf="info.rol == 'cliente'">
+              <a class="dropdown-item" href="../carrito">
+                Carrito
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../perfil/">
+                Perfil
+              </a>
+            </li>
+
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+
+            <li>
+              <a class="dropdown-item" (click)="logout()">
+                Log out
+              </a>
+            </li>
+
           </ul>
+
         </div>
       </div>
     </div>
@@ -37,7 +58,7 @@
 
 <ng-container>
   <table id="producto">
-    <tr>
+    <tr *ngIf="materialesfiltrados.length != 0">
       <th>Foto:</th>
       <th>Nombre:</th>
       <th>Marca:</th>
@@ -45,14 +66,21 @@
       <th>Precio:</th>
     </tr>
 
-    <tr id="materiales" *ngFor="let dato of materialesfiltrados">
-      <td><img id="foto" [src]="dato.img"></td>
-      <td>{{dato.nombre}}</td>
-      <td>{{dato.marca}}</td>
-      <td>{{dato.descripcion}}</td>
-      <td>{{dato.precio}} €</td>
-      <td><button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id, dato.precio)">Añadir al Carrito</button></td>
-    </tr>
+    <ng-container *ngIf="materialesfiltrados.length != 0">
+      <tr id="materiales" *ngFor="let dato of materialesfiltrados">
+        <td><img id="foto" [src]="dato.img"></td>
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.marca}}</td>
+        <td>{{dato.descripcion}}</td>
+        <td>{{dato.precio}} €</td>
+        <td><button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id, dato.precio)">Añadir al
+            Carrito</button></td>
+      </tr>
+    </ng-container>
+
+    <div *ngIf="materialesfiltrados.length == 0">
+      <b>No hay ningun producto</b>
+    </div>
 
   </table>
 </ng-container>

@@ -28,29 +28,8 @@ export class PolicialAdminComponent implements OnInit {
   element2 = true;
   element3 = true;
 
-  productosForm = new FormGroup({
-    img: new FormControl('', Validators.required),
-
-    nombre: new FormControl('', Validators.required),
-
-    marca: new FormControl('', Validators.required),
-
-    descripcion: new FormControl('', Validators.required),
-
-    cantidad: new FormControl('', Validators.required),
-
-    precio: new FormControl('', Validators.required),
-
-    id_categoria: new FormControl('', Validators.required)
-  });
-
-  categoriasForm = new FormGroup({
-    nombre: new FormControl('', Validators.required),
-
-    descripcion: new FormControl('', Validators.required),
-
-    tipo: new FormControl('', Validators.required),
-  });
+  productosForm!: FormGroup;
+  categoriasForm!: FormGroup;
 
   constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
@@ -58,6 +37,31 @@ export class PolicialAdminComponent implements OnInit {
   token: any;
 
   ngOnInit() {
+
+    this.productosForm = new FormGroup({
+      img: new FormControl('', Validators.required),
+
+      nombre: new FormControl('', Validators.required),
+
+      marca: new FormControl('', Validators.required),
+
+      descripcion: new FormControl('', Validators.required),
+
+      cantidad: new FormControl('', Validators.required),
+
+      precio: new FormControl('', Validators.required),
+
+      id_categoria: new FormControl('', Validators.required)
+    });
+
+    this.categoriasForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+
+      descripcion: new FormControl('', Validators.required),
+
+      tipo: new FormControl('', Validators.required),
+    });
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;
@@ -87,6 +91,14 @@ export class PolicialAdminComponent implements OnInit {
     });
   }
 
+  get p() {
+    return this.productosForm.controls;
+  }
+
+  get c() {
+    return this.categoriasForm.controls;
+  }
+
   onFileChange(event: any) {
     this.img = event.target.files[0];
     const reader = new FileReader();
@@ -99,24 +111,15 @@ export class PolicialAdminComponent implements OnInit {
   }
 
   addProducto(): void {
-    let img = this.img;
-    let nombre = this.productosForm.controls.nombre.value!;
-    let marca = this.productosForm.controls.marca.value!;
-    let descripcion = this.productosForm.controls.descripcion.value!;
-    let cantidad = this.productosForm.controls.cantidad.value!;
-    let precio = this.productosForm.controls.precio.value!;
-    let id_categoria = this.productosForm.controls.id_categoria.value!;
-
-
 
     const producto: Productos = {
-      "img": img,
-      "nombre": nombre,
-      "marca": marca,
-      "descripcion": descripcion,
-      "cantidad": cantidad,
-      "precio": precio,
-      "id_categoria": id_categoria
+      "img": this.img,
+      "nombre": this.productosForm.value.nombre,
+      "marca": this.productosForm.value.marca,
+      "descripcion": this.productosForm.value.descripcion,
+      "cantidad": this.productosForm.value.cantidad,
+      "precio": this.productosForm.value.precio,
+      "id_categoria": this.productosForm.value.id_categoria
     };
 
     console.log(producto);
@@ -132,16 +135,11 @@ export class PolicialAdminComponent implements OnInit {
   }
 
   addCategoria(): void {
-    let nombre = this.categoriasForm.controls.nombre.value!;
-    let descripcion = this.categoriasForm.controls.descripcion.value!;
-    let tipo = this.categoriasForm.controls.tipo.value!;
-
-
 
     const categoria: Categorias = {
-      "nombre": nombre,
-      "descripcion": descripcion,
-      "tipo": tipo,
+      "nombre": this.categoriasForm.value.nombre,
+      "descripcion": this.categoriasForm.value.descripcion,
+      "tipo": this.categoriasForm.value.tipo,
     };
 
     console.log(categoria);

@@ -110,6 +110,9 @@ export class PedidosComponent implements OnInit {
       });
 
     }
+
+    this._http.delete(this.usuarios.URL + `deleteca/${this.info.id}`, this.httpOptions).subscribe(() => {
+    })
   }
 
 }

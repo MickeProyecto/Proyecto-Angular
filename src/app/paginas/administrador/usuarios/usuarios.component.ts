@@ -13,26 +13,32 @@ export class UsuariosComponent implements OnInit {
 
   error = true;
   foto: any;
-
-  UsuariosForm = new FormGroup({
-    photo: new FormControl('', Validators.required),
-
-    name: new FormControl('', Validators.required),
-
-    lastname: new FormControl('', Validators.required),
-
-    password: new FormControl('', Validators.required),
-
-    email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-
-    phone: new FormControl('', Validators.required),
-
-    dni: new FormControl('', Validators.required)
-  });
+  UsuariosForm!: FormGroup;
 
   constructor(private usuarios: UsuariosService, public router: Router) { }
 
   ngOnInit(): void {
+
+    this.UsuariosForm = new FormGroup({
+      photo: new FormControl('', Validators.required),
+
+      name: new FormControl('', Validators.required),
+
+      lastname: new FormControl('', Validators.required),
+
+      password: new FormControl('', Validators.required),
+
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+
+      phone: new FormControl('', Validators.required),
+
+      dni: new FormControl('', Validators.required)
+    });
+
+  }
+
+  get f() {
+    return this.UsuariosForm.controls;
   }
 
   onFileChange(event: any) {
@@ -47,24 +53,15 @@ export class UsuariosComponent implements OnInit {
   }
 
   addUsuario(): void {
-    let photo = this.foto;
-    let name = this.UsuariosForm.controls.name.value!;
-    let lastname = this.UsuariosForm.controls.lastname.value!;
-    let password = this.UsuariosForm.controls.password.value!;
-    let email = this.UsuariosForm.controls.email.value!;
-    let phone = parseInt(this.UsuariosForm.controls.phone.value!);
-    let dni = this.UsuariosForm.controls.dni.value!;
-
-
 
     const cliente: Usuarios = {
-      "photo": photo,
-      "name": name,
-      "lastname": lastname,
-      "password": password,
-      "email": email,
-      "phone": phone,
-      "dni": dni
+      "photo": this.foto,
+      "name": this.UsuariosForm.value.name,
+      "lastname": this.UsuariosForm.value.lastname,
+      "password": this.UsuariosForm.value.password,
+      "email": this.UsuariosForm.value.email,
+      "phone": parseInt(this.UsuariosForm.value.phone),
+      "dni": this.UsuariosForm.value.dni
     };
 
     console.log(cliente);

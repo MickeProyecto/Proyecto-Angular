@@ -12,16 +12,24 @@
 
         <input id="dni" formControlName="dni" type="text" placeholder="Ponga su dni">
 
-        <p id="error" *ngIf="this.loginForm.controls.dni.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['dni'].touched && f['dni'].invalid">
+            <p id="error" *ngIf="f['dni'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
 
         <input id="password" formControlName="password" type="password" placeholder="Ponga su contraseña">
 
-        <p id="error" *ngIf="this.loginForm.controls.password.hasError('required')">Campo vacio</p>
+        <div *ngIf="f['password'].touched && f['password'].invalid">
+            <p id="error" *ngIf="f['password'].hasError('required')">
+                Campo requerido
+            </p>
+        </div>
 
         <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()">
             INICIAR SESIÓN
         </button>
-        
+
         <p id="error" *ngIf="error == true">El usuario y/o la contraseña no existe</p>
     </div>
 </form>

@@ -10,6 +10,7 @@ import { AirsoftAdminComponent } from './paginas/administrador/airsoft/airsoft.c
 import { PolicialClienteComponent } from './paginas/policial/policial.component';
 import { PolicialAdminComponent } from './paginas/administrador/policial/policial.component';
 import { PedidosComponent } from './paginas/pedidos/pedidos.component';
+import { VerPedidosComponent } from './paginas/Verperdidos/Verpedidos.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'policialAdmin', component: PolicialAdminComponent },
   { path: 'airsoftCliente', component: AirsoftClienteComponent },
   { path: 'airsoftAdmin', component: AirsoftAdminComponent },
-  { path: 'confirmarCompra', component: PedidosComponent }
+  { path: 'confirmarCompra', component: PedidosComponent },
+  { path: 'VerPedidos', component: VerPedidosComponent }
 ];
 
 @NgModule({

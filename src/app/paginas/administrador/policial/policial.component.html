@@ -6,11 +6,7 @@
           <img class="bi me-2" width="50" height="50" role="img" src="assets/imagenes/Logo.png" alt="">
         </div>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="../tienda" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Armamento</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Municion</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Granadas</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Proteccion</a></li>
+
         </ul>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
@@ -21,15 +17,45 @@
             aria-expanded="false">
             <img src="{{info.photo}}" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
+
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" (click)="showButton1()">Categorias</a></li>
-            <li><a class="dropdown-item" (click)="hideButton1()">Productos</a></li>
-            <li><a class="dropdown-item" href="../perfil/">Perfil</a></li>
+
+            <li>
+              <a class="dropdown-item" href="../tienda">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" (click)="showButton1()">
+                Categorias
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" (click)="hideButton1()">
+                Productos
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="../perfil/">
+                Perfil
+              </a>
+            </li>
+
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+
+            <li>
+              <a class="dropdown-item" (click)="logout()">
+                Log out
+              </a>
+            </li>
+
           </ul>
+
         </div>
       </div>
     </div>
@@ -50,7 +76,7 @@
         <hr>
       </td>
     </tr>
-    <tr>
+    <tr *ngIf="materialesfiltrados.length != 0">
       <th>Foto:</th>
       <th>Nombre:</th>
       <th>Marca:</th>
@@ -60,15 +86,21 @@
       <th>Categoria:</th>
     </tr>
 
-    <tr id="materiales" *ngFor="let dato of materialesfiltrados">
-      <td><img id="foto" [src]="dato.img"></td>
-      <td>{{dato.nombre}}</td>
-      <td>{{dato.marca}}</td>
-      <td>{{dato.descripcion}}</td>
-      <td>{{dato.cantidad}}</td>
-      <td>{{dato.precio}} €</td>
-      <td>{{dato.id_categoria}}</td>
-    </tr>
+    <ng-container *ngIf="materialesfiltrados.length != 0">
+      <tr id="materiales" *ngFor="let dato of materialesfiltrados">
+        <td><img id="foto" [src]="dato.img"></td>
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.marca}}</td>
+        <td>{{dato.descripcion}}</td>
+        <td>{{dato.cantidad}}</td>
+        <td>{{dato.precio}} €</td>
+        <td>{{dato.id_categoria}}</td>
+      </tr>
+    </ng-container>
+
+    <div *ngIf="materialesfiltrados.length == 0">
+      <b>No hay ningun producto</b>
+    </div>
 
   </table>
 </ng-container>
@@ -91,17 +123,23 @@
 
     </tr>
 
-    <tr>
+    <tr *ngIf="categoriasfiltradas.length != 0">
       <th>Nombre:</th>
       <th>Descripción:</th>
       <th>Tipo:</th>
     </tr>
 
-    <tr *ngFor="let dato of categoriasfiltradas">
-      <td>{{dato.nombre}}</td>
-      <td>{{dato.descripcion}}</td>
-      <td>{{dato.tipo}}</td>
-    </tr>
+    <ng-container *ngIf="categoriasfiltradas.length != 0">
+      <tr *ngFor="let dato of categoriasfiltradas">
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.descripcion}}</td>
+        <td>{{dato.tipo}}</td>
+      </tr>
+    </ng-container>
+
+    <div *ngIf="categoriasfiltradas.length == 0">
+      <b>No hay ninguna categoria</b>
+    </div>
 
   </table>
 </ng-container>
@@ -115,37 +153,80 @@
 
   <div>
     <input formControlName="img" type="file" id="file" (change)="onFileChange($event)">
-    <p id="error" *ngIf="this.productosForm.controls.img.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['img'].touched && p['img'].invalid">
+
+      <p id="error" *ngIf="p['img'].hasError('required')">
+        Campo requerido
+      </p>
+
+    </div>
   </div>
 
   <div>
     <input formControlName="nombre" type="text" placeholder="Ponga el nombre:">
-    <p id="error" *ngIf="this.productosForm.controls.nombre.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['nombre'].touched && p['nombre'].invalid">
+
+      <p id="error" *ngIf="p['nombre'].hasError('required')">
+        Campo requerido
+      </p>
+    </div>
   </div>
 
   <div>
+
     <input formControlName="marca" type="text" placeholder="Ponga la marca:">
-    <p id="error" *ngIf="this.productosForm.controls.marca.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['marca'].touched && p['marca'].invalid">
+
+      <p id="error" *ngIf="p['marca'].hasError('required')">
+        Campo requerido
+      </p>
+    </div>
   </div>
 
   <div>
+
     <input formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
-    <p id="error" *ngIf="this.productosForm.controls.descripcion.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['descripcion'].touched && p['descripcion'].invalid">
+
+      <p id="error" *ngIf="p['descripcion'].hasError('required')">
+        Campo requerido
+      </p>
+    </div>
   </div>
 
   <div>
+
     <input formControlName="cantidad" type="number" placeholder="Ponga una cantidad:">
-    <p id="error" *ngIf="this.productosForm.controls.cantidad.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['cantidad'].touched && p['cantidad'].invalid">
+
+      <p id="error" *ngIf="p['cantidad'].hasError('required')">
+        Campo requerido
+      </p>
+    </div>
   </div>
 
   <div>
+
     <input formControlName="precio" type="text" placeholder="Ponga un precio:">
-    <p id="error" *ngIf="this.productosForm.controls.precio.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['precio'].touched && p['precio'].invalid">
+
+      <p id="error" *ngIf="p['precio'].hasError('required')">
+        Campo requerido
+      </p>
+
+    </div>
   </div>
 
   <div>
+
     <input formControlName="id_categoria" type="text" placeholder="Ponga la id de la categoria:">
-    <p id="error" *ngIf="this.productosForm.controls.id_categoria.hasError('required')">Campo vacio</p>
+    <div *ngIf="p['id_categoria'].touched && p['id_categoria'].invalid">
+
+      <p id="error" *ngIf="p['id_categoria'].hasError('required')">
+        Campo vacio
+      </p>
+
+    </div>
   </div>
 
   <div id="botones">
@@ -165,17 +246,29 @@
 
   <div>
     <input formControlName="nombre" type="text" placeholder="Ponga el nombre:">
-    <p id="error" *ngIf="this.categoriasForm.controls.nombre.hasError('required')">Campo vacio</p>
+    <div *ngIf="c['nombre'].touched && c['nombre'].invalid">
+
+      <p id="error" *ngIf="c['nombre'].hasError('required')">Campo vacio</p>
+
+    </div>
   </div>
 
   <div>
     <input formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
-    <p id="error" *ngIf="this.categoriasForm.controls.descripcion.hasError('required')">Campo vacio</p>
+    <div *ngIf="c['descripcion'].touched && c['descripcion'].invalid">
+
+      <p id="error" *ngIf="c['descripcion'].hasError('required')">Campo vacio</p>
+
+    </div>
   </div>
 
   <div>
     <input formControlName="tipo" type="text" placeholder="Ponga el tipo:">
-    <p id="error" *ngIf="this.categoriasForm.controls.tipo.hasError('required')">Campo vacio</p>
+    <div *ngIf="c['tipo'].touched && c['tipo'].invalid">
+
+      <p id="error" *ngIf="c['tipo'].hasError('required')">Campo vacio</p>
+    
+    </div>
   </div>
 
   <div id="botones">

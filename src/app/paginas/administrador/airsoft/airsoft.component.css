@@ -217,7 +217,7 @@
     width: 400px;
   }
   
-  #crearProducto>div>#error {
+  #crearProducto>div>div>#error {
   
     margin-top: -25px;
     margin-left: 340px;
@@ -235,7 +235,7 @@
     width: 300px;
   }
   
-  #crearCategoria>div>#error {
+  #crearCategoria>div>div>#error {
   
     margin-top: -25px;
     margin-left: 340px;

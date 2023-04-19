@@ -13,6 +13,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { DialogComponentPolicial } from './policial/DialogComponent.component';
 import { DialogComponentAirsoft } from './airsoft/DialogComponent.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
+import { VerPedidosComponent } from './Verperdidos/Verpedidos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     PerfilComponent,
     DialogComponentPolicial,
     DialogComponentAirsoft,
-    PedidosComponent
+    PedidosComponent,
+    VerPedidosComponent
   ],
   imports: [
     CommonModule,
