@@ -1,3 +1,11 @@
+.video{
+  position: absolute;
+  margin-top: 0;
+  margin-left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 body {
     background: rgba(10, 68, 182, 1) !important;
 }
