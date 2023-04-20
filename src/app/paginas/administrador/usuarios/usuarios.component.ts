@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../servicio/usuarios.service';
 import { Usuarios } from 'src/app/models/usuarios.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-usuarios',
@@ -11,11 +14,22 @@ import { Usuarios } from 'src/app/models/usuarios.model';
 })
 export class UsuariosComponent implements OnInit {
 
+  httpOptions: any;
+
   error = true;
+
   foto: any;
+  info: any;
+
   UsuariosForm!: FormGroup;
 
-  constructor(private usuarios: UsuariosService, public router: Router) { }
+  UsuariosArray: any[] = [];
+
+  element1 = true;
+  element2 = true;
+
+
+  constructor(private usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -33,6 +47,24 @@ export class UsuariosComponent implements OnInit {
       phone: new FormControl('', Validators.required),
 
       dni: new FormControl('', Validators.required)
+    });
+
+
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      this.info = JSON.parse(currentUser).value;
+      console.log(this.info);
+    }
+
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+      })
+    };
+
+    this._http.get(this.usuarios.URL + 'indexusuarios', this.httpOptions).subscribe((data: any) => {
+      this.UsuariosArray = data;
     });
 
   }
@@ -68,12 +100,39 @@ export class UsuariosComponent implements OnInit {
 
     this.usuarios.addUsuarios(cliente).subscribe({
       next: (value: Usuarios) => {
+
         console.log(value);
 
-        this.router.navigate(['../tienda']);
       }
     });
+
+
+
     this.UsuariosForm.reset();
+  }
+
+  MensajeCorrecto() {
+    Swal.fire(
+      'Usuario registrado!',
+      'El usuario se ha registrado correctamente!',
+      'success'
+    );
+  }
+
+  showButton1() {
+    this.element1 = false;
+  }
+
+  hideButton1() {
+    this.element1 = true;
+  }
+
+  showButton2() {
+    this.element2 = false;
+  }
+
+  hideButton2() {
+    this.element2 = true;
   }
 
 }

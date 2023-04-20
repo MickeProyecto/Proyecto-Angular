@@ -10,6 +10,10 @@
     <div>
         <img id="logo" alt="Nike Logo" src="assets/imagenes/LogoLogin.png">
 
+        <label id="titulodni">
+            <h4>Ponga el dni:</h4>
+        </label>
+
         <input id="dni" formControlName="dni" type="text" placeholder="Ponga su dni">
 
         <div *ngIf="f['dni'].touched && f['dni'].invalid">
@@ -17,6 +21,10 @@
                 Campo requerido
             </p>
         </div>
+
+        <label id="titulocontraseña">
+            <h4>Ponga la contraseña:</h4>
+        </label>
 
         <input id="password" formControlName="password" type="password" placeholder="Ponga su contraseña">
 

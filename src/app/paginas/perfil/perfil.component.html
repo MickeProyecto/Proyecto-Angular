@@ -2,10 +2,9 @@
     <img alt="Nike Logo" src="assets/imagenes/Logo.png">
     <hr>
 
-    <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-    <button title="LOGOUT" (click)="logout()">
-        <img src="assets/imagenes/logout.png">
-        <p>LOG OUT</p>
+    <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA">
+        <img src="assets/imagenes/logo_tienda.png">
+        <p>MENU PRINCIPAL</p>
     </button>
 
     <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
@@ -14,10 +13,12 @@
         <p>CARRITO</p>
     </button>
 
-    <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA">
-        <img src="assets/imagenes/logo_tienda.png">
-        <p>TIENDA</p>
-    </button>
+        <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
+        <button title="LOGOUT" (click)="logout()">
+            <img src="assets/imagenes/logout.png">
+            <p>LOG OUT</p>
+        </button>
+
 </div>
 
 <div id="perfil">

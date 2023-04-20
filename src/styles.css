@@ -1,13 +1,19 @@
-.video{
-  position: absolute;
-  margin-top: 0;
-  margin-left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.video {
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
+
+html,
 body {
-    background: rgba(10, 68, 182, 1) !important;
+    height: 100%;
+    width: 100%;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
