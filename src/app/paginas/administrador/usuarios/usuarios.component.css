@@ -55,7 +55,6 @@ form {
   margin: 0 auto;
 
   width: 1000px;
-  height: auto;
 
   left: 550px;
 
@@ -415,4 +414,7 @@ form>div>div>#error {
   background-color: #e43232;
 
   cursor: pointer;
+}
+.fixWitd{
+  height: 700px;
 }
