@@ -59,7 +59,9 @@ form {
   left: 550px;
 
   background: rgba(217, 217, 217, 0.25);
-  margin-top: 80px;
+  margin-top: 150px;
+
+  border-radius: 10px;
 }
 
 #contenido {
@@ -70,13 +72,13 @@ form {
   text-align: center;
 }
 
-form>div>label {
+form>div>div>label {
   padding-left: 100px;
   
   color: white;
 }
 
-form>div>input {
+form>div>div>input {
 
   margin-bottom: 40px;
   padding-left: 20px;
@@ -132,7 +134,7 @@ form>div>input {
 
 }
 
-form>div>div>#error {
+form>div>div>div>#error {
 
   margin-top: -25px;
   margin-left: 480px;
@@ -415,6 +417,12 @@ form>div>div>#error {
 
   cursor: pointer;
 }
+
 .fixWitd{
-  height: 700px;
+  height: 500px;
+}
+
+hr{
+  color: black;
+  border: 3px solid ;
 }
