@@ -1,0 +1,125 @@
+<div *ngIf="UsuariosArray.length > 0">
+
+    <div id="header">
+        <ng-container *ngFor="let dato of UsuariosArray">
+            <h1>Actualizando el usuario {{dato.name}}</h1>
+        </ng-container>
+    </div>
+
+    <form id="formelegir" [formGroup]="ChangeFoto">
+        <div *ngFor="let dato of UsuariosArray">
+
+            <label id="titulofoto1" *ngIf="element1 == false">
+                <h4>
+                    Foto del usuario:
+                </h4>
+            </label>
+            <label id="titulofoto2" *ngIf="element1 == true">
+                <h4>
+                    Foto del usuario:
+                </h4>
+            </label>
+
+            <br>
+            <img id="image" src="{{dato.photo}}">
+
+            <button id="botonimagen" *ngIf="element1 == false" (click)="showData()">
+                <b>Cambiar Foto</b>
+            </button>
+
+            <div *ngIf="element1 == true">
+                <input formControlName="photo" type="file" id="file" (change)="onFileChange($event)">
+                <button id="cambiarfoto" (click)="hideData()">
+                    <b>Guardar</b>
+                </button>
+                <button id="cancelarfoto" (click)="hideData()">
+                    <b>Cancelar</b>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form id="formescribir">
+        <div class="overflow-y-scroll fixWitd" *ngFor="let dato of UsuariosArray">
+            <div>
+                <label>
+                    <h4>
+                        Nombre del usuario: {{dato.name}}
+                    </h4>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    <h4>
+                        Apellidos del usuario: {{dato.lastname}}
+                    </h4>
+                </label>
+            </div>
+
+            <div [formGroup]="ChangePassword">
+                <label>
+                    <h4>
+                        Contraseña del usuario:
+                    </h4>
+                    <button id="botonimagen" *ngIf="element1 == false" (click)="showData()">
+                        <b>Cambiar Nombre</b>
+                    </button>
+                </label>
+                <input id="contra" formControlName="password" type="password"
+                    placeholder="Ponga la nueva contraseña del usuario">
+                <button>
+                    <b>Guardar</b>
+                </button>
+                <button id="cancelarfoto" (click)="hideData()">
+                    <b>Cancelar</b>
+                </button>
+            </div>
+
+            <div [formGroup]="ChangeCorreo">
+                <label>
+                    <h4>
+                        Correo del usuario: {{dato.email}}
+                    </h4>
+                    <button id="botonimagen" *ngIf="element1 == false" (click)="showData()">
+                        <b>Cambiar Nombre</b>
+                    </button>
+                </label>
+                <input id="email" formControlName="email" type="email" placeholder="Ponga el nuevo correo del usuario">
+                <button>
+                    <b>Guardar</b>
+                </button>
+                <button id="cancelarfoto" (click)="hideData()">
+                    <b>Cancelar</b>
+                </button>
+            </div>
+
+            <div [formGroup]="ChangeTelefono">
+                <label>
+                    <h4>
+                        Telefono del usuario: {{dato.phone}}
+                    </h4>
+                    <button id="botonimagen" *ngIf="element1 == false" (click)="showData()">
+                        <b>Cambiar Nombre</b>
+                    </button>
+                </label>
+                <input id="tele" formControlName="phone" type="number"
+                    placeholder="Ponga el nuevo telefono del usuario">
+                <button>
+                    <b>Guardar</b>
+                </button>
+                <button id="cancelarfoto" (click)="hideData()">
+                    <b>Cancelar</b>
+                </button>
+            </div>
+
+            <div>
+                <label>
+                    <h4>
+                        Dni del usuario: {{dato.dni}}
+                    </h4>
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
