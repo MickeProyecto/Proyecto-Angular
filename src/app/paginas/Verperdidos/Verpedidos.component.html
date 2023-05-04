@@ -4,15 +4,29 @@
         <!-- Boton para volver a la tienda -->
         <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
                         src="assets/imagenes/logo_tienda.png">
-                <p>TIENDA</p>
+                <p>MENU PRINCIPAL</p>
         </button>
-        <!-- Boton para que el usuario pueda ver su perfil -->
-        <button routerLink="../perfil" routerLinkActive="active" titulo="PERFIL"><img src="assets/imagenes/perfil.png">
+
+        <!-- Sale una vez el usuario a iniciado sesion -->
+        <button *ngIf="info.rol == 'cliente' || info.rol == 'admin'" routerLink="../perfil" titulo="PERFIL"><img
+                        src="assets/imagenes/perfil.png">
                 <p>PERFIL</p>
         </button>
-        <!-- Boton para cerrar sesion -->
-        <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png">
-                <p>LOG OUT</p>
+
+        <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
+        <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img
+                        src="assets/imagenes/carrito.png">
+                <p>CARRITO</p>
+        </button>
+
+        <button *ngIf="info.rol == 'admin'" routerLink="../usuarios" routerLinkActive="active" titulo="REGISTRO"><img
+                        src="assets/imagenes/usuarios.png">
+                <p>USUARIOS</p>
+        </button>
+
+        <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active"
+                titulo="PEDIDOS"><img src="assets/imagenes/carrito_foto.png">
+                <p>PUNTOS DE ENTREGA</p>
         </button>
 </div>
 
@@ -47,5 +61,5 @@
 
 <div id="carrito" *ngIf="element == true && info.rol == 'admin'">
         <img id="foto" src="assets/imagenes/carrito_foto.png">
-        <p>No hay ningun pedido</p>
+        <p>Ningun usuario tiene pedidos</p>
 </div>

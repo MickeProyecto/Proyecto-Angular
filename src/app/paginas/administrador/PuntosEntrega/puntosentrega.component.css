@@ -176,10 +176,10 @@ form>div>div>div>#error {
 
   text-align: center;
 
-  margin-left: 500px;
+  margin-left: 400px;
   margin-top: 200px;
 
-  width: 1199px;
+  width: 1400px;
 
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -204,7 +204,7 @@ form>div>div>div>#error {
   margin-top: 20px;
   margin-left: 899px;
 
-  width: 200px;
+  width: 300px;
   height: 40px;
 
   padding-bottom: 5px;
@@ -257,8 +257,4 @@ hr{
 #Mensajeningunusuario{
   color: white;
   padding-bottom: 10px;
-}
-
-::placeholder{
-  color: black;
 }

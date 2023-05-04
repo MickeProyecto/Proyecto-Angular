@@ -1,0 +1,211 @@
+<div id="menu">
+    <img alt="Nike Logo" src="assets/imagenes/Logo.png">
+    <hr>
+
+    <button routerLink="../tienda" routerLinkActive="active" titulo="PEDIDOS"><img
+            src="assets/imagenes/logo_tienda.png">
+        <p>MENU PRINCIPAL</p>
+    </button>
+
+    <button *ngIf="info.rol == 'admin'" routerLink="../usuarios" routerLinkActive="active" titulo="PEDIDOS"><img
+            src="assets/imagenes/carrito_foto.png">
+        <p>USUARIOS</p>
+    </button>
+
+
+    <button routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+            src="assets/imagenes/carrito_foto.png">
+        <p>PEDIDOS</p>
+    </button>
+
+</div>
+
+
+<ng-container *ngIf="element1 == true && element2 == true">
+    <table id="producto">
+        <tr>
+            <td colspan="10">
+                <button id="botonUsuarios" (click)="showButton2()">
+                    Crear Punto de Entrega
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10">
+                <hr>
+            </td>
+        </tr>
+
+        <tr *ngIf="UsuariosArray.length != 0">
+            <th>Tienda:</th>
+            <th>Provincia:</th>
+            <th>CP:</th>
+            <th>Direccion:</th>
+            <th>Mapa:</th>
+            <th>Streetview:</th>
+            <th>Encargado:</th>
+            <th>Foto:</th>
+            <th>Editar:</th>
+            <th>Borrar:</th>
+        </tr>
+        <ng-container *ngIf="UsuariosArray.length != 0">
+            <tr id="materiales" *ngFor="let dato of UsuariosArray">
+                <td>{{dato.tienda}}</td>
+                <td>{{dato.provincia}}</td>
+                <td>{{dato.cp}}</td>
+                <td>{{dato.direccion}}</td>
+                <td>
+                    <a href=" {{dato.mapa}}">Posicion satelite</a>
+                </td>
+                <td>
+                    <a href=" {{dato.streeview}}">Posicion streetview</a>
+                </td>
+                <td>{{dato.encargado}}</td>
+                <td><img id="foto" [src]="dato.foto"></td>
+                <td>
+                    <a id="Editar" class="btn btn-secondary" [routerLink]="['../UpdateUsuarios', dato.id]">
+                        <i class="fas fa-marker"></i>
+                    </a>
+                </td>
+            </tr>
+        </ng-container>
+        <div *ngIf="UsuariosArray.length == 0" id="Mensajeningunusuario">
+            <b>No hay ningun punto de entrega</b>
+        </div>
+
+    </table>
+
+</ng-container>
+
+<form [formGroup]="PuntoEntregaForm" *ngIf="element2 == false">
+    <div class="overflow-y-scroll fixWitd">
+        <div>
+            <label>
+                <h4>
+                    Foto de la tienda:
+                </h4>
+            </label>
+
+            <input formControlName="foto" type="file" id="file" (change)="onFileChange($event)">
+
+            <div *ngIf="f['foto'].touched && f['foto'].invalid">
+                <p id="error" *ngIf="f['foto'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Nombre de la tienda:
+                </h4>
+            </label>
+            <input id="nombre" formControlName="tienda" type="text" placeholder="Ponga el nombre de la tienda:">
+
+            <div *ngIf="f['tienda'].touched">
+                <p id="error" *ngIf="f['tienda'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Provincia de la tienda:
+                </h4>
+            </label>
+            <input id="apellidos" formControlName="provincia" type="text"
+                placeholder="Ponga la provincia de la tienda:">
+            <div *ngIf="f['provincia'].touched">
+                <p id="error" *ngIf="f['provincia'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    CP de la tienda:
+                </h4>
+            </label>
+            <input id="contra" formControlName="cp" type="number" placeholder="Ponga el codigo postal de la tienda:">
+            <div *ngIf="f['cp'].touched">
+                <p id="error" *ngIf="f['cp'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Direccion de la tienda:
+                </h4>
+            </label>
+            <input id="email" formControlName="direccion" type="email" placeholder="Ponga la direccion de la tienda:">
+            <div *ngIf="f['direccion'].touched">
+                <p id="error" *ngIf="f['direccion'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Posición en el Google Maps (satelite):
+                </h4>
+            </label>
+            <input id="tele" formControlName="mapa" type="text" placeholder="Ponga el link del mapa:">
+            <div *ngIf="f['mapa'].touched">
+                <p id="error" *ngIf="f['mapa'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Posicion de la tienda (streetview):
+                </h4>
+            </label>
+            <input id="dni" formControlName="streeview" type="text" placeholder="Ponga el link del streetview:">
+            <div *ngIf="f['streeview'].touched">
+                <p id="error" *ngIf="f['streeview'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label>
+                <h4>
+                    Encargado de la tienda:
+                </h4>
+            </label>
+            <input id="dni" formControlName="encargado" type="text" placeholder="Ponga el nombre del encargado:">
+            <div *ngIf="f['encargado'].touched">
+                <p id="error" *ngIf="f['encargado'].hasError('required')">
+                    Campo requerido
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <div id="botones">
+        <button id="registrar" [disabled]="!PuntoEntregaForm.valid" (click)="addPuntoEntrega(); MensajeCorrecto()">
+            CREAR PUNTO DE ENTREGA
+        </button>
+        <button id="volver" (click)="hideButton2()">
+            VOLVER
+        </button>
+    </div>
+
+</form>

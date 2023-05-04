@@ -1,4 +1,4 @@
-<!--<div id="izquierda">
+<div id="izquierda">
 
     <h1>Bienvenido a Niké's Arsenal</h1>
 
@@ -40,35 +40,4 @@
 
         <p id="error" *ngIf="error == true">El usuario y/o la contraseña no existe</p>
     </div>
-</form>-->
-
-<div class="wrapper">
-  <div class="container main">
-    <div class="row">
-      <div class="col-md-6 side-image">
-
-          <img src="assets/imagenes/LogoLogin.png" alt="">
-          <div class="text">
-            <p>Bienvenido a Niké's Arsenal
-            <i>-su tienda online de material policial y airsoft de confianza-</i></p>
-          </div>
-      </div>
-      <form [formGroup]="loginForm" class="col-md-6 right">
-        <div class="input-box">
-          <header>LOG IN</header>
-          <div class="input-field">
-            <input type="text" formControlName="dni" class="input" id="dni" required autocomplete="off">
-            <label for="text">DNI</label>
-          </div>
-          <div class="input-field">
-            <input type="password" formControlName="password" class="input" id="password" required>
-            <label for="password">PASSWORD</label>
-          </div>
-          <div class="input-field">
-            <input type="submit" [disabled]="!loginForm.valid" class="submit" id="submit" value="Log In" (click)="login()">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+</form>

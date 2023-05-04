@@ -14,6 +14,9 @@ import { DialogComponentPolicial } from './policial/DialogComponent.component';
 import { DialogComponentAirsoft } from './airsoft/DialogComponent.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { VerPedidosComponent } from './Verperdidos/Verpedidos.component';
+import { UsuariosUpdateComponent } from './administrador/usuarios/UpdateUsuarios/usuariosUpdate.component';
+import { PuntosEntregaComponent } from './administrador/PuntosEntrega/puntosentrega.component';
+import { PuntosEntregaUpdateComponent } from './administrador/PuntosEntrega/UpdatePuntosEntrega/PuntosEntregaUpdate.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { VerPedidosComponent } from './Verperdidos/Verpedidos.component';
     DialogComponentPolicial,
     DialogComponentAirsoft,
     PedidosComponent,
-    VerPedidosComponent
+    VerPedidosComponent,
+    UsuariosUpdateComponent,
+    PuntosEntregaComponent,
+    PuntosEntregaUpdateComponent
   ],
   imports: [
     CommonModule,

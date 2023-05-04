@@ -8,12 +8,12 @@ import Swal from 'sweetalert2'
 
 
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  selector: 'app-puntosentrega',
+  templateUrl: './puntosentrega.component.html',
+  styleUrls: ['./puntosentrega.component.css']
 })
 
-export class UsuariosComponent implements OnInit {
+export class PuntosEntregaComponent implements OnInit {
 
   httpOptions: any;
 
@@ -22,7 +22,7 @@ export class UsuariosComponent implements OnInit {
   foto: any;
   info: any;
 
-  UsuariosForm!: FormGroup;
+  PuntoEntregaForm!: FormGroup;
 
   UsuariosArray: any[] = [];
 
@@ -34,23 +34,25 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('as');
 
 
-    this.UsuariosForm = new FormGroup({
-      photo: new FormControl('', Validators.required),
+    this.PuntoEntregaForm = new FormGroup({
+      tienda: new FormControl('', Validators.required),
 
-      name: new FormControl('', Validators.required),
+      provincia: new FormControl('', Validators.required),
 
-      lastname: new FormControl('', Validators.required),
+      cp: new FormControl('', Validators.required),
 
-      password: new FormControl('', Validators.required),
+      direccion: new FormControl('', Validators.required),
 
-      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      mapa: new FormControl('', Validators.required),
 
-      phone: new FormControl('', Validators.required),
+      streeview: new FormControl('', Validators.required),
 
-      dni: new FormControl('', Validators.required)
+      encargado: new FormControl('', Validators.required),
+
+      foto: new FormControl('', Validators.required)
+
     });
 
 
@@ -67,14 +69,14 @@ export class UsuariosComponent implements OnInit {
       })
     };
 
-    this._http.get(this.usuarios.URL + 'indexusuarios', this.httpOptions).subscribe((data: any) => {
+    this._http.get(`${this.usuarios.URL}indexpu`, this.httpOptions).subscribe((data: any) => {
       this.UsuariosArray = data;
     });
 
   }
 
   get f() {
-    return this.UsuariosForm.controls;
+    return this.PuntoEntregaForm.controls;
   }
 
   onFileChange(event: any) {
@@ -88,21 +90,22 @@ export class UsuariosComponent implements OnInit {
     }
   }
 
-  addUsuario(): void {
+  addPuntoEntrega(): void {
 
-    const cliente: Usuarios = {
-      "photo": this.foto,
-      "name": this.UsuariosForm.value.name,
-      "lastname": this.UsuariosForm.value.lastname,
-      "password": this.UsuariosForm.value.password,
-      "email": this.UsuariosForm.value.email,
-      "phone": parseInt(this.UsuariosForm.value.phone),
-      "dni": this.UsuariosForm.value.dni
+    const puntoentrega = {
+      "tienda": this.PuntoEntregaForm.value.tienda,
+      "provincia": this.PuntoEntregaForm.value.provincia,
+      "cp": parseInt(this.PuntoEntregaForm.value.cp),
+      "direccion": this.PuntoEntregaForm.value.direccion,
+      "mapa": this.PuntoEntregaForm.value.mapa,
+      "streeview": this.PuntoEntregaForm.value.streeview,
+      "encargado": this.PuntoEntregaForm.value.encargado,
+      "foto": this.foto
     };
 
-    console.log(cliente);
+    console.log(puntoentrega);
 
-    this.usuarios.addUsuarios(cliente).subscribe({
+    this.usuarios.addPuntosDeEntrega(puntoentrega).subscribe({
       next: (value: Usuarios) => {
 
         console.log(value);
@@ -110,18 +113,7 @@ export class UsuariosComponent implements OnInit {
       }
     });
 
-
-
-    this.UsuariosForm.reset();
-  }
-
-
-  UpdateUsuario(event: any, idUsuario: any): void {
-
-    this.usuarios.setUsuarioId(idUsuario);
-
-    console.log(idUsuario);
-
+    this.PuntoEntregaForm.reset();
   }
 
 

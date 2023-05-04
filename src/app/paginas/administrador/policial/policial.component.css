@@ -1,3 +1,7 @@
+main{
+  position: absolute;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
 
@@ -141,6 +145,9 @@
 }
 
 #crearProducto {
+
+  position: absolute;
+
   margin: 0 auto;
 
   width: 1000px;
@@ -152,6 +159,10 @@
 }
 
 #crearCategoria {
+
+  position: absolute;
+
+
   margin: 0 auto;
 
   width: 1000px;

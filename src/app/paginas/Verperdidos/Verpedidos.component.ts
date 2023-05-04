@@ -5,9 +5,9 @@ import { UsuariosService } from '../servicio/usuarios.service';
 import { Pedidos } from 'src/app/models/pedidos.model';
 
 @Component({
-  selector: 'app-pedidos',
-  templateUrl: './VerPedidos.component.html',
-  styleUrls: ['./VerPedidos.component.css']
+  selector: 'app-Verpedidos',
+  templateUrl: './Verpedidos.component.html',
+  styleUrls: ['./Verpedidos.component.css']
 })
 export class VerPedidosComponent implements OnInit {
 

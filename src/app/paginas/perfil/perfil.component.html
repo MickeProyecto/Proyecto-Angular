@@ -13,11 +13,28 @@
         <p>CARRITO</p>
     </button>
 
-        <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
-        <button title="LOGOUT" (click)="logout()">
-            <img src="assets/imagenes/logout.png">
-            <p>LOG OUT</p>
-        </button>
+    <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
+    <button *ngIf="info.rol == 'admin'" routerLink="../usuarios" routerLinkActive="active" titulo="REGISTRO"><img
+            src="assets/imagenes/usuarios.png">
+        <p>USUARIOS</p>
+    </button>
+
+    <button routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+            src="assets/imagenes/carrito_foto.png">
+        <p>PEDIDOS</p>
+    </button>
+
+
+    <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active" titulo="PEDIDOS"><img
+            src="assets/imagenes/carrito_foto.png">
+        <p>PUNTOS DE ENTREGA</p>
+    </button>
+
+    <!-- Saldra si el usuario a iniciado sesion y replacara el botone de iniciar sesion -->
+    <button title="LOGOUT" (click)="logout()">
+        <img src="assets/imagenes/logout.png">
+        <p>LOG OUT</p>
+    </button>
 
 </div>
 

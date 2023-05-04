@@ -188,4 +188,27 @@ export class UsuariosService {
                 }
                 ));
     }
+
+    addPuntosDeEntrega(puntosentrega: any) {
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+            })
+        };
+
+        return this._http.post(this.URL + "createpu", puntosentrega, this.httpOptions)
+            .pipe(
+                filter((response: any) => {
+                    if (response != null) {
+                        this.found = true;
+                    }
+                    else {
+                        this.found = false;
+                    }
+                    this.datosusuario = response;
+                    return this.datosusuario;
+                }
+                ));
+    }
 }

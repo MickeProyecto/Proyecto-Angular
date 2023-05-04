@@ -1,19 +1,21 @@
 <div id="menu">
         <img alt="Nike Logo" src="assets/imagenes/Logo.png">
         <hr>
-        <!-- Boton para cerrar sesion -->
-        <button title="LOGOUT" (click)="logout()"><img src="assets/imagenes/logout.png">
-                <p>LOG OUT</p>
+        <!-- Boton para volver a la tienda -->
+        <button routerLink="../tienda" routerLinkActive="active" titulo="MENU PRINCIPAL"><img
+                        src="assets/imagenes/logo_tienda.png">
+                <p>MENU PRINCIPAL</p>
         </button>
         <!-- Boton para que el usuario pueda ver su perfil -->
         <button routerLink="../perfil" routerLinkActive="active" titulo="PERFIL"><img src="assets/imagenes/perfil.png">
                 <p>PERFIL</p>
         </button>
-        <!-- Boton para volver a la tienda -->
-        <button routerLink="../tienda" routerLinkActive="active" titulo="TIENDA"><img
-                        src="assets/imagenes/logo_tienda.png">
-                <p>TIENDA</p>
+        
+        <button routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+                        src="assets/imagenes/carrito_foto.png">
+                <p>PEDIDOS</p>
         </button>
+
 </div>
 
 <ng-container *ngIf="element == false">
@@ -32,7 +34,7 @@
                 </tr>
 
         </table>
-        <button id="ConfirmarEntrega"  (click)="Pedido()">
+        <button id="ConfirmarEntrega" (click)="Pedido()">
                 <p>Confirmar Compra</p>
         </button>
 

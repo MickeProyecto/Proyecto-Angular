@@ -2,15 +2,15 @@
   <img alt="Nike Logo" src="assets/imagenes/Logo.png">
   <hr>
 
-  <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
-  <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png">
-    <p>CARRITO</p>
-  </button>
-
   <!-- Sale una vez el usuario a iniciado sesion -->
   <button *ngIf="info.rol == 'cliente' || info.rol == 'admin'" routerLink="../perfil" titulo="PERFIL"><img
       src="assets/imagenes/perfil.png">
     <p>PERFIL</p>
+  </button>
+
+  <!-- Saldra si el usuario que a iniciado sesion es un cliente -->
+  <button *ngIf="info.rol == 'cliente'" routerLink="../carrito" titulo="CARRITO"><img src="assets/imagenes/carrito.png">
+    <p>CARRITO</p>
   </button>
 
   <!-- Saldra si el usuario que a iniciado sesion es un admin y replacara el boton del carrito -->
@@ -25,7 +25,7 @@
   </button>
 
 
-  <button *ngIf="info.rol == 'admin'" routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+  <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active" titulo="PEDIDOS"><img
       src="assets/imagenes/carrito_foto.png">
     <p>PUNTOS DE ENTREGA</p>
   </button>

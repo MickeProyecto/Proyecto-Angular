@@ -2,7 +2,7 @@
     <img alt="Nike Logo" src="assets/imagenes/Logo.png">
     <hr>
 
-    <button *ngIf="info.rol == 'admin'" routerLink="../tienda" routerLinkActive="active" titulo="PEDIDOS"><img
+    <button routerLink="../tienda" routerLinkActive="active" titulo="PEDIDOS"><img
             src="assets/imagenes/logo_tienda.png">
         <p>MENU PRINCIPAL</p>
     </button>
@@ -19,7 +19,7 @@
     </button>
 
 
-    <button *ngIf="info.rol == 'admin'" routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+    <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active" titulo="PEDIDOS"><img
             src="assets/imagenes/carrito_foto.png">
         <p>PUNTOS DE ENTREGA</p>
     </button>
@@ -31,7 +31,7 @@
     <table id="producto">
         <tr>
             <td colspan="7">
-                <button id="botonProductos" (click)="showButton2()">
+                <button id="botonUsuarios" (click)="showButton2()">
                     Registrar un Usuario
                 </button>
             </td>
@@ -41,6 +41,7 @@
                 <hr>
             </td>
         </tr>
+
         <tr *ngIf="UsuariosArray.length != 0">
             <th>Foto:</th>
             <th>Nombre:</th>
@@ -49,9 +50,7 @@
             <th>Telefono:</th>
             <th>DNI:</th>
             <th>Editar:</th>
-            <th>Borrar:</th>
         </tr>
-
         <ng-container *ngIf="UsuariosArray.length != 0">
             <tr id="materiales" *ngFor="let dato of UsuariosArray">
                 <td><img id="foto" [src]="dato.photo"></td>
@@ -61,23 +60,18 @@
                 <td>{{dato.phone}}</td>
                 <td>{{dato.dni}}</td>
                 <td>
-                    <button id="Editar">
-                        Editar
-                    </button>
-                </td>
-                <td>
-                    <button id="Borrar">
-                        Borrar
-                    </button>
+                    <a id="Editar" class="btn btn-secondary" [routerLink]="['../UpdateUsuarios', dato.id]">
+                        <i class="fas fa-marker"></i>
+                    </a>
                 </td>
             </tr>
         </ng-container>
-
-        <div *ngIf="UsuariosArray.length == 0">
+        <div *ngIf="UsuariosArray.length == 0" id="Mensajeningunusuario">
             <b>No hay ningun usuario</b>
         </div>
 
     </table>
+
 </ng-container>
 
 <form [formGroup]="UsuariosForm" *ngIf="element2 == false">
