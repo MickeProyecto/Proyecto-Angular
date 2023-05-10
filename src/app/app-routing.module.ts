@@ -13,6 +13,9 @@ import { PedidosComponent } from './paginas/pedidos/pedidos.component';
 import { VerPedidosComponent } from './paginas/Verperdidos/Verpedidos.component';
 import { UsuariosUpdateComponent } from './paginas/administrador/usuarios/UpdateUsuarios/usuariosUpdate.component';
 import { PuntosEntregaComponent } from './paginas/administrador/PuntosEntrega/puntosentrega.component';
+import { PuntosEntregaUpdateComponent } from './paginas/administrador/PuntosEntrega/UpdatePuntosEntrega/PuntosEntregaUpdate.component';
+import { CategoriaUpdateComponent } from './paginas/administrador/policial/EditarCategoria/CategoriaUpdate.component';
+import { ProductoUpdateComponent } from './paginas/administrador/policial/EditarProducto/ProductoUpdate.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
   { path: 'confirmarCompra', component: PedidosComponent },
   { path: 'VerPedidos', component: VerPedidosComponent },
   { path: 'UpdateUsuarios/:id', component: UsuariosUpdateComponent },
-  { path: 'PuntosEntrega', component: PuntosEntregaComponent }
+  { path: 'PuntosEntrega', component: PuntosEntregaComponent },
+  { path: 'UpdatePuntosEntrega/:id', component: PuntosEntregaUpdateComponent },
+  { path: 'CategoriaUpdate/:id', component: CategoriaUpdateComponent },
+  { path: 'ProductoUpdate/:id', component: ProductoUpdateComponent }
 ];
 
 @NgModule({
