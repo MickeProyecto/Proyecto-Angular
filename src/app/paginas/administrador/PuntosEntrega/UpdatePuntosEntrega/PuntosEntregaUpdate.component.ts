@@ -21,9 +21,13 @@ export class PuntosEntregaUpdateComponent implements OnInit {
     info: any;
 
     ChangeFoto!: FormGroup;
-    ChangePassword!: FormGroup;
-    ChangeCorreo!: FormGroup;
-    ChangeTelefono!: FormGroup;
+    ChangeTienda!: FormGroup;
+    ChangeProvincia!: FormGroup;
+    ChangeCP!: FormGroup;
+    ChangeDireccion!: FormGroup;
+    ChangeMapa!: FormGroup;
+    ChangeStreeview!: FormGroup;
+    ChangeEncargado!: FormGroup;
 
     UsuariosArray: any[] = [];
 
@@ -31,7 +35,10 @@ export class PuntosEntregaUpdateComponent implements OnInit {
     element2 = false;
     element3 = false;
     element4 = false;
-
+    element5 = false;
+    element6 = false;
+    element7 = false;
+    element8 = false;
 
     private sub: any;
 
@@ -56,7 +63,7 @@ export class PuntosEntregaUpdateComponent implements OnInit {
             this.id = +params['id'];
             console.log('1');
 
-            this._http.get(this.usuarios.URL + `indexespecifico/${this.id}`, this.httpOptions).subscribe((data: any) => {
+            this._http.get(this.usuarios.URL + `indexpuex/${this.id}`, this.httpOptions).subscribe((data: any) => {
                 console.log(data)
                 this.UsuariosArray = data;
             });
@@ -66,16 +73,32 @@ export class PuntosEntregaUpdateComponent implements OnInit {
             photo: new FormControl('', Validators.required),
         });
 
-        this.ChangePassword = new FormGroup({
-            password: new FormControl('', Validators.required),
+        this.ChangeTienda = new FormGroup({
+            tienda: new FormControl('', Validators.required),
         });
 
-        this.ChangeCorreo = new FormGroup({
-            email: new FormControl('', Validators.required),
+        this.ChangeProvincia = new FormGroup({
+            provincia: new FormControl('', Validators.required),
         });
 
-        this.ChangeTelefono = new FormGroup({
-            phone: new FormControl('', Validators.required),
+        this.ChangeCP = new FormGroup({
+            cp: new FormControl('', Validators.required),
+        });
+
+        this.ChangeDireccion = new FormGroup({
+            direccion: new FormControl('', Validators.required),
+        });
+
+        this.ChangeMapa = new FormGroup({
+            mapa: new FormControl('', Validators.required),
+        });
+
+        this.ChangeStreeview = new FormGroup({
+            streeview: new FormControl('', Validators.required),
+        });
+
+        this.ChangeEncargado = new FormGroup({
+            encargado: new FormControl('', Validators.required),
         });
 
     }
@@ -84,16 +107,33 @@ export class PuntosEntregaUpdateComponent implements OnInit {
         return this.ChangeFoto.controls;
     }
 
-    get p() {
-        return this.ChangePassword.controls;
-    }
-
-    get c() {
-        return this.ChangeCorreo.controls;
-    }
-
     get t() {
-        return this.ChangeTelefono.controls;
+        return this.ChangeTienda.controls;
+    }
+
+    get p() {
+        return this.ChangeProvincia.controls;
+    }
+
+    get cd() {
+        return this.ChangeCP.controls;
+
+    }
+
+    get d() {
+        return this.ChangeDireccion.controls;
+    }
+
+    get m() {
+        return this.ChangeMapa.controls;
+    }
+
+    get s() {
+        return this.ChangeStreeview.controls;
+    }
+
+    get e() {
+        return this.ChangeEncargado.controls;
     }
 
     onFileChange(event: any) {
@@ -110,64 +150,124 @@ export class PuntosEntregaUpdateComponent implements OnInit {
 
     UpdateFoto(): void {
 
-        let photo = this.foto;
+        let foto = this.foto;
 
         const changeFoto = {
-            "photo": photo
+            "foto": foto
         };
 
         console.log(changeFoto);
 
-        this._http.put(this.usuarios.URL + `updatephoto/${this.id}`, changeFoto, this.httpOptions).subscribe(() => {
+        this._http.put(this.usuarios.URL + `updatefoto/${this.id}`, changeFoto, this.httpOptions).subscribe(() => {
             // Redirigir al usuario a la página anterior
         })
 
         this.ChangeFoto.reset();
     }
 
-    UpdateContra(): void {
+    UpdateTienda(): void {
 
-        const changepassword = {
-            "password": this.ChangePassword.value.password
+        const changetienda = {
+            "tienda": this.ChangeTienda.value.tienda
         };
 
-        console.log(changepassword);
+        console.log(changetienda);
 
-        this._http.put(this.usuarios.URL + `updatepassword/${this.id}`, changepassword, this.httpOptions).subscribe(() => {
+        this._http.put(this.usuarios.URL + `updatetienda/${this.id}`, changetienda, this.httpOptions).subscribe(() => {
             // Redirigir al usuario a la página anterior
         })
 
-        this.ChangePassword.reset();
+        this.ChangeTienda.reset();
     }
 
-    UpdateCorreo(): void {
+    UpdateProvincia(): void {
 
-        const changeemail = {
-            "email": this.ChangeCorreo.value.email
+        const changeprovincia = {
+            "provincia": this.ChangeProvincia.value.provincia
         };
 
-        console.log(changeemail);
+        console.log(changeprovincia);
 
-        this._http.put(this.usuarios.URL + `updateemail/${this.id}`, changeemail, this.httpOptions).subscribe(() => {
+        this._http.put(this.usuarios.URL + `updateprovincia/${this.id}`, changeprovincia, this.httpOptions).subscribe(() => {
             // Redirigir al usuario a la página anterior
         })
 
-        this.ChangeCorreo.reset();
+        this.ChangeProvincia.reset();
     }
 
-    UpdateTelefono(): void {
+    UpdateCP(): void {
 
-        const changephone = {
-            "phone": this.ChangeTelefono.value.phone
+        const changecp = {
+            "cp": Number(this.ChangeCP.value.cp)
         };
 
-        console.log(changephone);
+        console.log(changecp);
 
-        this._http.put(this.usuarios.URL + `updatephone/${this.id}`, changephone, this.httpOptions).subscribe(() => {
+        this._http.put(this.usuarios.URL + `updatecp/${this.id}`, changecp, this.httpOptions).subscribe(() => {
             // Redirigir al usuario a la página anterior
         })
 
-        this.ChangeTelefono.reset();
+        this.ChangeCP.reset();
+    }
+
+    UpdateDireccion(): void {
+
+        const changedireccion = {
+            "direccion": this.ChangeDireccion.value.direccion
+        };
+
+        console.log(changedireccion);
+
+        this._http.put(this.usuarios.URL + `updatedireccion/${this.id}`, changedireccion, this.httpOptions).subscribe(() => {
+            // Redirigir al usuario a la página anterior
+        })
+
+        this.ChangeDireccion.reset();
+    }
+
+    UpdateMapa(): void {
+
+        const changemapa = {
+            "mapa": this.ChangeMapa.value.mapa
+        };
+
+        console.log(changemapa);
+
+        this._http.put(this.usuarios.URL + `updatemapa/${this.id}`, changemapa, this.httpOptions).subscribe(() => {
+            // Redirigir al usuario a la página anterior
+        })
+
+        this.ChangeMapa.reset();
+    }
+
+    UpdateStreetview(): void {
+
+        const changestreetview = {
+            "streeview": this.ChangeStreeview.value.streeview
+        };
+
+        console.log(changestreetview);
+
+        this._http.put(this.usuarios.URL + `updatestreeview/${this.id}`, changestreetview, this.httpOptions).subscribe(() => {
+            // Redirigir al usuario a la página anterior
+        })
+
+        this.ChangeStreeview.reset();
+    }
+
+    UpdateEncargado(): void {
+
+        const changeencargado = {
+            "encargado": this.ChangeEncargado.value.encargado
+        };
+
+        console.log(changeencargado);
+
+        this._http.put(this.usuarios.URL + `updateencargado/${this.id}`, changeencargado, this.httpOptions).subscribe(() => {
+            // Redirigir al usuario a la página anterior
+        })
+
+        this.ChangeEncargado.reset();
     }
 
     MensajeCorrecto() {
@@ -214,4 +314,35 @@ export class PuntosEntregaUpdateComponent implements OnInit {
         this.element4 = false;
     }
 
+    showData5() {
+        this.element5 = true;
+    }
+
+    hideData5() {
+        this.element5 = false;
+    }
+
+    showData6() {
+        this.element6 = true;
+    }
+
+    hideData6() {
+        this.element6 = false;
+    }
+
+    showData7() {
+        this.element7 = true;
+    }
+
+    hideData7() {
+        this.element7 = false;
+    }
+
+    showData8() {
+        this.element8 = true;
+    }
+
+    hideData8() {
+        this.element8 = false;
+    }
 }

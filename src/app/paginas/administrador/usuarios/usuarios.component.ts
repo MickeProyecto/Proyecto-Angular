@@ -34,9 +34,6 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('as');
-
-
     this.UsuariosForm = new FormGroup({
       photo: new FormControl('', Validators.required),
 

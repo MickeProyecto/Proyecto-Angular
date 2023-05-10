@@ -23,6 +23,8 @@ export class UsuariosService {
     id_punto_entrega: any;
     datosusuario: any;
     newPedidosarray: any;
+    idCategoria: any;
+    idproducto: any;
 
     found = false;
 
@@ -44,6 +46,18 @@ export class UsuariosService {
         console.log(this.newPedidosarray);
     }
 
+    setIdPuntoEntrega(id: any) {
+        this.id_punto_entrega = id;
+    }
+
+    setIdCategoria(id: any) {
+        this.idCategoria = id;
+    }
+
+    setIdProducto(id: any) {
+        this.idProducto = id;
+    }
+
     getParametro() {
         return this.idProducto;
     }
@@ -58,6 +72,18 @@ export class UsuariosService {
 
     getPedidos() {
         return this.newPedidosarray;
+    }
+
+    getIdPuntoEntrega() {
+        return this.id_punto_entrega;
+    }
+
+    getIdCategoria() {
+        return this.idCategoria;
+    }
+
+    getIdProducto() {
+        return this.idProducto;
     }
 
     addUsuarios(usuarios: Usuarios) {

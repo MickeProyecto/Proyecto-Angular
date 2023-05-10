@@ -1,8 +1,8 @@
-<div *ngIf="UsuariosArray.length > 0">
+<div *ngIf="UsuariosArray.length != 0">
 
     <div id="header">
         <ng-container *ngFor="let dato of UsuariosArray">
-            <h1>Actualizando el usuario {{dato.name}}</h1>
+            <h1>Actualizando el punto de entrega: {{dato.tienda}}</h1>
         </ng-container>
     </div>
 
@@ -11,17 +11,17 @@
 
             <label id="titulofoto1" *ngIf="element1 == false">
                 <h4>
-                    Foto del usuario:
+                    Foto de la tienda:
                 </h4>
             </label>
             <label id="titulofoto2" *ngIf="element1 == true">
                 <h4>
-                    Foto del usuario:
+                    Foto de la tienda:
                 </h4>
             </label>
 
             <br>
-            <img id="image" src="{{dato.photo}}">
+            <img id="image" src="{{dato.foto}}">
 
             <button id="botonimagen" *ngIf="element1 == false" (click)="showData1()">
                 <b>Cambiar Foto</b>
@@ -42,37 +42,20 @@
 
     <form id="formescribir">
         <div class="overflow-y-scroll fixWitd" *ngFor="let dato of UsuariosArray">
-            <div>
+            <div [formGroup]="ChangeTienda">
                 <label>
                     <h4>
-                        Nombre del usuario: {{dato.name}}
-                    </h4>
-                </label>
-            </div>
-
-            <div>
-                <label>
-                    <h4>
-                        Apellidos del usuario: {{dato.lastname}}
-                    </h4>
-                </label>
-            </div>
-
-            <div [formGroup]="ChangePassword">
-                <label>
-                    <h4>
-                        Contraseña del usuario:
+                        Nombre de la tienda: {{dato.tienda}}
                     </h4>
                     <button id="botoncontra" *ngIf="element2 == false" (click)="showData2()">
-                        <b>Cambiar Contraseña</b>
+                        <b>Cambiar Nombre</b>
                     </button>
                 </label>
                 <div *ngIf="element2 == true">
-                    <input id="contra" formControlName="password" type="password"
-                        placeholder="Ponga la nueva contraseña:">
+                    <input id="contra" formControlName="tienda" type="text" placeholder="Ponga el nuevo nombre:">
                     <div id="botonescontra">
-                        <button id="cambiarcontra" [disabled]="!ChangePassword.valid"
-                            (click)="UpdateContra(); hideData2(); ngOnInit()">
+                        <button id="cambiarcontra" [disabled]="!ChangeTienda.valid"
+                            (click)="UpdateTienda(); hideData2(); ngOnInit()">
                             <b>Guardar</b>
                         </button>
                         <button id="cancelarcontra" (click)="hideData2()">
@@ -82,64 +65,152 @@
                 </div>
             </div>
 
-            <div [formGroup]="ChangeCorreo">
+            <div [formGroup]="ChangeProvincia">
                 <label>
                     <h4>
-                        Correo del usuario: {{dato.email}}
+                        Provincia de la tienda: {{dato.provincia}}
                     </h4>
-                    <button id="botoncorreo" *ngIf="element3 == false" (click)="showData3()">
-                        <b>Cambiar Correo</b>
+                    <button id="botoncontra" *ngIf="element3 == false" (click)="showData3()">
+                        <b>Cambiar Provincia</b>
                     </button>
                 </label>
                 <div *ngIf="element3 == true">
-                    <input id="email" formControlName="email" type="email"
-                        placeholder="Ponga el nuevo correo del usuario">
-                    <div id="botonescorreo">
-                        <button id="cambiarcorreo" [disabled]="!ChangeCorreo.valid"
-                            (click)="UpdateCorreo(); hideData3(); ngOnInit()">
+                    <input id="contra" formControlName="provincia" type="text" placeholder="Ponga la nueva provincia:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeProvincia.valid"
+                            (click)="UpdateProvincia(); hideData3(); ngOnInit()">
                             <b>Guardar</b>
                         </button>
-                        <button id="cancelarcorreo" (click)="hideData3()">
+                        <button id="cancelarcontra" (click)="hideData3()">
                             <b>Cancelar</b>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div [formGroup]="ChangeTelefono">
+            <div [formGroup]="ChangeCP">
                 <label>
                     <h4>
-                        Telefono del usuario: {{dato.phone}}
+                        CP de la tienda: {{dato.cp}}
                     </h4>
-                    <button id="botontele" *ngIf="element4 == false" (click)="showData4()">
-                        <b>Cambiar Telefono</b>
+                    <button id="botoncontra" *ngIf="element4 == false" (click)="showData4()">
+                        <b>Cambiar CP</b>
                     </button>
                 </label>
                 <div *ngIf="element4 == true">
-                    <input id="tele" formControlName="phone" type="number"
-                        placeholder="Ponga el nuevo telefono del usuario">
-                    <div id="botonestelefono">
-                        <button id="cambiartelefono" [disabled]="!ChangeTelefono.valid"
-                            (click)="UpdateTelefono(); hideData4(); ngOnInit()">
+                    <input id="contra" formControlName="cp" type="number" placeholder="Ponga el nuevo cp:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeCP.valid"
+                            (click)="UpdateCP(); hideData4(); ngOnInit()">
                             <b>Guardar</b>
                         </button>
-                        <button id="cancelartelefono" (click)="hideData4()">
+                        <button id="cancelarcontra" (click)="hideData4()">
                             <b>Cancelar</b>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div>
+            <div [formGroup]="ChangeDireccion">
                 <label>
                     <h4>
-                        Dni del usuario: {{dato.dni}}
+                        Direccion de la tienda:
+                        <br>
+                        {{dato.direccion}}
                     </h4>
+                    <button id="botoncorreo" *ngIf="element5 == false" (click)="showData5()">
+                        <b>Cambiar Direccion</b>
+                    </button>
                 </label>
+                <div *ngIf="element5 == true">
+                    <input id="email" formControlName="direccion" type="text" placeholder="Ponga la nueva direccion">
+                    <div id="botonescorreo">
+                        <button id="cambiarcorreo" [disabled]="!ChangeDireccion.valid"
+                            (click)="UpdateDireccion(); hideData5(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcorreo" (click)="hideData5()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeMapa">
+                <label>
+                    <h4>
+                        Mapa de la tienda:
+                        <br>
+                        {{dato.mapa}}
+                    </h4>
+                    <button id="botontele" *ngIf="element6 == false" (click)="showData6()">
+                        <b>Cambiar Mapa</b>
+                    </button>
+                </label>
+                <div *ngIf="element6 == true">
+                    <input id="tele" formControlName="mapa" type="text" placeholder="Ponga el nuevo link del mapa">
+                    <div id="botonestelefono">
+                        <button id="cambiartelefono" [disabled]="!ChangeMapa.valid"
+                            (click)="UpdateMapa(); hideData6(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelartelefono" (click)="hideData6()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeStreeview">
+                <label>
+                    <h4>
+                        Streetview de la tienda:
+                        <br>
+                        {{dato.streeview}}
+                    </h4>
+                    <button id="botontele" *ngIf="element7 == false" (click)="showData7()">
+                        <b>Cambiar Streetview</b>
+                    </button>
+                </label>
+                <div *ngIf="element7 == true">
+                    <input id="tele" formControlName="streeview" type="text" placeholder="Ponga el nuevo streetview">
+                    <div id="botonestelefono">
+                        <button id="cambiartelefono" [disabled]="!ChangeStreeview.valid"
+                            (click)="UpdateStreetview(); hideData7(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelartelefono" (click)="hideData7()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeEncargado">
+                <label>
+                    <h4>
+                        Encargado de la tienda: {{dato.encargado}}
+                    </h4>
+                    <button id="botontele" *ngIf="element8 == false" (click)="showData8()">
+                        <b>Cambiar Encargado</b>
+                    </button>
+                </label>
+                <div *ngIf="element8 == true">
+                    <input id="tele" formControlName="encargado" type="text" placeholder="Ponga el nuevo encargado">
+                    <div id="botonestelefono">
+                        <button id="cambiartelefono" [disabled]="!ChangeEncargado.valid"
+                            (click)="UpdateEncargado(); hideData8(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelartelefono" (click)="hideData8()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <hr>
-        <button id="volver" routerLink="/usuarios">
+        <button id="volver" routerLink="/PuntosEntrega">
             VOLVER
         </button>
     </form>

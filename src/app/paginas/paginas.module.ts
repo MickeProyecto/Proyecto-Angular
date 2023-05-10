@@ -17,6 +17,8 @@ import { VerPedidosComponent } from './Verperdidos/Verpedidos.component';
 import { UsuariosUpdateComponent } from './administrador/usuarios/UpdateUsuarios/usuariosUpdate.component';
 import { PuntosEntregaComponent } from './administrador/PuntosEntrega/puntosentrega.component';
 import { PuntosEntregaUpdateComponent } from './administrador/PuntosEntrega/UpdatePuntosEntrega/PuntosEntregaUpdate.component';
+import { CategoriaUpdateComponent } from './administrador/policial/EditarCategoria/CategoriaUpdate.component';
+import { ProductoUpdateComponent } from './administrador/policial/EditarProducto/ProductoUpdate.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { PuntosEntregaUpdateComponent } from './administrador/PuntosEntrega/Upda
     VerPedidosComponent,
     UsuariosUpdateComponent,
     PuntosEntregaComponent,
-    PuntosEntregaUpdateComponent
+    PuntosEntregaUpdateComponent,
+    CategoriaUpdateComponent,
+    ProductoUpdateComponent
   ],
   imports: [
     CommonModule,

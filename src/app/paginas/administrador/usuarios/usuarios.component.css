@@ -70,7 +70,7 @@ form {
 
 form>div>div>label {
   padding-left: 100px;
-  
+
   color: white;
 }
 
@@ -245,20 +245,24 @@ form>div>div>div>#error {
   cursor: pointer;
 }
 
-.fixWitd{
+.fixWitd {
   height: 500px;
 }
 
-hr{
+hr {
   color: rgb(255, 255, 255);
-  border: 3px solid ;
+  border: 3px solid;
 }
 
-#Mensajeningunusuario{
+#Mensajeningunusuario {
   color: white;
   padding-bottom: 10px;
 }
 
-::placeholder{
+::placeholder {
   color: black;
+}
+
+#puntosentrega {
+  margin-top: 10px;
 }

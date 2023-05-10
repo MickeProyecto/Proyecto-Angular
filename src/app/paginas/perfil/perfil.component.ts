@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../servicio/usuarios.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LogoutComponent } from './logout/LogoutComponent.component';
 
 @Component({
   selector: 'app-perfil',
@@ -12,10 +14,16 @@ export class PerfilComponent implements OnInit {
 
   httpOptions: any;
 
-  constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
+  constructor(public usuarios: UsuariosService,
+    public router: Router,
+    private _http: HttpClient,
+    public dialog: MatDialog,
+  ) { }
 
   info: any;
   token: any;
+
+  UsuarioArray: any[] = [];
 
   ngOnInit(): void {
     const currentUser = localStorage.getItem('currentUser');
@@ -25,9 +33,8 @@ export class PerfilComponent implements OnInit {
       console.log(this.info);
       console.log(this.token);
     }
-  }
 
-  logout() {
+
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -35,13 +42,25 @@ export class PerfilComponent implements OnInit {
       })
     };
 
-    this._http.get(this.usuarios.URL + 'logout', this.httpOptions).subscribe(() => {
-      // Borrar el token de autenticación del usuario actual
-      localStorage.removeItem('currentUser');
-      // Redirigir al usuario a la página de inicio de sesión
-      this.router.navigate(['']);
+    this._http.get(this.usuarios.URL + `indexespecifico/${this.info.id}`, this.httpOptions).subscribe((data: any) => {
+      this.UsuarioArray = data;
+    });
+  }
+
+  logout() {
+
+    let dialogRef = this.dialog.open(LogoutComponent, {
+      data: {}
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'home') {
+        localStorage.removeItem('currentUser');
+        this.info = null;
+        console.log(this.info);
+        this.router.navigate(['']);
+      }
+    });
   }
 
 }

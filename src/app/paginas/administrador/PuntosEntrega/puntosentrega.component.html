@@ -8,7 +8,7 @@
     </button>
 
     <button *ngIf="info.rol == 'admin'" routerLink="../usuarios" routerLinkActive="active" titulo="PEDIDOS"><img
-            src="assets/imagenes/carrito_foto.png">
+            src="assets/imagenes/usuarios.png">
         <p>USUARIOS</p>
     </button>
 
@@ -48,7 +48,7 @@
             <th>Editar:</th>
             <th>Borrar:</th>
         </tr>
-        <ng-container *ngIf="UsuariosArray.length != 0">
+        <ng-container *ngIf="UsuariosArray.length !=  0">
             <tr id="materiales" *ngFor="let dato of UsuariosArray">
                 <td>{{dato.tienda}}</td>
                 <td>{{dato.provincia}}</td>
@@ -63,9 +63,14 @@
                 <td>{{dato.encargado}}</td>
                 <td><img id="foto" [src]="dato.foto"></td>
                 <td>
-                    <a id="Editar" class="btn btn-secondary" [routerLink]="['../UpdateUsuarios', dato.id]">
+                    <a id="Editar" class="btn btn-secondary" [routerLink]="['../UpdatePuntosEntrega', dato.id]">
                         <i class="fas fa-marker"></i>
                     </a>
+                </td>
+                <td>
+                    <button id="borrar" (click)="openBorrarPuntoEntrega($event, dato.id);">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
         </ng-container>
@@ -116,7 +121,7 @@
                     Provincia de la tienda:
                 </h4>
             </label>
-            <input id="apellidos" formControlName="provincia" type="text"
+            <input id="provincia" formControlName="provincia" type="text"
                 placeholder="Ponga la provincia de la tienda:">
             <div *ngIf="f['provincia'].touched">
                 <p id="error" *ngIf="f['provincia'].hasError('required')">
@@ -131,7 +136,7 @@
                     CP de la tienda:
                 </h4>
             </label>
-            <input id="contra" formControlName="cp" type="number" placeholder="Ponga el codigo postal de la tienda:">
+            <input id="cp" formControlName="cp" type="number" placeholder="Ponga el codigo postal de la tienda:">
             <div *ngIf="f['cp'].touched">
                 <p id="error" *ngIf="f['cp'].hasError('required')">
                     Campo requerido
@@ -145,7 +150,8 @@
                     Direccion de la tienda:
                 </h4>
             </label>
-            <input id="email" formControlName="direccion" type="email" placeholder="Ponga la direccion de la tienda:">
+            <input id="direccion" formControlName="direccion" type="email"
+                placeholder="Ponga la direccion de la tienda:">
             <div *ngIf="f['direccion'].touched">
                 <p id="error" *ngIf="f['direccion'].hasError('required')">
                     Campo requerido
@@ -156,10 +162,12 @@
         <div>
             <label>
                 <h4>
-                    Posición en el Google Maps (satelite):
+                    Posición en el
+                    <br>
+                    Google Maps (satelite):
                 </h4>
             </label>
-            <input id="tele" formControlName="mapa" type="text" placeholder="Ponga el link del mapa:">
+            <input id="mapa" formControlName="mapa" type="text" placeholder="Ponga el link del mapa:">
             <div *ngIf="f['mapa'].touched">
                 <p id="error" *ngIf="f['mapa'].hasError('required')">
                     Campo requerido
@@ -170,10 +178,12 @@
         <div>
             <label>
                 <h4>
-                    Posicion de la tienda (streetview):
+                    Posicion de la
+                    <br>
+                    tienda (streetview):
                 </h4>
             </label>
-            <input id="dni" formControlName="streeview" type="text" placeholder="Ponga el link del streetview:">
+            <input id="streetview" formControlName="streeview" type="text" placeholder="Ponga el link del streetview:">
             <div *ngIf="f['streeview'].touched">
                 <p id="error" *ngIf="f['streeview'].hasError('required')">
                     Campo requerido
@@ -187,7 +197,7 @@
                     Encargado de la tienda:
                 </h4>
             </label>
-            <input id="dni" formControlName="encargado" type="text" placeholder="Ponga el nombre del encargado:">
+            <input id="encargado" formControlName="encargado" type="text" placeholder="Ponga el nombre del encargado:">
             <div *ngIf="f['encargado'].touched">
                 <p id="error" *ngIf="f['encargado'].hasError('required')">
                     Campo requerido
@@ -200,7 +210,7 @@
     <hr>
 
     <div id="botones">
-        <button id="registrar" [disabled]="!PuntoEntregaForm.valid" (click)="addPuntoEntrega(); MensajeCorrecto()">
+        <button id="registrar" [disabled]="!PuntoEntregaForm.valid" (click)="addPuntoEntrega(); MensajeCorrecto(); ngOnInit()">
             CREAR PUNTO DE ENTREGA
         </button>
         <button id="volver" (click)="hideButton2()">

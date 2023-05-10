@@ -18,7 +18,7 @@
 #menu>hr {
     position: absolute;
     color: rgb(255, 255, 255);
-    border: 3px solid ;
+    border: 3px solid;
     top: 180px;
     left: 23px;
     width: 250px;
@@ -35,7 +35,7 @@
     background: #B3B3B3;
 }
 
-#menu>button>p{
+#menu>button>p {
     margin-top: 11px;
 }
 
@@ -114,4 +114,8 @@
 #airsoft>div>p {
     margin-top: 6px;
     font-size: 30px;
+}
+
+#puntosentrega {
+    margin-top: 10px;
 }

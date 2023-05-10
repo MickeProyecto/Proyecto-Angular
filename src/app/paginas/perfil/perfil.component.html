@@ -26,7 +26,7 @@
 
 
     <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active" titulo="PEDIDOS"><img
-            src="assets/imagenes/carrito_foto.png">
+            id="puntosentrega" src="assets/imagenes/ubicacion.png">
         <p>PUNTOS DE ENTREGA</p>
     </button>
 
@@ -38,14 +38,29 @@
 
 </div>
 
-<div id="perfil">
-    <img id="foto" src="{{info.photo}}">
-    <p id="nombre"><b>Nombre: </b>{{info.name}}</p>
-    <p id="apellidos"><b>Apellidos: </b>{{info.lastname}}</p>
+<div id="aviso" *ngFor="let dato of UsuarioArray">
+    <p *ngIf="dato.rol == 'cliente'">
+        <b> Si necesita editar su foto de perfil, correo o telefono, envie un correo con la
+            nueva información a la
+            siguiente dirección: Nikes@gmail.com.
+        </b>
+    </p>
+    <p *ngIf="dato.rol == 'admin'">
+        <b>
+            Si necesita editar la información del usuario administrador
+            vaya a la pestaña usuarios desde el menú lateral.
+        </b>
+    </p>
+</div>
+
+<div id="perfil" *ngFor="let dato of UsuarioArray">
+    <img id="foto" src="{{dato.photo}}">
+    <p id="nombre"><b>Nombre: </b>{{dato.name}}</p>
+    <p id="apellidos"><b>Apellidos: </b>{{dato.lastname}}</p>
     <hr id="hr1">
-    <p id="correo"><b>Correo: </b>{{info.email}}</p>
+    <p id="correo"><b>Correo: </b>{{dato.email}}</p>
     <hr id="hr2">
-    <p id="telefono"><b>Telefono: </b>{{info.phone}}</p>
+    <p id="telefono"><b>Telefono: </b>{{dato.phone}}</p>
     <hr id="hr3">
-    <p id="DNI"><b>DNI: </b>{{info.dni}}</p>
+    <p id="DNI"><b>DNI: </b>{{dato.dni}}</p>
 </div>

@@ -1,79 +1,57 @@
-main{
+#menu {
   position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 300px;
+  background-color: rgba(98, 98, 98, 0.9);
+  border-bottom-right-radius: 10px;
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-
-  text-anchor: middle;
-
-  -webkit-user-select: none;
-
-  -moz-user-select: none;
-
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-.b-example-divider {
-  height: 3rem;
-
-  background-color: rgba(0, 0, 0, .1);
-
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-
-  width: 1.5rem;
-  height: 100vh;
-}
-
-.bi {
-  vertical-align: -.125em;
-
-  fill: currentColor;
-}
-
-.nav-scroller {
+#menu>img {
   position: relative;
-
-  z-index: 2;
-
-  height: 2.75rem;
-
-  overflow-y: hidden;
+  width: 200px;
+  height: 200px;
+  margin-left: 45px;
 }
 
-.nav-scroller .nav {
-  display: flex;
-
-  flex-wrap: nowrap;
-
-  padding-bottom: 1rem;
-
-  margin-top: -1px;
-
-  overflow-x: auto;
-
-  text-align: center;
-
-  white-space: nowrap;
-
-  -webkit-overflow-scrolling: touch;
+#menu>hr {
+  position: absolute;
+  top: 180px;
+  left: 23px;
+  width: 250px;
 }
 
-.dropdown-item {
+#menu>button {
+  border: none;
+  width: 280px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 9px;
+  margin-bottom: 10px;
+  padding-top: -20px;
+  background: #B3B3B3;
+}
+
+#menu>button>p {
+  margin-top: 11px;
+}
+
+#menu>button:hover {
   cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+
+#menu>button>img {
+  width: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+hr {
+  color: rgb(255, 255, 255);
+  border: 3px solid;
 }
 
 #producto {
@@ -81,23 +59,35 @@ main{
 
   text-align: center;
 
-  margin-left: 332px;
+  margin-left: 500px;
   margin-top: 200px;
 
   width: 1199px;
-  height: auto;
 
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  background-color: rgb(255, 255, 255, 0.451);
+  background-color: rgba(98, 98, 98, 0.9);
 
   border-radius: 10px;
 }
 
+#producto>tr {
+  color: white;
+
+  font-size: 20px;
+}
+
+#aviso {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 #foto {
   height: 100px;
-  width: 100px;
 }
 
 #categoria {
@@ -105,17 +95,39 @@ main{
 
   text-align: center;
 
-  margin-left: 632px;
+  margin-left: 500px;
   margin-top: 200px;
 
-  width: 599px;
-  height: auto;
+  width: 1199px;
 
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border-radius: 10px;
 
-  background-color: rgb(255, 255, 255, 0.451);
+  background-color: rgba(98, 98, 98, 0.9);
+
+  border-radius: 10px;
+}
+
+#Editar {
+  background-color: #3072ed;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  border-radius: 5px;
+
+  border: none;
+}
+
+#Editar:hover {
+  background-color: #6593e8;
+
+  cursor: pointer;
+}
+
+#categoria>tr {
+  color: white;
+
+  font-size: 20px;
 }
 
 #botonProductos {
@@ -123,7 +135,7 @@ main{
   margin-left: 899px;
 
   width: 200px;
-  height: 30px;
+  height: 40px;
 
   background: #B3B3B3;
 
@@ -131,17 +143,29 @@ main{
   border-radius: 19px;
 }
 
+#botonProductos:hover {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+
 #botonCategorias {
   margin-top: 20px;
-  margin-left: 300px;
+  margin-left: 899px;
 
   width: 200px;
-  height: 30px;
+  height: 40px;
 
   background: #B3B3B3;
 
   border: none;
   border-radius: 19px;
+}
+
+#botonCategorias:hover {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
 }
 
 #crearProducto {
@@ -151,30 +175,33 @@ main{
   margin: 0 auto;
 
   width: 1000px;
-  height: 1000px;
 
   left: 550px;
 
-  background: rgba(217, 217, 217, 0.25);
+  top: -90px;
+
+  background-color: rgba(98, 98, 98, 0.9);
+  margin-top: 150px;
+
+  border-radius: 10px;
 }
 
 #crearCategoria {
 
   position: absolute;
 
-
   margin: 0 auto;
 
   width: 1000px;
-  height: 600px;
+
+  height: 500px;
 
   left: 550px;
 
-  background: rgba(217, 217, 217, 0.25);
-}
+  background-color: rgba(98, 98, 98, 0.9);
+  margin-top: 150px;
 
-#contenido {
-  height: auto;
+  border-radius: 10px;
 }
 
 #titulo {
@@ -182,10 +209,11 @@ main{
 
   padding-top: 30px;
   padding-bottom: 30px;
+
+  color: white;
 }
 
-#crearProducto>div>input {
-  margin-left: 290px;
+#crearProducto>div>div>input {
 
   margin-bottom: 40px;
   padding-left: 20px;
@@ -199,13 +227,12 @@ main{
   border-radius: 10px;
   border: 1px solid gainsboro;
 
-  background-color: rgb(255, 255, 255, 0.451);
+  background-color: rgba(204, 200, 200, 0.9);
 }
 
-#crearCategoria>div>input {
-  margin-left: 290px;
-
+#crearCategoria>div>div>input {
   margin-bottom: 40px;
+
   padding-left: 20px;
 
   height: 50px;
@@ -217,39 +244,87 @@ main{
   border-radius: 10px;
   border: 1px solid gainsboro;
 
-  background-color: rgb(255, 255, 255, 0.451);
+  background-color: rgba(204, 200, 200, 0.9);
 }
 
 #file {
-  padding-left: 0px;
   padding-top: 5px;
+
+  margin-left: 150px;
 
   height: 50px;
   width: 400px;
 }
 
-#crearProducto>div>div>#error {
-
-  margin-top: -25px;
-  margin-left: 340px;
-
-  text-align: center;
-
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 15px;
-
-  border-radius: 10px;
-
-  background-color: rgba(221, 62, 62, 0.686);
-  color: rgb(135, 16, 16);
-
-  width: 300px;
+#nombrep {
+  margin-left: 110px;
 }
 
-#crearCategoria>div>div>#error {
+#marcap {
+  margin-left: 130px;
+}
 
+#descripcionp {
+  margin-left: 70px;
+}
+
+#cantidadp {
+  margin-left: 100px;
+}
+
+#preciop {
+  margin-left: 130px;
+}
+
+#idc {
+  margin-left: 90px;
+
+  margin-bottom: 40px;
+  padding-left: 20px;
+
+  height: 50px;
+  width: 400px;
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+
+  background-color: rgba(204, 200, 200, 0.9);
+}
+
+#nombrec {
+  margin-left: 100px;
+}
+
+#descripcionc {
+  margin-left: 65px;
+}
+
+#tipoc {
+  margin-left: 170px;
+
+  margin-bottom: 40px;
+  padding-left: 20px;
+
+  height: 50px;
+  width: 400px;
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+
+  background-color: rgba(204, 200, 200, 0.9);
+}
+
+#crearProducto>div>div>div>#error {
   margin-top: -25px;
-  margin-left: 340px;
+  margin-left: 500px;
+
+  padding-bottom: 30px;
 
   text-align: center;
 
@@ -259,29 +334,107 @@ main{
   border-radius: 10px;
 
   background-color: rgba(221, 62, 62, 0.686);
-  color: rgb(135, 16, 16);
+  color: white;
 
   width: 300px;
+  height: 25px;
+
+  font-size: 20px;
+}
+
+#crearCategoria>div>div>div>#error {
+  margin-top: -25px;
+  margin-left: 510px;
+
+  padding-bottom: 30px;
+
+  text-align: center;
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+
+  border-radius: 10px;
+
+  background-color: rgba(221, 62, 62, 0.686);
+  color: white;
+
+  width: 300px;
+  height: 25px;
+
+  font-size: 20px;
 }
 
 #botones>button {
   width: 230px;
   height: 50px;
-
   margin-bottom: 10px;
   margin-left: 380px;
-
   background: #B3B3B3;
-
   border: none;
   border-radius: 19px;
-
   font-size: larger;
 }
 
 #botones>button:hover {
   cursor: pointer;
-
   background-color: gray;
   color: white;
+}
+
+#Mensajeningunusuario {
+  color: white;
+  padding-bottom: 10px;
+}
+
+::placeholder {
+  color: black;
+}
+
+#puntosentrega {
+  margin-top: 10px;
+}
+
+#productologo {
+  margin-top: 10px;
+}
+
+#categorialogo {
+  margin-top: 10px;
+}
+
+.fixWitd {
+  height: 500px;
+}
+
+form>div>div>label {
+  padding-left: 100px;
+
+  color: white;
+}
+
+.scrollcss {
+  height: 200px;
+}
+
+/* Estilo para borrar a las entregas */
+#borrar {
+  border-radius: 5px;
+
+  border: none;
+
+  background-color: #ea1818;
+  color: white;
+
+  height: 40px;
+  width: 100px;
+
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Estilo para el boton para borrar a las entragas cuando el raton pase por encima */
+#borrar:hover {
+  background-color: #e43232;
+
+  cursor: pointer;
 }

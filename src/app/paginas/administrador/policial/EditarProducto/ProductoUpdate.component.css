@@ -17,7 +17,7 @@
 
     width: auto;
 
-    left: 200px;
+    left: 20px;
 
     top: 200px;
 
@@ -25,6 +25,10 @@
     margin-top: 150px;
 
     border-radius: 10px;
+}
+
+#formelegir>div>div>input {
+    margin-left: 450px;
 }
 
 #formelegir>div>label {
@@ -58,7 +62,7 @@ h1 {
 }
 
 #image {
-    width: 200px;
+    width: 400px;
     height: 200px;
     margin-left: 30px;
 }
@@ -114,7 +118,7 @@ form>div>div>input {
 
 #titulofoto1 {
     padding-top: 10px;
-    margin-left: 50px;
+    margin-left: 150px;
 }
 
 #titulofoto2 {
@@ -466,4 +470,4 @@ hr {
     cursor: pointer;
     background-color: gray;
     color: white;
-  }
+}

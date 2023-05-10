@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../servicio/usuarios.service';
 import { Usuarios } from 'src/app/models/usuarios.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2'
+import { BorrarPuntosEntregaComponent } from './BorrarPuntosEntrega/BorrarPuntosEntregaComponent.component';
 
 
 @Component({
@@ -30,7 +32,11 @@ export class PuntosEntregaComponent implements OnInit {
   element2 = true;
 
 
-  constructor(private usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
+  constructor(private usuarios: UsuariosService,
+    public router: Router,
+    private _http: HttpClient,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
 
@@ -116,11 +122,27 @@ export class PuntosEntregaComponent implements OnInit {
     this.PuntoEntregaForm.reset();
   }
 
+  openBorrarPuntoEntrega(event: any, idPuntoEntrega: any) {
+
+    this.usuarios.setIdPuntoEntrega(idPuntoEntrega);
+
+    let dialogRef = this.dialog.open(BorrarPuntosEntregaComponent, {
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'home') {
+
+        this.router.navigate(['/PuntosEntrega']);
+      }
+    });
+  }
+
 
   MensajeCorrecto() {
     Swal.fire(
-      'Usuario registrado!',
-      'El usuario se ha registrado correctamente!',
+      'Punto de entrega creado!',
+      'El punto de entrega se a creado correctamente!',
       'success'
     );
   }
