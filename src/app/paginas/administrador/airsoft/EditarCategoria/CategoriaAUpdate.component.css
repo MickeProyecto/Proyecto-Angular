@@ -1,0 +1,176 @@
+#header {
+    position: absolute;
+    background-color: rgba(98, 98, 98, 0.9);
+    width: 91%;
+    height: 100px;
+    padding-top: 25px;
+    margin-left: 100px;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#formescribir {
+    position: absolute;
+
+    margin: 0 auto;
+
+    width: 800px;
+
+    left: 600px;
+
+    background-color: rgba(98, 98, 98, 0.9);
+    margin-top: 250px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+::placeholder {
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+label {
+    padding-left: 50px;
+
+    padding-top: 50px;
+
+    color: white;
+}
+
+form>div>div>input {
+
+    margin-bottom: 40px;
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#botoncontra {
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+
+    margin-top: 20px;
+}
+
+#botoncontra:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#contra {
+
+    margin-left: 50px;
+
+    margin-top: 20px;
+
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#botonescontra {
+    margin-left: 60px;
+}
+
+#cambiarcontra {
+    margin-top: 20px;
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: -10px;
+}
+
+#cambiarcontra:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#cancelarcontra {
+    margin-left: 30px;
+
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+    background-color: #e71414;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+#cancelarcontra:hover {
+    background-color: #e43232;
+    cursor: pointer;
+}
+
+hr {
+    color: white;
+    border: 3px solid;
+}
+
+.fixWitd {
+    height: 400px;
+}
+
+#volver {
+    width: 230px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: #B3B3B3;
+    border: none;
+    border-radius: 19px;
+    font-size: larger;
+}
+
+#volver:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+  }

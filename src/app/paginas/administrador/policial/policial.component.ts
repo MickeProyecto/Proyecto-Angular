@@ -178,7 +178,7 @@ export class PolicialAdminComponent implements OnInit {
         this.router.navigate(['../policialAdmin']);
       }
     });
-    this.productosForm.reset();
+    this.categoriasForm.reset();
   }
 
   openBorrarCategoria(event: any, idCategoria: any) {

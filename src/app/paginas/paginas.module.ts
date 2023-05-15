@@ -19,6 +19,7 @@ import { PuntosEntregaComponent } from './administrador/PuntosEntrega/puntosentr
 import { PuntosEntregaUpdateComponent } from './administrador/PuntosEntrega/UpdatePuntosEntrega/PuntosEntregaUpdate.component';
 import { CategoriaUpdateComponent } from './administrador/policial/EditarCategoria/CategoriaUpdate.component';
 import { ProductoUpdateComponent } from './administrador/policial/EditarProducto/ProductoUpdate.component';
+import { CategoriaAUpdateComponent } from './administrador/airsoft/EditarCategoria/CategoriaAUpdate.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,13 @@ import { ProductoUpdateComponent } from './administrador/policial/EditarProducto
     PuntosEntregaComponent,
     PuntosEntregaUpdateComponent,
     CategoriaUpdateComponent,
-    ProductoUpdateComponent
+    ProductoUpdateComponent,
+    CategoriaAUpdateComponent
   ],
   imports: [
     CommonModule,
     PaginasRoutingModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     FormsModule
   ]
 })

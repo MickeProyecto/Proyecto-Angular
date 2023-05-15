@@ -1,0 +1,90 @@
+<div *ngIf="UsuariosArray.length != 0">
+
+    <div id="header">
+        <ng-container *ngFor="let dato of UsuariosArray">
+            <h1>Actualizando la categoria: {{dato.nombre}}</h1>
+        </ng-container>
+    </div>
+
+    <form id="formescribir">
+        <div class="overflow-y-scroll fixWitd" *ngFor="let dato of UsuariosArray">
+            <div [formGroup]="ChangeNombre">
+                <label>
+                    <h4>
+                        Nombre de la categoria: {{dato.nombre}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element1 == false" (click)="showData1()">
+                        <b>Cambiar Nombre</b>
+                    </button>
+                </label>
+                <div *ngIf="element1 == true">
+                    <input id="contra" formControlName="nombre" type="text" placeholder="Ponga el nuevo nombre:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeNombre.valid"
+                            (click)="UpdateNombre(); hideData1(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData1()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeDescripcion">
+                <label>
+                    <h4>
+                        Descripcion de la categoria: {{dato.descripcion}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element2 == false" (click)="showData2()">
+                        <b>Cambiar Descripcion</b>
+                    </button>
+                </label>
+                <div *ngIf="element2 == true">
+                    <input id="contra" formControlName="descripcion" type="text"
+                        placeholder="Ponga la nueva descripcion:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeDescripcion.valid"
+                            (click)="UpdateDescripcion(); hideData2(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData2()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label>
+                    <h4>
+                        Tipo de categoria: {{dato.tipo}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element3 == false" (click)="showData3()">
+                        <b>Cambiar Tipo</b>
+                    </button>
+                </label>
+                <div *ngIf="element3 == true">
+                    <select id="contra" #tipo (change)="confirmarTipo(tipo)">
+                        <option>--Elegir un nuevo tipo--</option>
+                        <option>policial</option>
+                        <option>airsoft</option>
+                    </select>
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="element4 == true"
+                            (click)="UpdateTipo(tipo); hideData3(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData3()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button id="volver" routerLink="/policialAdmin">
+            VOLVER
+        </button>
+    </form>
+</div>

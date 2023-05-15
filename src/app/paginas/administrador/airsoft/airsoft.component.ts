@@ -5,6 +5,11 @@ import { Router } from '@angular/router';
 import { Categorias } from 'src/app/models/categorias.model';
 import { Productos } from 'src/app/models/productos.model';
 import { UsuariosService } from '../../servicio/usuarios.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BorrarcategoriaComponent } from './BorrarCategoria/BorrarcategoriaComponent.component';
+import { BorrarProductoComponent } from './BorrarProducto/BorrarProducto.component';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-airsoft',
@@ -28,37 +33,44 @@ export class AirsoftAdminComponent implements OnInit {
   element1 = true;
   element2 = true;
   element3 = true;
+  element4 = true;
+  element5 = true;
+  element6 = true;
 
-  productosForm = new FormGroup({
-    img: new FormControl('', Validators.required),
+  productosForm!: FormGroup;
+  categoriasForm!: FormGroup;
 
-    nombre: new FormControl('', Validators.required),
-
-    marca: new FormControl('', Validators.required),
-
-    descripcion: new FormControl('', Validators.required),
-
-    cantidad: new FormControl('', Validators.required),
-
-    precio: new FormControl('', Validators.required),
-
-    id_categoria: new FormControl('', Validators.required)
-  });
-
-  categoriasForm = new FormGroup({
-    nombre: new FormControl('', Validators.required),
-
-    descripcion: new FormControl('', Validators.required),
-
-    tipo: new FormControl('', Validators.required),
-  });
-
-  constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
+  constructor(public usuarios: UsuariosService,
+    public router: Router,
+    private _http: HttpClient,
+    public dialog: MatDialog
+  ) { }
 
   info: any;
   token: any;
 
   ngOnInit() {
+
+    this.productosForm = new FormGroup({
+      img: new FormControl('', Validators.required),
+
+      nombre: new FormControl('', Validators.required),
+
+      marca: new FormControl('', Validators.required),
+
+      descripcion: new FormControl('', Validators.required),
+
+      cantidad: new FormControl('', Validators.required),
+
+      precio: new FormControl('', Validators.required),
+    });
+
+    this.categoriasForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+
+      descripcion: new FormControl('', Validators.required),
+    });
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;
@@ -89,6 +101,34 @@ export class AirsoftAdminComponent implements OnInit {
 
   }
 
+  get p() {
+    return this.productosForm.controls;
+  }
+
+  get c() {
+    return this.categoriasForm.controls;
+  }
+
+  confirmarCategoria(id_categoria: any) {
+    console.log(id_categoria.value);
+
+    if (id_categoria.value == '--Elige la categoria--') {
+      this.element5 = true;
+    } else {
+      this.element5 = false;
+    }
+  }
+
+  confirmarTipo(tipo: any) {
+    console.log(tipo);
+
+    if (tipo.value == '--Elegir el tipo--') {
+      this.element6 = true;
+    } else {
+      this.element6 = false;
+    }
+  }
+
   onFileChange(event: any) {
     this.img = event.target.files[0];
     const reader = new FileReader();
@@ -100,25 +140,16 @@ export class AirsoftAdminComponent implements OnInit {
     }
   }
 
-  addProducto(): void {
-    let img = this.img;
-    let nombre = this.productosForm.controls.nombre.value!;
-    let marca = this.productosForm.controls.marca.value!;
-    let descripcion = this.productosForm.controls.descripcion.value!;
-    let cantidad = this.productosForm.controls.cantidad.value!;
-    let precio = this.productosForm.controls.precio.value!;
-    let id_categoria = this.productosForm.controls.id_categoria.value!;
-
-
+  addProducto(id_categoria: any): void {
 
     const producto: Productos = {
-      "img": img,
-      "nombre": nombre,
-      "marca": marca,
-      "descripcion": descripcion,
-      "cantidad": cantidad,
-      "precio": precio,
-      "id_categoria": id_categoria
+      "img": this.img,
+      "nombre": this.productosForm.value.nombre,
+      "marca": this.productosForm.value.marca,
+      "descripcion": this.productosForm.value.descripcion,
+      "cantidad": this.productosForm.value.cantidad,
+      "precio": this.productosForm.value.precio,
+      "id_categoria": id_categoria.value
     };
 
     console.log(producto);
@@ -133,17 +164,12 @@ export class AirsoftAdminComponent implements OnInit {
     this.productosForm.reset();
   }
 
-  addCategoria(): void {
-    let nombre = this.categoriasForm.controls.nombre.value!;
-    let descripcion = this.categoriasForm.controls.descripcion.value!;
-    let tipo = this.categoriasForm.controls.tipo.value!;
-
-
+  addCategoria(tipo: any): void {
 
     const categoria: Categorias = {
-      "nombre": nombre,
-      "descripcion": descripcion,
-      "tipo": tipo,
+      "nombre": this.categoriasForm.value.nombre,
+      "descripcion": this.categoriasForm.value.descripcion,
+      "tipo": tipo.value,
     };
 
     console.log(categoria);
@@ -155,24 +181,51 @@ export class AirsoftAdminComponent implements OnInit {
         this.router.navigate(['../airsoftAdmin']);
       }
     });
-    this.productosForm.reset();
+    this.categoriasForm.reset();
   }
 
-  logout() {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
-      })
-    };
+  openBorrarCategoria(event: any, idCategoria: any) {
+    this.usuarios.setIdCategoria(idCategoria);
 
-    this._http.get(this.usuarios.URL + 'logout', this.httpOptions).subscribe(() => {
-      // Borrar el token de autenticación del usuario actual
-      localStorage.removeItem('currentUser');
-      // Redirigir al usuario a la página de inicio de sesión
-      this.router.navigate(['']);
-    })
+    let dialogRef = this.dialog.open(BorrarcategoriaComponent, {
+      data: {}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'home') {
+        this.router.navigate(['/airsoftAdmin']);
+      }
+    });
+  }
+
+  openBorrarProducto(event: any, idProducto: any) {
+    this.usuarios.setIdProducto(idProducto);
+
+    let dialogRef = this.dialog.open(BorrarProductoComponent, {
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'home') {
+        this.router.navigate(['/airsoftAdmin']);
+      }
+    });
+  }
+
+  MensajeCorrectoP() {
+    Swal.fire(
+      'Producto creado!',
+      'El producto se a creado correctamente!',
+      'success'
+    );
+  }
+
+  MensajeCorrectoC() {
+    Swal.fire(
+      'Categoria creada!',
+      'La categoria se a creado correctamente!',
+      'success'
+    );
   }
 
   showButton1() {
@@ -197,6 +250,14 @@ export class AirsoftAdminComponent implements OnInit {
 
   hideButton3() {
     this.element3 = true;
+  }
+
+  showButton4() {
+    this.element4 = false;
+  }
+
+  hideButton4() {
+    this.element4 = true;
   }
 
 }

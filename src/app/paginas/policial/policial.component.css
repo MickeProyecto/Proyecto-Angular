@@ -1,75 +1,57 @@
-.bd-placeholder-img {
-  font-size: 1.125rem;
-
-  text-anchor: middle;
-
-  -webkit-user-select: none;
-
-  -moz-user-select: none;
-
-  user-select: none;
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 300px;
+  background-color: rgba(98, 98, 98, 0.9);
+  border-bottom-right-radius: 10px;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-.b-example-divider {
-  height: 3rem;
-
-  background-color: rgba(0, 0, 0, .1);
-
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-
-  width: 1.5rem;
-  height: 100vh;
-}
-
-.bi {
-  vertical-align: -.125em;
-
-  fill: currentColor;
-}
-
-.nav-scroller {
+#menu>img {
   position: relative;
-
-  z-index: 2;
-
-  height: 2.75rem;
-
-  overflow-y: hidden;
+  width: 200px;
+  height: 200px;
+  margin-left: 45px;
 }
 
-.nav-scroller .nav {
-  display: flex;
-
-  flex-wrap: nowrap;
-
-  padding-bottom: 1rem;
-
-  margin-top: -1px;
-
-  overflow-x: auto;
-
-  text-align: center;
-
-  white-space: nowrap;
-
-  -webkit-overflow-scrolling: touch;
+#menu>hr {
+  position: absolute;
+  top: 180px;
+  left: 23px;
+  width: 250px;
 }
 
-.dropdown-item {
+#menu>button {
+  border: none;
+  width: 280px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 9px;
+  margin-bottom: 10px;
+  padding-top: -20px;
+  background: #B3B3B3;
+}
+
+#menu>button>p {
+  margin-top: 11px;
+}
+
+#menu>button:hover {
   cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+
+#menu>button>img {
+  width: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+hr {
+  color: rgb(255, 255, 255);
+  border: 3px solid;
 }
 
 #producto {

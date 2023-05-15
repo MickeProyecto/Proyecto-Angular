@@ -1,53 +1,52 @@
-<main>
-  <header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <div class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <img class="bi me-2" width="50" height="50" role="img" src="assets/imagenes/Logo.png" alt="">
-        </div>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          
-        </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-            aria-label="Search">
-        </form>
-        <div class="text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <img src="{{info.photo}}" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small">
-            <li>
-              <a class="dropdown-item" href="../tienda">
-                Home
-              </a>
-            </li>
-            <li><a class="dropdown-item" (click)="showButton1()">Categorias</a></li>
-            <li><a class="dropdown-item" (click)="hideButton1()">Productos</a></li>
-            <li><a class="dropdown-item" href="../perfil/">Perfil</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
-</main>
+<div id="menu">
+  <img alt="Nike Logo" src="assets/imagenes/Logo.png">
+  <hr>
+
+  <button routerLink="../tienda" routerLinkActive="active" titulo="PEDIDOS"><img src="assets/imagenes/logo_tienda.png">
+    <p>MENU PRINCIPAL</p>
+  </button>
+
+  <button *ngIf="element4 == true" (click)="showButton1(); showButton4()"><img id="categorialogo"
+      src="assets/imagenes/categorias.png">
+    <p>CATEGORIAS</p>
+  </button>
+
+
+  <button *ngIf="element4 == false" (click)="hideButton1(); hideButton4()"><img id="productologo"
+      src="assets/imagenes/productos.png">
+    <p>PRODUCTOS</p>
+  </button>
+
+  <!-- Sale una vez el usuario a iniciado sesion -->
+  <button *ngIf="info.rol == 'cliente' || info.rol == 'admin'" routerLink="../perfil" titulo="PERFIL"><img
+      src="assets/imagenes/perfil.png">
+    <p>PERFIL</p>
+  </button>
+
+  <button routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
+      src="assets/imagenes/carrito_foto.png">
+    <p>PEDIDOS</p>
+  </button>
+
+
+  <button *ngIf="info.rol == 'admin'" routerLink="../PuntosEntrega" routerLinkActive="active" titulo="PEDIDOS"><img
+      id="puntosentrega" src="assets/imagenes/ubicacion.png">
+    <p>PUNTOS DE ENTREGA</p>
+  </button>
+
+</div>
 
 <ng-container *ngIf="element1 == true && element2 == true">
   <table id="producto">
     <tr>
-      <td colspan="7">
+      <td colspan="9">
         <button id="botonProductos" (click)="showButton2()">
           Crear un producto
         </button>
       </td>
     </tr>
     <tr>
-      <td colspan="7">
+      <td colspan="9">
         <hr>
       </td>
     </tr>
@@ -59,6 +58,8 @@
       <th>Cantidad:</th>
       <th>Precio:</th>
       <th>Categoria:</th>
+      <th>Editar:</th>
+      <th>Borrar:</th>
     </tr>
 
     <ng-container *ngIf="materialesfiltrados.length != 0">
@@ -70,10 +71,18 @@
         <td>{{dato.cantidad}}</td>
         <td>{{dato.precio}} €</td>
         <td>{{dato.id_categoria}}</td>
+        <td>
+          <a id="Editar" class="btn btn-secondary" [routerLink]="['../ProductoUpdate', dato.id]">
+            <i class="fas fa-marker"></i>
+          </a>
+        </td>
+        <td>
+          <button id="borrar" (click)="openBorrarProducto($event, dato.id)">Eliminar</button>
+        </td>
       </tr>
     </ng-container>
 
-    <div *ngIf="materialesfiltrados.length == 0">
+    <div *ngIf="materialesfiltrados.length == 0" id="Mensajeningunusuario">
       <b>No hay ningun producto</b>
     </div>
 
@@ -83,14 +92,14 @@
 <ng-container *ngIf="element1 == false && element3 == true">
   <table id="categoria">
     <tr>
-      <td colspan="3">
+      <td colspan="5">
         <button id="botonCategorias" (click)="showButton3()">Crear una categoria</button>
       </td>
     </tr>
 
     <tr>
 
-      <td colspan="3">
+      <td colspan="5">
 
         <hr>
 
@@ -102,6 +111,8 @@
       <th>Nombre:</th>
       <th>Descripción:</th>
       <th>Tipo:</th>
+      <th>Editar:</th>
+      <th>Borrar:</th>
     </tr>
 
     <ng-container *ngIf="categoriasfiltradas.length != 0">
@@ -109,10 +120,18 @@
         <td>{{dato.nombre}}</td>
         <td>{{dato.descripcion}}</td>
         <td>{{dato.tipo}}</td>
+        <td>
+          <a id="Editar" class="btn btn-secondary" [routerLink]="['../CategoriaUpdate', dato.id]">
+            <i class="fas fa-marker"></i>
+          </a>
+        </td>
+        <td>
+          <button id="borrar" (click)="openBorrarCategoria($event, dato.id)">Eliminar</button>
+        </td>
       </tr>
     </ng-container>
 
-    <div *ngIf="categoriasfiltradas.length == 0">
+    <div *ngIf="categoriasfiltradas.length == 0" id="Mensajeningunusuario">
       <b>No hay ninguna categoria</b>
     </div>
 
@@ -120,49 +139,137 @@
 </ng-container>
 
 <form id="crearProducto" *ngIf="element2 == false" [formGroup]="productosForm">
+
   <div id="titulo">
     <h1>
       <b>CREAR PRODUCTOS</b>
     </h1>
   </div>
 
-  <div>
-    <input formControlName="img" type="file" id="file" (change)="onFileChange($event)">
-    <p id="error" *ngIf="this.productosForm.controls.img.hasError('required')">Campo vacio</p>
-  </div>
+  <div class="overflow-y-scroll fixWitd">
 
-  <div>
-    <input formControlName="nombre" type="text" placeholder="Ponga el nombre:">
-    <p id="error" *ngIf="this.productosForm.controls.nombre.hasError('required')">Campo vacio</p>
-  </div>
+    <div>
+      <label>
+        <h4>
+          Foto del producto:
+        </h4>
+      </label>
+      <input formControlName="img" type="file" id="file" (change)="onFileChange($event)">
+      <div *ngIf="p['img'].touched && p['img'].invalid">
 
-  <div>
-    <input formControlName="marca" type="text" placeholder="Ponga la marca:">
-    <p id="error" *ngIf="this.productosForm.controls.marca.hasError('required')">Campo vacio</p>
-  </div>
+        <p id="error" *ngIf="p['img'].hasError('required')">
+          Campo requerido
+        </p>
 
-  <div>
-    <input formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
-    <p id="error" *ngIf="this.productosForm.controls.descripcion.hasError('required')">Campo vacio</p>
-  </div>
+      </div>
+    </div>
 
-  <div>
-    <input formControlName="cantidad" type="number" placeholder="Ponga una cantidad:">
-    <p id="error" *ngIf="this.productosForm.controls.cantidad.hasError('required')">Campo vacio</p>
-  </div>
+    <div>
+      <label>
+        <h4>
+          Nombre del producto:
+        </h4>
+      </label>
+      <input id="nombrep" formControlName="nombre" type="text" placeholder="Ponga el nombre:">
+      <div *ngIf="p['nombre'].touched && p['nombre'].invalid">
 
-  <div>
-    <input formControlName="precio" type="text" placeholder="Ponga un precio:">
-    <p id="error" *ngIf="this.productosForm.controls.precio.hasError('required')">Campo vacio</p>
-  </div>
+        <p id="error" *ngIf="p['nombre'].hasError('required')">
+          Campo requerido
+        </p>
+      </div>
+    </div>
 
-  <div>
-    <input formControlName="id_categoria" type="text" placeholder="Ponga la id de la categoria:">
-    <p id="error" *ngIf="this.productosForm.controls.id_categoria.hasError('required')">Campo vacio</p>
+    <div>
+      <label>
+        <h4>
+          Marca del producto:
+        </h4>
+      </label>
+      <input id="marcap" formControlName="marca" type="text" placeholder="Ponga la marca:">
+      <div *ngIf="p['marca'].touched && p['marca'].invalid">
+
+        <p id="error" *ngIf="p['marca'].hasError('required')">
+          Campo requerido
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <h4>
+          Descripción del producto:
+        </h4>
+      </label>
+      <input id="descripcionp" formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
+      <div *ngIf="p['descripcion'].touched && p['descripcion'].invalid">
+
+        <p id="error" *ngIf="p['descripcion'].hasError('required')">
+          Campo requerido
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <h4>
+          Cantidad del producto:
+        </h4>
+      </label>
+      <input id="cantidadp" formControlName="cantidad" type="number" placeholder="Ponga una cantidad:">
+      <div *ngIf="p['cantidad'].touched && p['cantidad'].invalid">
+
+        <p id="error" *ngIf="p['cantidad'].hasError('required')">
+          Campo requerido
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <h4>
+          Precio del producto:
+        </h4>
+      </label>
+      <input id="preciop" formControlName="precio" type="text" placeholder="Ponga un precio:">
+      <div *ngIf="p['precio'].touched && p['precio'].invalid">
+
+        <p id="error" *ngIf="p['precio'].hasError('required')">
+          Campo requerido
+        </p>
+
+      </div>
+    </div>
+
+    <div>
+
+      <label>
+        <h4>
+          Categoria del producto:
+        </h4>
+      </label>
+
+      <select #id_categoria id="idc" (change)="confirmarCategoria(id_categoria)">
+        <option>--Elige la categoria--</option>
+        <option value="{{dato.id}}" *ngFor="let dato of categorias">
+          {{dato.nombre}}
+        </option>
+      </select>
+      <div *ngIf="element5 == true">
+
+        <p id="error">
+          Campo vacio
+        </p>
+
+      </div>
+    </div>
   </div>
+  <hr>
+
+  <div id="aviso">Si no hay ninguna categoria creada no podras crear productos!</div>
 
   <div id="botones">
-    <button id="registrar" [disabled]="!productosForm.valid" (click)="addProducto()">
+    <button id="registrar" [disabled]="!productosForm.valid || element5 == true"
+      (click)="addProducto(id_categoria); MensajeCorrectoP()">
       CREAR
     </button>
     <button id="volver" (click)="hideButton2()">VOLVER</button>
@@ -176,23 +283,62 @@
     </h1>
   </div>
 
-  <div>
-    <input formControlName="nombre" type="text" placeholder="Ponga el nombre:">
-    <p id="error" *ngIf="this.categoriasForm.controls.nombre.hasError('required')">Campo vacio</p>
+  <div class="overflow-y-scroll scrollcss">
+
+    <div>
+      <label>
+        <h4>
+          Nombre de la categoria:
+        </h4>
+      </label>
+      <input id="nombrec" formControlName="nombre" type="text" placeholder="Ponga el nombre:">
+      <div *ngIf="c['nombre'].touched && c['nombre'].invalid">
+
+        <p id="error" *ngIf="c['nombre'].hasError('required')">Campo vacio</p>
+
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <h4>
+          Descripción de la categoria:
+        </h4>
+      </label>
+      <input id="descripcionc" formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
+      <div *ngIf="c['descripcion'].touched && c['descripcion'].invalid">
+
+        <p id="error" *ngIf="c['descripcion'].hasError('required')">Campo vacio</p>
+
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <h4>
+          Tipo de categoria:
+        </h4>
+      </label>
+      <select id="tipoc" #tipo (change)="confirmarTipo(tipo)">
+        <option>--Elegir el tipo--</option>
+        <option>policial</option>
+        <option>airsoft</option>
+      </select>
+      <div *ngIf="element6 == true">
+
+        <p id="error">
+          Campo vacio
+        </p>
+
+      </div>
+    </div>
   </div>
 
-  <div>
-    <input formControlName="descripcion" type="text" placeholder="Ponga una descripción:">
-    <p id="error" *ngIf="this.categoriasForm.controls.descripcion.hasError('required')">Campo vacio</p>
-  </div>
-
-  <div>
-    <input formControlName="tipo" type="text" placeholder="Ponga el tipo:">
-    <p id="error" *ngIf="this.categoriasForm.controls.tipo.hasError('required')">Campo vacio</p>
-  </div>
+  <hr>
 
   <div id="botones">
-    <button id="registrar" [disabled]="!categoriasForm.valid" (click)="addCategoria()">
+    <button id="registrar" [disabled]="!categoriasForm.valid || element6 == true"
+      (click)="addCategoria(tipo); MensajeCorrectoC()">
       CREAR
     </button>
     <button id="volver" (click)="hideButton3()">VOLVER</button>
