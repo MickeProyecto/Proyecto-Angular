@@ -25,6 +25,7 @@ export class UsuariosService {
     newPedidosarray: any;
     idCategoria: any;
     idproducto: any;
+    cantidad: any;
 
     found = false;
 
@@ -58,6 +59,10 @@ export class UsuariosService {
         this.idProducto = id;
     }
 
+    setCantidad(cantidad: any) {
+        this.cantidad = cantidad;
+    }
+
     getParametro() {
         return this.idProducto;
     }
@@ -84,6 +89,10 @@ export class UsuariosService {
 
     getIdProducto() {
         return this.idProducto;
+    }
+
+    getCantidad() {
+        return this.cantidad;
     }
 
     addUsuarios(usuarios: Usuarios) {

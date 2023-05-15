@@ -6,6 +6,11 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button id="Si" mat-button (click)="onHomeClick()" [disabled]="!ProductoForm.valid">Añadir al carrito</button>
+    <p *ngIf="element == true">
+        <b>¡¡Estas pidiendo mas de lo que tenemos en stock!!</b>
+    </p>
+    <button id="Si" mat-button (click)="onHomeClick()" [disabled]="!ProductoForm.valid">
+        Añadir al carrito
+    </button>
     <button id="No" mat-button (click)="onBackClick()">Cancelar</button>
 </div>

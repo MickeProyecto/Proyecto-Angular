@@ -17,6 +17,9 @@
 </div>
 
 <div mat-dialog-actions>
+    <p *ngIf="element == true">
+        <b>¡¡Estas pidiendo mas de lo que tenemos en stock!!</b>
+    </p>
 
     <button id="Si" mat-button (click)="onHomeClick()" [disabled]="!ProductoForm.valid">
         Añadir al carrito

@@ -59,7 +59,7 @@ hr {
 
   text-align: center;
 
-  margin-left: 332px;
+  margin-left: 500px;
   margin-top: 200px;
 
   width: 1199px;
@@ -68,31 +68,19 @@ hr {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  background-color: rgb(255, 255, 255, 0.451);
+  background-color: rgba(98, 98, 98, 0.9);
 
   border-radius: 10px;
+}
+
+#producto>tr {
+  color: white;
+
+  font-size: 20px;
 }
 
 #foto {
   height: 100px;
-}
-
-#categoria {
-  position: absolute;
-
-  text-align: center;
-
-  margin-left: 632px;
-  margin-top: 200px;
-
-  width: 599px;
-  height: auto;
-
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-radius: 10px;
-
-  background-color: rgb(255, 255, 255, 0.451);
 }
 
 #titulo {
@@ -112,5 +100,29 @@ hr {
   background-color: rgb(33, 33, 245);
   color: white;
 
+  height: 30px;
+
   cursor: pointer;
+}
+
+#Mensajeningunusuario {
+  color: white;
+  padding-bottom: 5px;
+}
+
+#header {
+  position: absolute;
+  background-color: rgba(98, 98, 98, 0.9);
+  width: 70%;
+  height: 100px;
+  padding-top: 25px;
+  margin-left: 450px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
 }

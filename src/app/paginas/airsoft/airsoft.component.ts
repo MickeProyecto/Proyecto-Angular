@@ -78,34 +78,11 @@ export class AirsoftClienteComponent {
 
     });
 
-    localStorage.setItem('policial', JSON.stringify(this.materialesfiltrados));
-
   }
 
-  logout() {
+  openDialog(event: any, cantidad: any): void {
 
-    this.httpOptions = {
-
-      headers: new HttpHeaders({
-
-        'Content-Type': 'application/json',
-
-        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
-
-      })
-
-    };
-
-    this._http.get(this.usuarios.URL + 'logout', this.httpOptions).subscribe(() => {
-      // Borrar el token de autenticación del usuario actual
-      localStorage.removeItem('currentUser');
-      // Redirigir al usuario a la página de inicio de sesión
-      this.router.navigate(['']);
-    })
-
-  }
-
-  openDialog(): void {
+    this.usuarios.setCantidad(cantidad);
 
     let dialogRef = this.dialog.open(DialogComponentAirsoft, {
 

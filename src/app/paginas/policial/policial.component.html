@@ -24,6 +24,10 @@
 
 </div>
 
+<div id="header">
+  <h1>Bienvanido a la tienda de Material Policial</h1>
+</div>
+
 <ng-container>
   <table id="producto">
     <tr *ngIf="materialesfiltrados.length != 0">
@@ -32,6 +36,7 @@
       <th>Marca:</th>
       <th>Descripción:</th>
       <th>Precio:</th>
+      <th>Cantidad:</th>
     </tr>
 
     <ng-container *ngIf="materialesfiltrados.length != 0">
@@ -41,8 +46,12 @@
         <td>{{dato.marca}}</td>
         <td>{{dato.descripcion}}</td>
         <td>{{dato.precio}} €</td>
-        <td><button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id, dato.precio)">Añadir al
-            Carrito</button></td>
+        <td>{{dato.precio}}</td>
+        <td>
+          <button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id, dato.precio)">
+            <b>Añadir al Carrito</b>
+          </button>
+        </td>
       </tr>
     </ng-container>
 

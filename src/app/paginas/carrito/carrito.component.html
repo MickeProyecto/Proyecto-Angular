@@ -10,7 +10,7 @@
         <button routerLink="../perfil" routerLinkActive="active" titulo="PERFIL"><img src="assets/imagenes/perfil.png">
                 <p>PERFIL</p>
         </button>
-        
+
         <button routerLink="../VerPedidos" routerLinkActive="active" titulo="PEDIDOS"><img
                         src="assets/imagenes/carrito_foto.png">
                 <p>PEDIDOS</p>
@@ -22,7 +22,7 @@
         <table id="carrito">
 
                 <tr>
-                        <th>Id_producto:</th>
+                        <th>Nombre Producto:</th>
                         <th>Cantidad:</th>
                         <th>Precio:</th>
                 </tr>
@@ -33,10 +33,14 @@
                         <td>{{dato.precio}} €</td>
                 </tr>
 
+                <tr>
+                        <td colspan="3">
+                                <button id="ConfirmarEntrega" (click)="Pedido()">
+                                        <p>Confirmar Compra</p>
+                                </button>
+                        </td>
+                </tr>
         </table>
-        <button id="ConfirmarEntrega" (click)="Pedido()">
-                <p>Confirmar Compra</p>
-        </button>
 
 </ng-container>
 

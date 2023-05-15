@@ -178,7 +178,7 @@ hr {
 
   left: 550px;
 
-  top: -90px;
+  top: 0px;
 
   background-color: rgba(98, 98, 98, 0.9);
   margin-top: 150px;
@@ -199,7 +199,7 @@ hr {
   left: 550px;
 
   background-color: rgba(98, 98, 98, 0.9);
-  margin-top: 150px;
+  margin-top: 250px;
 
   border-radius: 10px;
 }
@@ -403,7 +403,7 @@ hr {
 }
 
 .fixWitd {
-  height: 500px;
+  height: 300px;
 }
 
 form>div>div>label {
@@ -437,4 +437,21 @@ form>div>div>label {
   background-color: #e43232;
 
   cursor: pointer;
+}
+
+#header {
+  position: absolute;
+  background-color: rgba(98, 98, 98, 0.9);
+  width: 70%;
+  height: 100px;
+  padding-top: 25px;
+  margin-left: 450px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
 }

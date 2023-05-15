@@ -17,6 +17,10 @@ export class DialogComponentAirsoft {
 
     policial: any;
 
+    cantidaddisponible: any;
+
+    element = false
+
     constructor(
         public dialogRef: MatDialogRef<DialogComponentAirsoft>,
         @Inject(MAT_DIALOG_DATA)
@@ -27,6 +31,18 @@ export class DialogComponentAirsoft {
     ) {
         console.log('constructor');
 
+    }
+
+    ngOnInit() {
+
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
+            })
+        };
+
+        this.cantidaddisponible = this.usuarios.getCantidad();
     }
 
     ProductoForm = new FormGroup({
@@ -47,36 +63,58 @@ export class DialogComponentAirsoft {
 
         let precioFinal = precio * cantidad;
 
-        const carrito: Carrito = {
+        let stock = Number(this.cantidaddisponible - cantidad);
 
-            "id_material": parametro,
+        let id_material = this.usuarios.getIdProducto();
 
-            "id_user": id,
+        if (cantidad > this.cantidaddisponible) {
+            this.element = true;
+        } else {
 
-            "cantidad": cantidad,
+            this.element = false;
 
-            "precio": precioFinal
+            const carrito: Carrito = {
 
-        };
+                "id_material": parametro,
 
-        console.log(carrito);
+                "id_user": id,
 
-        this.usuarios.addCarrito(carrito).subscribe({
+                "cantidad": cantidad,
 
-            next: (value: Carrito) => {
+                "precio": precioFinal
 
-                console.log(value);
+            };
 
-                this.dialogRef.close('../carrito');
+            const cambiarstock = {
+                "stock": stock
+            };
 
-            }
+            this._http.put(this.usuarios.URL + `updatestock/${id_material}`, cambiarstock, this.httpOptions).subscribe(() => {
+                // Redirigir al usuario a la página anterior
+            })
 
-        });
+            console.log(carrito);
+
+            this.usuarios.addCarrito(carrito).subscribe({
+
+                next: (value: Carrito) => {
+
+                    console.log(value);
+
+                    this.dialogRef.close('../carrito');
+
+                }
+
+            });
 
 
-        this.ProductoForm.reset();
+            this.ProductoForm.reset();
+        }
+
 
     }
+
+
 
     onBackClick(): void {
 
