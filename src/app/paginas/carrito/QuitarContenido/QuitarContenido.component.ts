@@ -7,18 +7,20 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-BorrarProducto',
-  templateUrl: './BorrarProducto.component.html',
-  styleUrls: ['./BorrarProducto.component.css']
+  selector: 'app-quitarcontenido',
+  templateUrl: './QuitarContenido.component.html',
+  styleUrls: ['./QuitarContenido.component.css']
 })
-export class BorrarProductoComponent {
+export class QuitarProductoComponent {
 
   httpOptions: any;
 
   policial: any;
 
+  id: any;
+
   constructor(
-    public dialogRef: MatDialogRef<BorrarProductoComponent>,
+    public dialogRef: MatDialogRef<QuitarProductoComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: any,
     public usuarios: UsuariosService,
@@ -30,12 +32,16 @@ export class BorrarProductoComponent {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
-    document.title = "Borrar Producto - Niké's Arsenal"
+    document.title = "Quitar Producto - Niké's Arsenal"
+
   }
 
   onHomeClick() {
+
+    this.id = this.usuarios.getIdCarrito();
+
 
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -44,11 +50,11 @@ export class BorrarProductoComponent {
       })
     };
 
-    let id = this.usuarios.getIdProducto();
+    let id = this.usuarios.getIdCarrito();
 
     console.log(id);
 
-    this._http.delete(`${this.usuarios.URL}deletem/${id}`, this.httpOptions).subscribe(() => {
+    this._http.delete(`${this.usuarios.URL}deleteca/${id}`, this.httpOptions).subscribe(() => {
 
       this.dialogRef.close('home');
 
@@ -58,8 +64,8 @@ export class BorrarProductoComponent {
 
   MensajeCorrecto() {
     Swal.fire(
-      'Producto eliminado!',
-      'El producto a sido eliminado correctamente!',
+      'Producto Quitado!',
+      'El producto a sido quitado del carrito!',
       'success'
     );
   }

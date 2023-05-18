@@ -43,6 +43,9 @@ export class UsuariosUpdateComponent implements OnInit {
         private _http: HttpClient) { }
 
     ngOnInit(): void {
+
+        document.title = "Actualizar Usuario - Niké's Arsenal"
+
         console.log('0');
 
         this.httpOptions = {

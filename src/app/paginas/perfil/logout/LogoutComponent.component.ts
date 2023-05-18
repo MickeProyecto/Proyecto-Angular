@@ -26,8 +26,14 @@ export class LogoutComponent {
 
   }
 
+  ngOnInit(): void {
+
+    document.title = "Cerrar Sesión - Niké's Arsenal"
+
+  }
+
   onHomeClick() {
-    
+
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

@@ -17,6 +17,9 @@ export class TiendaComponent implements OnInit {
   constructor(public router: Router, public servicio: UsuariosService) { }
 
   ngOnInit(): void {
+
+    document.title = "Página Principal - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;

@@ -26,6 +26,9 @@ export class PerfilComponent implements OnInit {
   UsuarioArray: any[] = [];
 
   ngOnInit(): void {
+
+    document.title = "Perfil - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;

@@ -49,6 +49,8 @@ export class PolicialAdminComponent implements OnInit {
 
   ngOnInit() {
 
+    document.title = "CRUD Material Policial - Niké's Arsenal"
+
     this.productosForm = new FormGroup({
       img: new FormControl('', Validators.required),
 

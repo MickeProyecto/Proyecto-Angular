@@ -35,6 +35,8 @@ export class DialogComponentAirsoft {
 
     ngOnInit() {
 
+        document.title = "Añadir al Carrito - Niké's Arsenal"
+
         this.httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',

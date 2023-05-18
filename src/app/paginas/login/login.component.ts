@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     // Creacion del FromGroup "loginForm" y comprobando si los campos estan vacios o no.
+
+    document.title = "Iniciar Sesión - Niké's Arsenal"
+
     this.loginForm = new FormGroup({
       dni: new FormControl('', Validators.required),
 

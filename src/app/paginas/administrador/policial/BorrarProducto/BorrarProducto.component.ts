@@ -30,6 +30,11 @@ export class BorrarProductoComponent {
 
   }
 
+  ngOnInit() {
+
+    document.title = "Borrar Producto - Niké's Arsenal"
+  }
+
   onHomeClick() {
 
     this.httpOptions = {

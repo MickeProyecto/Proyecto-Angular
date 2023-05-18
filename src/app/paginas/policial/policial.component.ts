@@ -31,6 +31,8 @@ export class PolicialClienteComponent implements OnInit {
 
   ngOnInit() {
 
+    document.title = "Tienda Material Policial  - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
 
     if (currentUser) {

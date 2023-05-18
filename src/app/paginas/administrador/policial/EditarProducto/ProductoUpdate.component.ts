@@ -52,6 +52,9 @@ export class ProductoUpdateComponent implements OnInit {
         private _http: HttpClient) { }
 
     ngOnInit(): void {
+
+        document.title = "Actualizar Producto - Niké's Arsenal"
+
         console.log('0');
 
         this.httpOptions = {

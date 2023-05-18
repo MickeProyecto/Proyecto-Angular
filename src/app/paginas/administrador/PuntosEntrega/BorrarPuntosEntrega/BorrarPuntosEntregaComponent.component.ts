@@ -30,6 +30,10 @@ export class BorrarPuntosEntregaComponent {
 
   }
 
+  ngOnInit(): void {
+    document.title = "Borrar Puntos de Entrega - Niké's Arsenal"
+  }
+
   onHomeClick() {
 
     this.httpOptions = {

@@ -34,6 +34,8 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
 
+    document.title = "CRUD Usuarios - Niké's Arsenal"
+
     this.UsuariosForm = new FormGroup({
       photo: new FormControl('', Validators.required),
 

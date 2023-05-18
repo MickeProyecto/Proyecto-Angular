@@ -31,6 +31,14 @@
   </button>
 </div>
 
+<div id="header" *ngIf="info.rol == 'admin'">
+  <h1>Bienvenido administrador {{info.name}}</h1>
+</div>
+
+<div id="header" *ngIf="info.rol == 'cliente'">
+  <h1>Bienvenido cliente {{info.name}}</h1>
+</div>
+
 <!-- Solo sera funcional si el usuario a iniciado sesion -->
 <button id="policia" (click)="AdminClientePolicial()" routerLinkActive="active">
   <div>
@@ -43,6 +51,6 @@
 <button id="airsoft" (click)="AdminClienteAirsoft()" routerLinkActive="active">
   <div>
     <img alt="Material Airsoft Logo" src="assets/imagenes/LogoAirsoft.png">
-    <p>AIRSOFT</p>
+    <p>MATERIAL DE AIRSOFT</p>
   </div>
 </button>

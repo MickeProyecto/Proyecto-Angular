@@ -40,7 +40,7 @@ export class PuntosEntregaComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    document.title = "CRUD Puntos de Entrega - Niké's Arsenal"
 
     this.PuntoEntregaForm = new FormGroup({
       tienda: new FormControl('', Validators.required),

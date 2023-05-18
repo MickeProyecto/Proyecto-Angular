@@ -30,6 +30,8 @@ export class AirsoftClienteComponent {
 
   ngOnInit() {
 
+    document.title = "Tienda Material Airsoft - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
 
     if (currentUser) {

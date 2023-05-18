@@ -40,6 +40,8 @@ export class CategoriaAUpdateComponent implements OnInit {
         private _http: HttpClient) { }
 
     ngOnInit(): void {
+        document.title = "Actualizar Categoria - Niké's Arsenal"
+
         console.log('0');
 
         this.httpOptions = {

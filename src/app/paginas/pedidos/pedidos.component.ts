@@ -27,6 +27,9 @@ export class PedidosComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    document.title = "Crear Pedido - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;
@@ -110,9 +113,10 @@ export class PedidosComponent implements OnInit {
       });
 
     }
-
-    this._http.delete(this.usuarios.URL + `deleteca/${this.info.id}`, this.httpOptions).subscribe(() => {
-    })
+    
+    let id = this.usuarios.getIdCarrito();
+    this._http.delete(this.usuarios.URL + `deleteca/${id}`, this.httpOptions).subscribe(() => {
+    });
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../servicio/usuarios.service';
+import { QuitarProductoComponent } from './QuitarContenido/QuitarContenido.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-carrito',
@@ -21,9 +23,18 @@ export class CarritoComponent implements OnInit {
 
   element = false;
 
-  constructor(public usuarios: UsuariosService, public router: Router, private _http: HttpClient) { }
+  materialsnameimg: any[] = [];
+
+  constructor(public usuarios: UsuariosService,
+    public router: Router,
+    private _http: HttpClient,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
+
+    document.title = "Carrito - Niké's Arsenal"
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       this.info = JSON.parse(currentUser).value;
@@ -45,28 +56,28 @@ export class CarritoComponent implements OnInit {
 
       if (this.productosfiltrados.length == 0) {
         this.element = true;
+
       } else {
         this.element = false;
+
+        for (let dato of this.productosfiltrados) {
+
+          this.usuarios.setIdCarrito(dato.id)
+
+          let id = dato.id_material
+
+          this._http.get(this.usuarios.URL + `namematerial/${id}`, this.httpOptions).subscribe((data: any) => {
+
+            this.materialsnameimg = data;
+
+            console.log(this.materialsnameimg)
+
+          });
+
+        }
       }
     });
 
-
-  }
-
-  logout() {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('currentUser') || '').access_token}`
-      })
-    };
-
-    this._http.get(this.usuarios.URL + 'logout', this.httpOptions).subscribe(() => {
-      // Borrar el token de autenticación del usuario actual
-      localStorage.removeItem('currentUser');
-      // Redirigir al usuario a la página de inicio de sesión
-      this.router.navigate(['']);
-    })
 
   }
 
@@ -93,6 +104,22 @@ export class CarritoComponent implements OnInit {
 
     this.router.navigate(['../confirmarCompra']);
 
+  }
+
+  openQuitarProducto(event: any, idCarrito: any) {
+
+    this.usuarios.setIdCarrito(idCarrito);
+
+    let dialogRef = this.dialog.open(QuitarProductoComponent, {
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'home') {
+
+        this.router.navigate(['/carrito']);
+      }
+    });
   }
 
 }

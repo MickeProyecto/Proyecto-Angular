@@ -30,6 +30,11 @@ export class BorrarcategoriaComponent {
 
   }
 
+  ngOnInit() {
+
+    document.title = "Borrar categoria - Niké's Arsenal"
+  }
+
   onHomeClick() {
 
     this.httpOptions = {

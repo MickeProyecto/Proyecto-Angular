@@ -50,6 +50,9 @@ export class PuntosEntregaUpdateComponent implements OnInit {
         private _http: HttpClient) { }
 
     ngOnInit(): void {
+
+        document.title = "Actualizar Punto de Entrega - Niké's Arsenal"
+
         console.log('0');
 
         this.httpOptions = {

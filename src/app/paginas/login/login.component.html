@@ -1,8 +1,8 @@
 <div id="izquierda">
 
-    <h1>Bienvenido a Niké's Arsenal</h1>
+    <h1 i18n>Bienvenido a Niké's Arsenal</h1>
 
-    <p>su tienda online de material policial y airsoft de confianza</p>
+    <p i18n>su tienda online de material policial y airsoft de confianza</p>
 
 </div>
 
@@ -10,34 +10,34 @@
     <div>
         <img id="logo" alt="Nike Logo" src="assets/imagenes/LogoLogin.png">
 
-        <label id="titulodni">
+        <label id="titulodni" i18n>
             <h4>Ponga el dni:</h4>
         </label>
 
-        <input id="dni" formControlName="dni" type="text" placeholder="Ponga su dni">
+        <input id="dni" formControlName="dni" type="text" placeholder="Ponga su dni" i18n>
 
         <div *ngIf="f['dni'].touched && f['dni'].invalid">
-            <p id="error" *ngIf="f['dni'].hasError('required')">
+            <p id="error" *ngIf="f['dni'].hasError('required')" i18n>
                 Campo requerido
             </p>
         </div>
 
-        <label id="titulocontraseña">
+        <label id="titulocontraseña" i18n>
             <h4>Ponga la contraseña:</h4>
         </label>
 
-        <input id="password" formControlName="password" type="password" placeholder="Ponga su contraseña">
+        <input id="password" formControlName="password" type="password" placeholder="Ponga su contraseña" i18n>
 
         <div *ngIf="f['password'].touched && f['password'].invalid">
-            <p id="error" *ngIf="f['password'].hasError('required')">
+            <p id="error" *ngIf="f['password'].hasError('required')" i18n>
                 Campo requerido
             </p>
         </div>
 
-        <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()">
+        <button id="login" [disabled]="!loginForm.valid" title="Iniciar Sesion" (click)="login()" i18n>
             INICIAR SESIÓN
         </button>
 
-        <p id="errordos" *ngIf="error == true">El usuario y/o la contraseña no existe</p>
+        <p id="errordos" *ngIf="error == true" i18n>El usuario y/o la contraseña no existe</p>
     </div>
 </form>

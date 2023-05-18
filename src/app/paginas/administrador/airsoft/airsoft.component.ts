@@ -51,6 +51,9 @@ export class AirsoftAdminComponent implements OnInit {
 
   ngOnInit() {
 
+
+    document.title = "CRUD Material Airsoft - Niké's Arsenal"
+
     this.productosForm = new FormGroup({
       img: new FormControl('', Validators.required),
 
