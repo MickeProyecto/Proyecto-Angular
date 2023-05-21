@@ -17,9 +17,10 @@ import { VerPedidosComponent } from './Verperdidos/Verpedidos.component';
 import { UsuariosUpdateComponent } from './administrador/usuarios/UpdateUsuarios/usuariosUpdate.component';
 import { PuntosEntregaComponent } from './administrador/PuntosEntrega/puntosentrega.component';
 import { PuntosEntregaUpdateComponent } from './administrador/PuntosEntrega/UpdatePuntosEntrega/PuntosEntregaUpdate.component';
-import { CategoriaUpdateComponent } from './administrador/policial/EditarCategoria/CategoriaUpdate.component';
-import { ProductoUpdateComponent } from './administrador/policial/EditarProducto/ProductoUpdate.component';
-import { CategoriaAUpdateComponent } from './administrador/airsoft/EditarCategoria/CategoriaAUpdate.component';
+import { ProductoUpdateAirsoftComponent } from './administrador/airsoft/EditarProducto/ProductoUpdate.component';
+import { CategoriaUpdateAirsoftComponent } from './administrador/airsoft/EditarCategoria/CategoriaAUpdate.component';
+import { ProductoUpdatePolicialComponent } from './administrador/policial/EditarProducto/ProductoUpdate.component';
+import { CategoriaUpdatePolicialComponent } from './administrador/policial/EditarCategoria/CategoriaUpdate.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { CategoriaAUpdateComponent } from './administrador/airsoft/EditarCategor
     UsuariosUpdateComponent,
     PuntosEntregaComponent,
     PuntosEntregaUpdateComponent,
-    CategoriaUpdateComponent,
-    ProductoUpdateComponent,
-    CategoriaAUpdateComponent
+    CategoriaUpdateAirsoftComponent,
+    CategoriaUpdatePolicialComponent,
+    ProductoUpdateAirsoftComponent,
+    ProductoUpdatePolicialComponent
   ],
   imports: [
     CommonModule,

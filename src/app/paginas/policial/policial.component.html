@@ -46,7 +46,8 @@
         <td>{{dato.marca}}</td>
         <td>{{dato.descripcion}}</td>
         <td>{{dato.precio}} €</td>
-        <td>{{dato.precio}}</td>
+        <td *ngIf="dato.cantidad > 0">{{dato.cantidad}}</td>
+        <td id="stock" *ngIf="dato.cantidad == 0"><b>FUERA DE STOCK</b></td>
         <td>
           <button id="añadirCarrito" (click)="openDialog(); Carrito($event, dato.id, dato.precio)">
             <b>Añadir al Carrito</b>
