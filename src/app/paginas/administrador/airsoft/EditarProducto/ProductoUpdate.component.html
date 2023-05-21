@@ -1,0 +1,196 @@
+<div *ngIf="MaterialArray.length != 0">
+
+    <div id="header">
+        <ng-container *ngFor="let dato of MaterialArray">
+            <h1>Actualizando el producto: {{dato.nombre}}</h1>
+        </ng-container>
+    </div>
+
+    <form id="formelegir" [formGroup]="ChangeFoto">
+        <div *ngFor="let dato of MaterialArray">
+
+            <label id="titulofoto1" *ngIf="element1 == false">
+                <h4>
+                    Foto del producto:
+                </h4>
+            </label>
+            <label id="titulofoto2" *ngIf="element1 == true">
+                <h4>
+                    Foto del producto:
+                </h4>
+            </label>
+
+            <br>
+            <img id="image" src="{{dato.img}}">
+
+            <button id="botonimagen" *ngIf="element1 == false" (click)="showData1()">
+                <b>Cambiar Foto</b>
+            </button>
+
+            <div *ngIf="element1 == true">
+                <input formControlName="img" type="file" id="file" (change)="onFileChange($event)">
+                <button id="cambiarfoto" [disabled]="!ChangeFoto.valid"
+                    (click)=" UpdateFoto(); hideData1(); ngOnInit()">
+                    <b>Guardar</b>
+                </button>
+                <button id="cancelarfoto" (click)="hideData1()">
+                    <b>Cancelar</b>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form id="formescribir">
+        <div class="overflow-y-scroll fixWitd" *ngFor="let dato of MaterialArray">
+            <div [formGroup]="ChangeNombre">
+                <label>
+                    <h4>
+                        Nombre del producto: {{dato.nombre}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element2 == false" (click)="showData2()">
+                        <b>Cambiar Nombre</b>
+                    </button>
+                </label>
+                <div *ngIf="element2 == true">
+                    <input id="contra" formControlName="nombre" type="text" placeholder="Ponga el nuevo nombre:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeNombre.valid"
+                            (click)="UpdateNombre(); hideData2(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData2()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeMarca">
+                <label>
+                    <h4>
+                        Marca del producto: {{dato.marca}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element3 == false" (click)="showData3()">
+                        <b>Cambiar Marca</b>
+                    </button>
+                </label>
+                <div *ngIf="element3 == true">
+                    <input id="contra" formControlName="marca" type="text" placeholder="Ponga la nueva marca:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeMarca.valid"
+                            (click)="UpdateMarca(); hideData3(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData3()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeDescripcion">
+                <label>
+                    <h4>
+                        Descripción del producto: {{dato.descripcion}}
+                    </h4>
+                    <button id="botoncontra" *ngIf="element5 == false" (click)="showData4()">
+                        <b>Cambiar Descripcion</b>
+                    </button>
+                </label>
+                <div *ngIf="element5 == true">
+                    <input id="contra" formControlName="descripcion" type="text"
+                        placeholder="Ponga la nueva descripcion:">
+                    <div id="botonescontra">
+                        <button id="cambiarcontra" [disabled]="!ChangeDescripcion.valid"
+                            (click)="UpdateDescripcion(); hideData4(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcontra" (click)="hideData4()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangeCantidad">
+                <label>
+                    <h4>
+                        Cantidad de producto: {{dato.cantidad}}
+                    </h4>
+                    <button id="botoncorreo" *ngIf="element6 == false" (click)="showData5()">
+                        <b>Cambiar Cantidad</b>
+                    </button>
+                </label>
+                <div *ngIf="element6 == true">
+                    <input id="email" formControlName="cantidad" type="number" placeholder="Ponga la nueva cantidad:">
+                    <div id="botonescorreo">
+                        <button id="cambiarcorreo" [disabled]="!ChangeCantidad.valid"
+                            (click)="UpdateCantidad(); hideData5(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelarcorreo" (click)="hideData5()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div [formGroup]="ChangePrecio">
+                <label>
+                    <h4>
+                        Precio del producto:
+                        <br>
+                        {{dato.precio}} €
+                    </h4>
+                    <button id="botontele" *ngIf="element7 == false" (click)="showData6()">
+                        <b>Cambiar Precio</b>
+                    </button>
+                </label>
+                <div *ngIf="element7 == true">
+                    <input id="tele" formControlName="precio" type="number" placeholder="Ponga el nuevo precio:">
+                    <div id="botonestelefono">
+                        <button id="cambiartelefono" [disabled]="!ChangePrecio.valid"
+                            (click)="UpdatePrecio(); hideData6(); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelartelefono" (click)="hideData6()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label *ngFor="let nombre of CategoriaEspecifica">
+                    <h4>
+                        Categoria del producto: {{nombre.nombre}}
+                    </h4>
+                    <button id="botontele" *ngIf="element8 == false" (click)="showData7()">
+                        <b>Cambiar Categoria</b>
+                    </button>
+                </label>
+                <div *ngIf="element8 == true">
+                    <select id="contra" #categoria (change)="confirmarIdCategoria(categoria)">
+                        <option>--Elige una nueva categoria--</option>
+                        <ng-container *ngFor="let categoria of CategoriaArray">
+                            <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+                        </ng-container>
+                    </select>
+                    <div id="botonestelefono">
+                        <button id="cambiartelefono" [disabled]="element4 == true"
+                            (click)="UpdateIdCategoria(categoria); ngOnInit()">
+                            <b>Guardar</b>
+                        </button>
+                        <button id="cancelartelefono" (click)="hideData7()">
+                            <b>Cancelar</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button id="volver" routerLink="/airsoftAdmin">
+            VOLVER
+        </button>
+    </form>
+</div>

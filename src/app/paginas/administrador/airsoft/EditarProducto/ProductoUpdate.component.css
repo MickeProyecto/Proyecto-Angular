@@ -1,0 +1,473 @@
+#header {
+    position: absolute;
+    background-color: rgba(98, 98, 98, 0.9);
+    width: 91%;
+    height: 100px;
+    padding-top: 25px;
+    margin-left: 100px;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#formelegir {
+    position: absolute;
+
+    margin: 0 auto;
+
+    width: auto;
+
+    left: 20px;
+
+    top: 200px;
+
+    background-color: rgba(98, 98, 98, 0.9);
+    margin-top: 150px;
+
+    border-radius: 10px;
+}
+
+#formelegir>div>div>input {
+    margin-left: 450px;
+}
+
+#formelegir>div>label {
+    left: 300px;
+}
+
+#formescribir {
+    position: absolute;
+
+    margin: 0 auto;
+
+    width: 800px;
+
+    left: 900px;
+
+    background-color: rgba(98, 98, 98, 0.9);
+    margin-top: 250px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+::placeholder {
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#image {
+    width: 400px;
+    height: 200px;
+    margin-left: 30px;
+}
+
+#botonimagen {
+    margin-left: 50px;
+    background-color: #3072ed;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 30px;
+
+    margin-right: 20px;
+
+    cursor: pointer;
+}
+
+#botonimagen:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+label {
+    padding-left: 100px;
+
+    padding-top: 50px;
+
+    color: white;
+}
+
+form>div>div>input {
+
+    margin-bottom: 40px;
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#titulofoto1 {
+    padding-top: 10px;
+    margin-left: 150px;
+}
+
+#titulofoto2 {
+    padding-top: 10px;
+    margin-left: 180px;
+}
+
+#file {
+    padding-top: 5px;
+
+    margin-left: 250px;
+
+    margin-top: -130px;
+
+    margin-right: 20px;
+
+    height: 50px;
+    width: 400px;
+}
+
+#cambiarfoto {
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    margin-left: -400px;
+
+    margin-top: -50px;
+}
+
+#cambiarfoto:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#cancelarfoto {
+    position: absolute;
+
+    margin-left: -200px;
+
+    margin-top: -50px;
+
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+    background-color: #e71414;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 30px;
+
+    cursor: pointer;
+
+}
+
+#cancelarfoto:hover {
+    background-color: #e43232;
+    cursor: pointer;
+}
+
+#botoncontra {
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+
+    margin-top: 20px;
+}
+
+#botoncontra:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#contra {
+
+    margin-left: 100px;
+
+    margin-top: 20px;
+
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#botonescontra {
+    margin-left: 60px;
+}
+
+#cambiarcontra {
+    margin-top: 20px;
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: 40px;
+}
+
+#cambiarcontra:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#cancelarcontra {
+    margin-left: 30px;
+
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+    background-color: #e71414;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+#cancelarcontra:hover {
+    background-color: #e43232;
+    cursor: pointer;
+}
+
+#botoncorreo {
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+
+    margin-top: 20px;
+}
+
+#botoncorreo:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#email {
+
+    margin-left: 100px;
+
+    margin-top: 20px;
+
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#botonescorreo {
+    margin-left: 60px;
+}
+
+#cambiarcorreo {
+    margin-top: 20px;
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: 40px;
+}
+
+#cambiarcorreo:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#cancelarcorreo {
+    margin-left: 30px;
+
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+    background-color: #e71414;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+#cancelarcorreo:hover {
+    background-color: #e43232;
+    cursor: pointer;
+}
+
+#botontele {
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+
+    margin-top: 20px;
+}
+
+#botontele:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#tele {
+    margin-left: 100px;
+
+    margin-top: 20px;
+
+    padding-left: 20px;
+
+    height: 50px;
+    width: 400px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+    background-color: rgb(255, 255, 255, 0.451);
+
+    color: black;
+}
+
+#botonestelefono {
+    margin-left: 80px;
+}
+
+#cambiartelefono {
+    margin-top: 20px;
+    background-color: #3072ed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: 40px;
+}
+
+#cambiartelefono:hover {
+    background-color: #6593e8;
+    cursor: pointer;
+}
+
+#cancelartelefono {
+    margin-left: 30px;
+
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    background-color: #e71414;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 150px;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+#cancelartelefono:hover {
+    background-color: #e43232;
+    cursor: pointer;
+}
+
+hr {
+    color: white;
+    border: 3px solid;
+}
+
+.fixWitd {
+    height: 500px;
+}
+
+#volver {
+    width: 230px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: #B3B3B3;
+    border: none;
+    border-radius: 19px;
+    font-size: larger;
+}
+
+#volver:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}

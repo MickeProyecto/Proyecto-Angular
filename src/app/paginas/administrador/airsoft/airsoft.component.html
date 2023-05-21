@@ -72,11 +72,14 @@
         <td>{{dato.nombre}}</td>
         <td>{{dato.marca}}</td>
         <td>{{dato.descripcion}}</td>
-        <td>{{dato.cantidad}}</td>
+        <td *ngIf="dato.cantidad > 0">{{dato.cantidad}}</td>
+        <td id="stock" *ngIf="dato.cantidad == 0"><b>FUERA DE STOCK</b></td>
         <td>{{dato.precio}} €</td>
-        <td>{{dato.id_categoria}}</td>
+        <ng-container *ngFor="let nombre of categorianombre">
+          <td>{{nombre.nombre}}</td>
+        </ng-container>
         <td>
-          <a id="Editar" class="btn btn-secondary" [routerLink]="['../ProductoUpdate', dato.id]">
+          <a id="Editar" class="btn btn-secondary" [routerLink]="['../ProductoUpdateAirsoft', dato.id]">
             <i class="fas fa-marker"></i>
           </a>
         </td>
@@ -125,7 +128,7 @@
         <td>{{dato.descripcion}}</td>
         <td>{{dato.tipo}}</td>
         <td>
-          <a id="Editar" class="btn btn-secondary" [routerLink]="['../CategoriaUpdate', dato.id]">
+          <a id="Editar" class="btn btn-secondary" [routerLink]="['../CategoriaUpdateAirsoft', dato.id]">
             <i class="fas fa-marker"></i>
           </a>
         </td>

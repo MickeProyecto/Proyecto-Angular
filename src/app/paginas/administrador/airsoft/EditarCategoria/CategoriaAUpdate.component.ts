@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
     styleUrls: ['./CategoriaAUpdate.component.css']
 })
 
-export class CategoriaAUpdateComponent implements OnInit {
+export class CategoriaUpdateAirsoftComponent implements OnInit {
 
     httpOptions: any;
 

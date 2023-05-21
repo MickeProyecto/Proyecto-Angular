@@ -25,6 +25,7 @@ export class AirsoftAdminComponent implements OnInit {
   materialesfiltrados: any[] = [];
   categorias: any[] = [];
   categoriasfiltradas: any[] = [];
+  categorianombre: any[] = [];
 
   img: any;
 
@@ -100,6 +101,14 @@ export class AirsoftAdminComponent implements OnInit {
         const id = this.categorias.find(id => id.id === materiales.id_categoria);
         return id.tipo === "airsoft";
       })
+
+      for (let dato of this.materialesfiltrados) {
+        this._http.get(this.usuarios.URL + `indexcex/${dato.id_categoria}`, this.httpOptions).subscribe((data: any) => {
+          this.categorianombre = data;
+
+          console.log (this.categorianombre);
+        });
+      }
     });
 
   }
